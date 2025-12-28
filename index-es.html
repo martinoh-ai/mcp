@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masia Can Pares | Casas de Huéspedes de Lujo cerca de Barcelona y Sitges | Masía Catalana Histórica</title>
+    <meta name="description" content="Masia Can Pares es una impresionante masía catalana del siglo XVI en Sant Pere de Ribes con 2 casas de huéspedes independientes, jardín botánico de 20.000m², piscina. Ideal para familias, rodajes, retiros de yoga, eventos corporativos. A 10 min de Sitges, 40 min de Barcelona.">
+    <meta name="keywords" content="masia can pares, casa huespedes sitges, villa lujo barcelona, localizacion rodajes españa, retiro yoga cataluña">
+    <link rel="canonical" href="https://www.masiacanpares.com/index-es.html">
+    
+    <link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/index.html">
+    <link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/index-fr.html">
+    <link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/index-es.html">
+    
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="Masia Can Pares | Casas de Huéspedes cerca de Barcelona y Sitges">
+    <meta property="og:description" content="Masía catalana del siglo XVI con 2 casas de huéspedes, jardín botánico y piscina. 10 min Sitges, 40 min Barcelona.">
+    <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/be15e475-90fb-4d85-a030-da846cd2e0f2/57E589AB-3BD7-41C0-BCF0-0EFBADFDE6F9-12910-00000411C07D1734.JPG">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    
+    <style>
+        :root {
+            --color-bg: #FAF8F5;
+            --color-bg-warm: #F3EDE4;
+            --color-bg-dark: #A65D57;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --color-text-inverse: #FAF8F5;
+            --color-terracotta: #A65D57;
+            --color-border: #DDD5C8;
+            --color-gold: #D4B062;
+            --color-highlight: #FFF9E5;
+            --font-display: 'Cormorant', Georgia, serif;
+            --font-body: 'Outfit', -apple-system, sans-serif;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.7; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; }
+        .heading-xl { font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 300; }
+        .heading-lg { font-size: clamp(2.2rem, 5vw, 4rem); }
+        .heading-md { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+        .overline { font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-light); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+        .section { padding: clamp(80px, 12vw, 140px) 0; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: all var(--transition-smooth); }
+        .nav.scrolled { background: rgba(44, 40, 37, 0.95); backdrop-filter: blur(20px); padding: 15px 0; }
+        .nav.hidden { opacity: 0; transform: translateY(-100%); pointer-events: none; }
+        .nav__inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav__logo { height: 55px; transition: height var(--transition-smooth); }
+        .nav.scrolled .nav__logo { height: 45px; }
+        .nav__right { display: flex; align-items: center; gap: 30px; }
+        .nav__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-inverse); }
+        .nav__lang { position: relative; display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-inverse); cursor: pointer; }
+        .nav__lang svg { width: 10px; height: 10px; }
+        .nav__lang-dropdown { position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--color-border); min-width: 120px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s; box-shadow: 0 10px 40px rgba(0,0,0,0.15); }
+        .nav__lang:hover .nav__lang-dropdown { opacity: 1; visibility: visible; transform: translateY(5px); }
+        .nav__lang-dropdown a { display: block; padding: 12px 18px; font-size: 0.72rem; color: var(--color-text); }
+        .nav__lang-dropdown a:hover { background: var(--color-bg-warm); }
+        .nav__lang-dropdown a.active { color: var(--color-terracotta); }
+        .nav__cta { padding: 14px 28px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .nav__cta--outline { background: transparent; border: 1px solid rgba(255,255,255,0.6); color: var(--color-text-inverse); }
+        .nav__cta--dark { background: var(--color-bg-dark); border: 1px solid var(--color-bg-dark); color: var(--color-text-inverse); }
+        .nav__menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 10px; }
+        .nav__menu-btn span { display: block; width: 24px; height: 2px; background: var(--color-text-inverse); margin: 5px 0; }
+
+        .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; padding-bottom: 100px; overflow: hidden; }
+        .hero__slideshow { position: absolute; inset: 0; z-index: -1; }
+        .hero__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s; }
+        .hero__slide.active { opacity: 1; }
+        .hero__slide img { width: 100%; height: 100%; object-fit: cover; animation: kenBurns 20s ease-in-out infinite; }
+        @keyframes kenBurns { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+        .hero__slideshow::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,40,37,0.3) 0%, rgba(44,40,37,0.1) 40%, rgba(44,40,37,0.5) 100%); }
+        .hero__indicators { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+        .hero__indicator { width: 50px; height: 3px; background: rgba(255,255,255,0.3); cursor: pointer; }
+        .hero__indicator.active { background: white; }
+        .hero__content { color: var(--color-text-inverse); position: relative; z-index: 1; }
+        .hero__tag { display: inline-block; padding: 10px 22px; border: 1px solid rgba(255,255,255,0.3); margin-bottom: 30px; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; backdrop-filter: blur(10px); }
+        .hero__title { margin-bottom: 20px; }
+        .hero__subtitle { font-size: clamp(1rem, 1.8vw, 1.3rem); opacity: 0.9; max-width: 600px; font-weight: 300; }
+
+        .section-nav { position: sticky; top: 0; z-index: 1001; background: var(--color-gold); }
+        .section-nav__inner { display: flex; justify-content: center; }
+        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
+        .section-nav__links::-webkit-scrollbar { display: none; }
+        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; }
+        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
+
+        .story { padding: 100px 0; background: var(--color-bg); }
+        .story__header { margin-bottom: 60px; }
+        .story__header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
+        .story__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+        .story__col { display: flex; flex-direction: column; }
+        .story__text { font-size: 1.05rem; line-height: 1.9; color: var(--color-text-light); margin-bottom: 30px; }
+        .story__image { overflow: hidden; flex-grow: 1; min-height: 350px; }
+        .story__image img { width: 100%; height: 100%; object-fit: cover; }
+        .story__link { display: inline-flex; align-items: center; gap: 10px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); margin-top: 30px; }
+
+        .designed-for { padding: 100px 0; background: var(--color-bg); border-top: 1px solid var(--color-border); }
+        .designed-for__header { margin-bottom: 50px; padding-bottom: 30px; border-bottom: 1px solid var(--color-border); }
+        .designed-for__header h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300; letter-spacing: 0.05em; }
+        .designed-for__grid { display: grid; grid-template-columns: 320px 1fr 380px; gap: 50px; min-height: 480px; }
+        .designed-for__categories { display: flex; flex-direction: column; }
+        .designed-for__category { display: flex; align-items: center; gap: 20px; padding: 22px 25px; background: transparent; border: 2px solid transparent; cursor: pointer; text-align: left; font-family: var(--font-body); transition: all 0.3s; }
+        .designed-for__category:hover { background: var(--color-bg-warm); }
+        .designed-for__category.active { background: var(--color-highlight); border-color: var(--color-bg-dark); }
+        .designed-for__category-icon { width: 28px; height: 28px; color: var(--color-text-light); }
+        .designed-for__category.active .designed-for__category-icon { color: var(--color-bg-dark); }
+        .designed-for__category-text { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); }
+        .designed-for__category.active .designed-for__category-text { color: var(--color-bg-dark); font-weight: 600; }
+        .designed-for__category-arrow { margin-left: auto; opacity: 0; }
+        .designed-for__category.active .designed-for__category-arrow { opacity: 1; }
+        .designed-for__image { position: relative; overflow: hidden; }
+        .designed-for__image img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s; }
+        .designed-for__info { padding: 30px; border: 1px solid var(--color-border); background: var(--color-bg); }
+        .designed-for__info-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border); }
+        .designed-for__info-icon { width: 24px; height: 24px; }
+        .designed-for__info-title { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: linear-gradient(to right, var(--color-highlight) 0%, var(--color-highlight) 100%); background-size: 100% 40%; background-position: 0 90%; background-repeat: no-repeat; }
+        .designed-for__info-text { font-size: 0.95rem; line-height: 1.7; color: var(--color-text-light); margin-bottom: 25px; }
+        .designed-for__tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .designed-for__tag { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--color-bg-warm); font-size: 0.78rem; }
+        .designed-for__tag svg { width: 16px; height: 16px; color: var(--color-text-light); }
+
+        .founders { padding: 100px 0; background: var(--color-bg-warm); }
+        .founders__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .founders__image img { width: 100%; height: 550px; object-fit: cover; }
+        .founders__content h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; margin-bottom: 30px; }
+        .founders__text { font-size: 1.05rem; line-height: 1.9; color: var(--color-text-light); margin-bottom: 20px; }
+        .founders__names { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; margin-top: 30px; }
+
+        .houses { padding: 100px 0; background: var(--color-bg); }
+        .houses__header { text-align: center; margin-bottom: 70px; }
+        .houses__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .house-card { background: var(--color-bg-warm); overflow: hidden; transition: transform 0.5s; }
+        .house-card:hover { transform: translateY(-10px); }
+        .house-card__image { height: 380px; overflow: hidden; }
+        .house-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .house-card:hover .house-card__image img { transform: scale(1.05); }
+        .house-card__content { padding: 45px; }
+        .house-card__name { font-family: var(--font-display); font-size: 2rem; margin-bottom: 10px; }
+        .house-card__specs { font-size: 0.88rem; color: var(--color-text-light); margin-bottom: 20px; }
+        .house-card__desc { font-size: 1rem; line-height: 1.7; margin-bottom: 25px; }
+        .house-card__link { display: inline-flex; align-items: center; gap: 10px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-terracotta); }
+
+        .gallery { padding: 100px 0; background: var(--color-bg-warm); }
+        .gallery__header { text-align: center; margin-bottom: 50px; }
+        .gallery__grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 300px; gap: 15px; }
+        .gallery__item { overflow: hidden; cursor: pointer; }
+        .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery__item:hover img { transform: scale(1.1); }
+        .gallery__item--wide { grid-column: span 8; }
+        .gallery__item--narrow { grid-column: span 4; }
+        .gallery__item--tall { grid-row: span 2; }
+        .gallery__more { text-align: center; margin-top: 50px; }
+        .gallery__more-link { display: inline-flex; align-items: center; gap: 12px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-terracotta); padding: 18px 40px; border: 2px solid var(--color-terracotta); }
+        .gallery__more-link:hover { background: var(--color-terracotta); color: white; }
+
+        .booking { padding: 100px 0; background: var(--color-bg-dark); color: var(--color-text-inverse); }
+        .booking__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .booking__content h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 20px; }
+        .booking__content p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
+        .booking__features { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 40px; }
+        .booking__feature { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; opacity: 0.9; }
+        .booking__feature svg { width: 20px; height: 20px; color: var(--color-gold); }
+        .booking__btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 40px; background: var(--color-gold); color: var(--color-bg-dark); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+        .booking__calendar { background: var(--color-bg); padding: 40px; color: var(--color-text); }
+        .booking__calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .booking__calendar-title { font-family: var(--font-display); font-size: 1.5rem; }
+        .booking__calendar-nav { display: flex; gap: 10px; }
+        .booking__calendar-nav button { width: 40px; height: 40px; border: 1px solid var(--color-border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .booking__calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
+        .booking__calendar-day { padding: 12px 8px; font-size: 0.85rem; }
+        .booking__calendar-day--header { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); padding-bottom: 15px; }
+        .booking__calendar-day--available { background: var(--color-bg-warm); cursor: pointer; }
+        .booking__calendar-day--available:hover { background: var(--color-gold); color: white; }
+        .booking__calendar-day--booked { color: var(--color-border); text-decoration: line-through; }
+
+        .location { padding: 100px 0; background: var(--color-bg); }
+        .location__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .location__content h2 { margin-bottom: 30px; }
+        .location__text { font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px; color: var(--color-text-light); }
+        .location__highlights { display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; }
+        .location__highlight { display: flex; align-items: center; gap: 15px; font-size: 1rem; }
+        .location__highlight svg { color: var(--color-terracotta); }
+        .location__map { height: 550px; }
+        .location__map iframe { width: 100%; height: 100%; border: 0; }
+        .btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 16px 35px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: transparent; border: 2px solid var(--color-text); color: var(--color-text); }
+        .btn-outline:hover { background: var(--color-text); color: white; }
+
+        .newsletter { padding: 80px 0; background: var(--color-bg-warm); text-align: center; }
+        .newsletter h2 { margin-bottom: 15px; }
+        .newsletter p { color: var(--color-text-light); margin-bottom: 30px; }
+        .newsletter__form { display: flex; gap: 15px; max-width: 500px; margin: 0 auto; }
+        .newsletter__input { flex: 1; padding: 18px 25px; border: 1px solid var(--color-border); background: var(--color-bg); font-family: var(--font-body); font-size: 0.95rem; }
+        .newsletter__btn { padding: 18px 35px; background: var(--color-terracotta); color: white; border: none; font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; }
+
+        .footer { background: #A65D57; color: var(--color-text-inverse); padding: 80px 0 40px; }
+        .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer__logo { height: 50px; margin-bottom: 25px; filter: brightness(0) invert(1); }
+        .footer__desc { font-size: 0.95rem; opacity: 0.7; line-height: 1.7; max-width: 320px; }
+        .footer__title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 25px; opacity: 0.5; }
+        .footer__links { display: flex; flex-direction: column; gap: 14px; }
+        .footer__link { font-size: 0.95rem; opacity: 0.7; }
+        .footer__social { display: flex; gap: 15px; margin-top: 25px; }
+        .footer__social a { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; }
+        .footer__bottom { padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .footer__bottom p { font-size: 0.85rem; opacity: 0.5; }
+        .footer__lang-switch { display: flex; gap: 20px; }
+        .footer__lang-switch a { font-size: 0.8rem; opacity: 0.5; }
+        .footer__lang-switch a.active { opacity: 1; }
+
+        @media (max-width: 1024px) {
+            .nav__link, .nav__cta--dark { display: none; }
+            .nav__menu-btn { display: block; }
+            .story__grid, .designed-for__grid, .founders__grid, .houses__grid, .location__grid, .booking__grid { grid-template-columns: 1fr; }
+            .designed-for__categories { flex-direction: row; flex-wrap: wrap; }
+            .designed-for__image { height: 400px; }
+            .gallery__item--wide, .gallery__item--narrow { grid-column: span 6; }
+            .footer__grid { grid-template-columns: 1fr 1fr; }
+            .section-nav__link { padding: 16px 20px; font-size: 0.65rem; }
+        }
+        @media (max-width: 768px) {
+            .nav__lang { display: none; }
+            .gallery__item--wide, .gallery__item--narrow { grid-column: span 12; }
+            .gallery__item--tall { grid-row: span 1; }
+            .footer__grid { grid-template-columns: 1fr; text-align: center; }
+            .footer__social { justify-content: center; }
+            .footer__bottom { flex-direction: column; gap: 20px; }
+            .newsletter__form { flex-direction: column; }
+            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="container nav__inner">
+            <a href="/"><img src="cdn/logos/canpares-logo.webp" alt="Masia Can Pares" class="nav__logo"></a>
+            <div class="nav__right">
+                <a href="https://www.masiacanpares.com/contact" class="nav__link">Contáctanos</a>
+                <div class="nav__lang">ES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    <div class="nav__lang-dropdown">
+                        <a href="index.html">English</a>
+                        <a href="index-fr.html">Français</a>
+                        <a href="index-es.html" class="active">Español</a>
+                    </div>
+                </div>
+                <a href="https://www.masiacanpares.com/book" class="nav__cta nav__cta--outline">Reservar</a>
+                <a href="#" class="nav__cta nav__cta--dark">Iniciar Sesión</a>
+                <button class="nav__menu-btn" aria-label="Menú"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero__slideshow">
+            <div class="hero__slide active"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/be15e475-90fb-4d85-a030-da846cd2e0f2/57E589AB-3BD7-41C0-BCF0-0EFBADFDE6F9-12910-00000411C07D1734.JPG" alt="Masia Can Pares"></div>
+            <div class="hero__slide"><img src="cdn/images/hero/hero-1.webp" alt="Jardines"></div>
+            <div class="hero__slide"><img src="cdn/images/hero/hero-4.webp" alt="Jardín Botánico"></div>
+            <div class="hero__slide"><img src="cdn/images/houses/casa-blanca.webp" alt="Casa Principal"></div>
+        </div>
+        <div class="hero__indicators">
+            <div class="hero__indicator active" data-slide="0"></div>
+            <div class="hero__indicator" data-slide="1"></div>
+            <div class="hero__indicator" data-slide="2"></div>
+            <div class="hero__indicator" data-slide="3"></div>
+        </div>
+        <div class="container hero__content">
+            <span class="hero__tag">Sant Pere de Ribes · Cataluña · España</span>
+            <h1 class="heading-xl hero__title">Masia Can Pares</h1>
+            <p class="hero__subtitle">Una masía catalana del siglo XVI donde turismo, arte, bienestar y ecología se entrelazan. Dos casas de huéspedes independientes en un jardín botánico de 20.000m².</p>
+        </div>
+    </section>
+
+    <nav class="section-nav" id="sectionNav">
+        <div class="section-nav__inner">
+            <ul class="section-nav__links">
+                <li><a href="history-es.html" class="section-nav__link">Historia</a></li>
+                <li><a href="gallery-es.html" class="section-nav__link">Visita</a></li>
+                <li><a href="bedrooms-es.html" class="section-nav__link">Habitaciones</a></li>
+                <li><a href="designed-for-es.html" class="section-nav__link">Diseñado Para</a></li>
+                <li><a href="equipment-es.html" class="section-nav__link">Equipamiento</a></li>
+                <li><a href="experiences-es.html" class="section-nav__link">Experiencias</a></li>
+                <li><a href="location-es.html" class="section-nav__link">Ubicación</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Historia -->
+    <section class="story">
+        <div class="container">
+            <div class="story__header">
+                <h2>Una Historia para Vivir</h2>
+            </div>
+            <div class="story__grid">
+                <div class="story__col">
+                    <p class="story__text">Escondida de miradas indiscretas en el hermoso pueblo de Sant Pere de Ribes, Cataluña, Masia Can Pares es un refugio accesible por unas horas, un fin de semana o incluso varias semanas.</p>
+                    <p class="story__text">Un rincón tranquilo donde puedes sentirte libre, crear, divertirte o simplemente pasear en perfecta armonía con la naturaleza. Este pequeño paraíso te da la bienvenida, ya sea en familia, con amigos o solo.</p>
+                    <div class="story__image">
+                        <img src="cdn/images/hero/hero-4.webp" alt="Jardín botánico">
+                    </div>
+                </div>
+                <div class="story__col">
+                    <div class="story__image" style="height: 100%;">
+                        <img src="cdn/images/hero/hero-1.webp" alt="Arquitectura histórica">
+                    </div>
+                </div>
+                <div class="story__col">
+                    <p class="story__text">Masia Can Pares es una masía catalana típica en el corazón de un jardín botánico que se extiende sobre más de 20.000m² y alberga 600 árboles. Dos encantadoras casas de huéspedes, cada una con su propio estilo, están disponibles durante todo el año.</p>
+                    <p class="story__text">Magníficas playas te esperan a solo diez minutos, mientras que Barcelona está a solo 40 minutos de tu puerta.</p>
+                    <div class="story__image">
+                        <img src="cdn/images/hero/hero-2.webp" alt="Interior">
+                    </div>
+                    <a href="history-es.html" class="story__link">Leer más sobre nuestra historia <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diseñado Para -->
+    <section class="designed-for" id="designed-for">
+        <div class="container">
+            <div class="designed-for__header">
+                <h2>DISEÑADO PARA</h2>
+            </div>
+            <div class="designed-for__grid">
+                <div class="designed-for__categories">
+                    <button class="designed-for__category active" data-category="family">
+                        <svg class="designed-for__category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span class="designed-for__category-text">En Familia</span>
+                        <svg class="designed-for__category-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <button class="designed-for__category" data-category="wellness">
+                        <svg class="designed-for__category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        <span class="designed-for__category-text">Relax y Descanso</span>
+                        <svg class="designed-for__category-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <button class="designed-for__category" data-category="corporate">
+                        <svg class="designed-for__category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <span class="designed-for__category-text">Eventos Corporativos</span>
+                        <svg class="designed-for__category-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <button class="designed-for__category" data-category="artists">
+                        <svg class="designed-for__category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        <span class="designed-for__category-text">Creación Artística</span>
+                        <svg class="designed-for__category-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <button class="designed-for__category" data-category="film">
+                        <svg class="designed-for__category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span class="designed-for__category-text">Rodajes y Fotos</span>
+                        <svg class="designed-for__category-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+                <div class="designed-for__image">
+                    <img id="categoryImage" src="cdn/images/houses/casa-mediterranea.webp" alt="En familia en Masia Can Pares">
+                </div>
+                <div class="designed-for__info" id="categoryInfo">
+                    <div class="designed-for__info-header">
+                        <svg class="designed-for__info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span class="designed-for__info-title">EL TOQUE CAN PARES</span>
+                    </div>
+                    <p class="designed-for__info-text">Crea recuerdos inolvidables en un entorno que deleita a todas las edades. Los niños exploran los jardines mientras los adultos se relajan junto a la piscina.</p>
+                    <div class="designed-for__tags" id="categoryTags">
+                        <span class="designed-for__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Piscina</span>
+                        <span class="designed-for__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espacios para niños</span>
+                        <span class="designed-for__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>BBQ al aire libre</span>
+                        <span class="designed-for__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>10 min de la playa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundadores -->
+    <section class="founders">
+        <div class="container">
+            <div class="founders__grid">
+                <div class="founders__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/fdc778b3-4947-4d9f-b7af-59414b7e544e/Can+Pares-231.jpg" alt="Caroline y Martin Ohannessian">
+                </div>
+                <div class="founders__content">
+                    <p class="overline">Conoce a Tus Anfitriones</p>
+                    <h2>Tres Electrones Libres Llenos de Alegría</h2>
+                    <p class="founders__text">Caroline, Martin y su hija Romy son las almas de Masia Can Pares. Martin, músico y fundador de Le Petit Ballon, es un artista que encuentra su felicidad en acoger y conocer nuevas personas.</p>
+                    <p class="founders__text">Caroline, estilista de interiores y fundadora de Bohnie, posee una sensibilidad única que la impulsa hacia el bienestar, la cocina y la creación — cultivando su propio arte de vivir.</p>
+                    <p class="founders__text">Después de vivir en Barcelona durante siete años, sintieron la necesidad de más naturaleza. Tras dos años de búsqueda, descubrieron Sant Pere de Ribes y se enamoraron de esta masía llena de poesía que respira el Mediterráneo.</p>
+                    <p class="founders__names">— Caroline, Martin & Romy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casas -->
+    <section class="houses section" id="houses">
+        <div class="container">
+            <div class="houses__header">
+                <p class="overline">Alojamientos</p>
+                <h2 class="heading-lg">Dos Casas de Huéspedes Independientes</h2>
+            </div>
+            <div class="houses__grid">
+                <article class="house-card">
+                    <div class="house-card__image"><img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Blanca"></div>
+                    <div class="house-card__content">
+                        <h3 class="house-card__name">Casa Blanca</h3>
+                        <p class="house-card__specs">3 Habitaciones · 3 Baños · Hasta 6 personas</p>
+                        <p class="house-card__desc">Una casa de huéspedes moderna y espaciosa con tres habitaciones con baño privado, cocina equipada y terraza privada con vistas al jardín botánico.</p>
+                        <a href="bedrooms-es.html" class="house-card__link">Ver detalles <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </article>
+                <article class="house-card">
+                    <div class="house-card__image"><img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Mediterranea"></div>
+                    <div class="house-card__content">
+                        <h3 class="house-card__name">Casa Mediterranea</h3>
+                        <p class="house-card__specs">2 Habitaciones · 1 Baño · Hasta 4 personas</p>
+                        <p class="house-card__desc">Una acogedora casa con encanto mediterráneo rústico, perfecta para parejas o familias pequeñas que buscan una experiencia catalana auténtica.</p>
+                        <a href="bedrooms-es.html" class="house-card__link">Ver detalles <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="gallery__header">
+                <p class="overline">Visita Virtual</p>
+                <h2 class="heading-lg">Explora la Finca</h2>
+            </div>
+            <div class="gallery__grid">
+                <div class="gallery__item gallery__item--wide"><img src="cdn/images/hero/hero-1.webp" alt="Arquitectura histórica"></div>
+                <div class="gallery__item gallery__item--narrow gallery__item--tall"><img src="cdn/images/hero/hero-4.webp" alt="Jardín botánico"></div>
+                <div class="gallery__item gallery__item--narrow"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c5da09dd-3eaa-40f2-8746-896798013095/30B94711-0F5C-4EF0-868C-6DD2C5E2AAEB-863-00000012F6316BA3.JPG" alt="Piscina"></div>
+                <div class="gallery__item gallery__item--narrow"><img src="cdn/images/hero/hero-2.webp" alt="Interior"></div>
+                <div class="gallery__item gallery__item--wide"><img src="cdn/images/houses/casa-blanca.webp" alt="Casa principal"></div>
+            </div>
+            <div class="gallery__more">
+                <a href="gallery-es.html" class="gallery__more-link">Ver todas las fotos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservas -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="booking__grid">
+                <div class="booking__content">
+                    <p class="overline" style="color: var(--color-gold);">Reserva Tu Estancia</p>
+                    <h2>Consulta Disponibilidad</h2>
+                    <p>Reserva tus fechas en Masia Can Pares. Ya sea que planees una escapada de fin de semana o un retiro prolongado, estamos listos para darte la bienvenida.</p>
+                    <div class="booking__features">
+                        <div class="booking__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Confirmación instantánea</div>
+                        <div class="booking__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cancelación gratuita</div>
+                        <div class="booking__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Mejor precio garantizado</div>
+                    </div>
+                    <a href="https://www.masiacanpares.com/book" class="booking__btn">Reservar ahora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="booking__calendar">
+                    <div class="booking__calendar-header">
+                        <span class="booking__calendar-title">Enero 2025</span>
+                        <div class="booking__calendar-nav">
+                            <button><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+                            <button><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+                        </div>
+                    </div>
+                    <div class="booking__calendar-grid">
+                        <div class="booking__calendar-day booking__calendar-day--header">Lun</div>
+                        <div class="booking__calendar-day booking__calendar-day--header">Mar</div>
+                        <div class="booking__calendar-day booking__calendar-day--header">Mié</div>
+                        <div class="booking__calendar-day booking__calendar-day--header">Jue</div>
+                        <div class="booking__calendar-day booking__calendar-day--header">Vie</div>
+                        <div class="booking__calendar-day booking__calendar-day--header">Sáb</div>
+                        <div class="booking__calendar-day booking__calendar-day--header">Dom</div>
+                        <div class="booking__calendar-day"></div>
+                        <div class="booking__calendar-day"></div>
+                        <div class="booking__calendar-day booking__calendar-day--booked">1</div>
+                        <div class="booking__calendar-day booking__calendar-day--booked">2</div>
+                        <div class="booking__calendar-day booking__calendar-day--booked">3</div>
+                        <div class="booking__calendar-day booking__calendar-day--booked">4</div>
+                        <div class="booking__calendar-day booking__calendar-day--booked">5</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">6</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">7</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">8</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">9</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">10</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">11</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">12</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">13</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">14</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">15</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">16</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">17</div>
+                        <div class="booking__calendar-day booking__calendar-day--booked">18</div>
+                        <div class="booking__calendar-day booking__calendar-day--booked">19</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">20</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">21</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">22</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">23</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">24</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">25</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">26</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">27</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">28</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">29</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">30</div>
+                        <div class="booking__calendar-day booking__calendar-day--available">31</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="location section" id="location">
+        <div class="container">
+            <div class="location__grid">
+                <div class="location__content">
+                    <p class="overline">Ubicación</p>
+                    <h2 class="heading-lg">Sant Pere de Ribes</h2>
+                    <p class="location__text">Situada en el corazón de la región vinícola de Cataluña, Masia Can Pares ofrece el equilibrio perfecto entre tranquilidad rural y fácil acceso a Barcelona y la costa mediterránea.</p>
+                    <div class="location__highlights">
+                        <div class="location__highlight"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg><span>10 min de las playas de Sitges</span></div>
+                        <div class="location__highlight"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg><span>40 min del centro de Barcelona</span></div>
+                        <div class="location__highlight"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg><span>45 min del aeropuerto de Barcelona</span></div>
+                    </div>
+                    <a href="location-es.html" class="btn-outline">Ver detalles de ubicación</a>
+                </div>
+                <div class="location__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12000!2d1.7789!3d41.2634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE1JzQ4LjIiTiAxwrA0Nic0NC4wIkU!5e0!3m2!1ses!2ses!4v1" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="heading-md">Suscríbete a Nuestro Boletín</h2>
+            <p>Sin spam, solo amor. Recibe actualizaciones sobre disponibilidad y ofertas especiales.</p>
+            <form class="newsletter__form">
+                <input type="email" placeholder="Tu correo electrónico" class="newsletter__input" required>
+                <button type="submit" class="newsletter__btn">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Hero Slideshow
+        const slides = document.querySelectorAll('.hero__slide');
+        const indicators = document.querySelectorAll('.hero__indicator');
+        let currentSlide = 0;
+        function showSlide(i) { slides.forEach((s, idx) => s.classList.toggle('active', idx === i)); indicators.forEach((ind, idx) => ind.classList.toggle('active', idx === i)); currentSlide = i; }
+        function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
+        let slideInterval = setInterval(nextSlide, 5000);
+        indicators.forEach((ind, i) => ind.addEventListener('click', () => { clearInterval(slideInterval); showSlide(i); slideInterval = setInterval(nextSlide, 5000); }));
+
+        // Navigation
+        const nav = document.getElementById('nav');
+        const sectionNav = document.getElementById('sectionNav');
+        window.addEventListener('scroll', () => {
+            if (sectionNav.getBoundingClientRect().top <= 0) nav.classList.add('hidden');
+            else { nav.classList.remove('hidden'); nav.classList.toggle('scrolled', window.scrollY > 100); }
+        });
+
+        // Designed For categories
+        const categoryData = {
+            family: { image: 'cdn/images/houses/casa-mediterranea.webp', title: 'EL TOQUE CAN PARES', icon: '<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>', text: 'Crea recuerdos inolvidables en un entorno que deleita a todas las edades. Los niños exploran los jardines mientras los adultos se relajan junto a la piscina.', tags: ['Piscina', 'Espacios para niños', 'BBQ al aire libre', '10 min de la playa', 'Cocina equipada'] },
+            wellness: { image: 'cdn/images/hero/hero-4.webp', title: 'EL TOQUE CAN PARES', icon: '<path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>', text: 'Transforma cuerpo y mente en nuestro santuario botánico. Privacidad total para una experiencia de bienestar inmersiva.', tags: ['Espacios yoga', 'Jardín de meditación', 'Privacidad total', 'Catering saludable', 'Inmersión natural'] },
+            corporate: { image: 'cdn/images/hero/hero-1.webp', title: 'EL TOQUE CAN PARES', icon: '<path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>', text: 'Escapa de la oficina para planificación estratégica, team building o retiros ejecutivos. Entorno privado para trabajo concentrado.', tags: ['WiFi ultrarrápido', 'Espacios de reunión', 'Team building', 'Catering disponible', 'Hasta 30 personas'] },
+            artists: { image: 'cdn/images/hero/hero-2.webp', title: 'EL TOQUE CAN PARES', icon: '<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>', text: 'Crea tu obra maestra rodeado de siglos de historia y belleza natural. Estancias largas bienvenidas.', tags: ['Estudio de música', 'Espacios de escritura', 'Inspiración natural', 'Estancias largas', 'Ambiente tranquilo'] },
+            film: { image: 'cdn/images/houses/casa-blanca.webp', title: 'EL TOQUE CAN PARES', icon: '<path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>', text: 'Nuestra finca de 20.000m² ofrece escenarios variados: arquitectura histórica, jardines botánicos, piscina mediterránea.', tags: ['Arquitectura histórica', 'Jardín botánico', 'Piscina y terrazas', 'Parking equipos', 'Escenarios variados'] }
+        };
+
+        document.querySelectorAll('.designed-for__category').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.designed-for__category').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const data = categoryData[this.dataset.category];
+                const img = document.getElementById('categoryImage');
+                img.style.opacity = '0';
+                setTimeout(() => { img.src = data.image; img.style.opacity = '1'; }, 200);
+                document.getElementById('categoryInfo').innerHTML = `
+                    <div class="designed-for__info-header">
+                        <svg class="designed-for__info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">${data.icon}</svg>
+                        <span class="designed-for__info-title">${data.title}</span>
+                    </div>
+                    <p class="designed-for__info-text">${data.text}</p>
+                    <div class="designed-for__tags">${data.tags.map(t => `<span class="designed-for__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>${t}</span>`).join('')}</div>

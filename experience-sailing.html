@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sailing & Boat Experiences | Mediterranean Adventures from Can Pares</title>
+    <meta name="description" content="Discover the Mediterranean from the water. Sailing trips, sunset cruises, and private yacht charters departing from Sitges and Port Aiguadolç, just 15 minutes from Can Pares.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    <style>
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
+        .header__menu-btn { display: none; width: 44px; height: 44px; background: none; border: none; cursor: pointer; position: relative; z-index: 1001; }
+        .header__menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-charcoal); margin: 5px auto; transition: all 0.3s ease; }
+        .header__menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header__menu-btn.active span:nth-child(2) { opacity: 0; }
+        .header__menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-cream); z-index: 998; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu__nav { text-align: center; margin-bottom: 40px; }
+        .mobile-menu__link { display: block; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; padding: 15px 0; color: var(--color-charcoal); }
+        .mobile-menu__actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .mobile-menu__btn { padding: 16px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .mobile-menu__btn--primary { background: var(--color-charcoal); color: white; }
+        .mobile-menu__btn--secondary { border: 1.5px solid var(--color-charcoal); background: transparent; }
+
+        /* Floating CTA */
+        .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 997; padding: 15px 20px; background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); display: none; }
+        .floating-cta__btn { display: block; width: 100%; padding: 16px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; text-align: center; }
+
+        /* Breadcrumb */
+        .breadcrumb { padding: 100px 0 20px; }
+        .breadcrumb a { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .breadcrumb span { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.4; margin: 0 10px; }
+
+        /* Hero with full-width image */
+        .hero-full { position: relative; height: 70vh; min-height: 500px; display: flex; align-items: flex-end; padding-bottom: 60px; margin-top: -40px; }
+        .hero-full__bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-full__bg img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-full__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%); }
+        .hero-full__content { position: relative; z-index: 1; color: white; }
+        .hero-full__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-mustard); margin-bottom: 15px; }
+        .hero-full__title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+        .hero-full__desc { font-size: 1.2rem; max-width: 600px; opacity: 0.9; }
+
+        /* Intro Section */
+        .intro { padding: 80px 0; background: white; }
+        .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .intro__content h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .intro__content h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; margin-bottom: 25px; }
+        .intro__content p { font-size: 1.1rem; color: var(--color-text-light); line-height: 1.8; }
+        .intro__content p + p { margin-top: 20px; }
+        .intro__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .intro__stat { text-align: center; padding: 25px; background: var(--color-cream); border-radius: 8px; }
+        .intro__stat-number { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--color-charcoal); }
+        .intro__stat-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; margin-top: 5px; }
+        .intro__image { border-radius: 8px; overflow: hidden; }
+        .intro__image img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+
+        /* Experiences */
+        .experiences { padding: 100px 0; background: var(--color-cream); }
+        .experiences__header { text-align: center; margin-bottom: 60px; }
+        .experiences__header h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .experiences__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+
+        /* Experience Cards - Horizontal */
+        .exp-horizontal { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; background: white; border-radius: 12px; overflow: hidden; margin-bottom: 30px; }
+        .exp-horizontal:nth-child(even) { direction: rtl; }
+        .exp-horizontal:nth-child(even) > * { direction: ltr; }
+        .exp-horizontal__image { aspect-ratio: 4/3; }
+        .exp-horizontal__image img { width: 100%; height: 100%; object-fit: cover; }
+        .exp-horizontal__content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .exp-horizontal__duration { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 10px; }
+        .exp-horizontal__title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; margin-bottom: 15px; }
+        .exp-horizontal__desc { font-size: 1rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 20px; }
+        .exp-horizontal__features { list-style: none; margin-bottom: 25px; }
+        .exp-horizontal__features li { font-size: 0.95rem; padding: 8px 0; padding-left: 25px; position: relative; color: var(--color-text-light); }
+        .exp-horizontal__features li::before { content: "✓"; position: absolute; left: 0; color: var(--color-sage); font-weight: bold; }
+        .exp-horizontal__meta { display: flex; gap: 30px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08); }
+        .exp-horizontal__meta-item { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+        .exp-horizontal__meta-item strong { display: block; font-size: 1rem; font-family: var(--font-display); color: var(--color-charcoal); margin-top: 3px; text-transform: none; letter-spacing: 0; }
+
+        /* Departure Points */
+        .departures { padding: 100px 0; background: var(--color-sage); color: white; }
+        .departures__header { text-align: center; margin-bottom: 60px; }
+        .departures__header h2 { color: var(--color-mustard); margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .departures__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .departures__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .departure { background: rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
+        .departure__image { aspect-ratio: 16/9; }
+        .departure__image img { width: 100%; height: 100%; object-fit: cover; }
+        .departure__content { padding: 30px; }
+        .departure__name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 5px; }
+        .departure__distance { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-mustard); margin-bottom: 15px; }
+        .departure__desc { font-size: 0.95rem; opacity: 0.9; line-height: 1.7; }
+
+        /* Tips Section */
+        .tips { padding: 100px 0; background: white; }
+        .tips__header { text-align: center; margin-bottom: 60px; }
+        .tips__header h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .tips__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .tips__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .tip { text-align: center; padding: 30px 20px; }
+        .tip__icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .tip__title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+        .tip__text { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+
+        /* CTA Section */
+        .cta { padding: 100px 0; background: var(--color-mustard); text-align: center; }
+        .cta h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px; opacity: 0.7; }
+        .cta h3 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        .cta p { max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; }
+        .cta__btn { display: inline-block; padding: 18px 40px; background: var(--color-charcoal); color: white; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.3s ease; }
+        .cta__btn:hover { background: var(--color-sage); }
+
+        /* Footer */
+        .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
+        .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer__logo { display: block; margin-bottom: 30px; }
+        .footer__logo img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 40px; margin-bottom: 30px; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
+        .footer__link:hover { opacity: 1; }
+        .footer__address { font-size: 0.85rem; opacity: 0.5; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .departures__grid { grid-template-columns: 1fr; }
+            .tips__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .header__right { display: none; }
+            .header__menu-btn { display: block; }
+            .floating-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .intro__grid { grid-template-columns: 1fr; }
+            .intro__stats { grid-template-columns: 1fr; }
+            .exp-horizontal { grid-template-columns: 1fr; }
+            .exp-horizontal:nth-child(even) { direction: ltr; }
+            .exp-horizontal__content { padding: 25px; }
+            .tips__grid { grid-template-columns: 1fr; }
+            .hero-full { height: 60vh; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+            </div>
+            <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html" class="mobile-menu__link">Home</a>
+            <a href="stay.html" class="mobile-menu__link">Stay</a>
+            <a href="experiences.html" class="mobile-menu__link">Experiences</a>
+            <a href="location.html" class="mobile-menu__link">Location</a>
+        </nav>
+        <div class="mobile-menu__actions">
+            <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Reserve a Stay</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="experiences.html">Experiences</a>
+            <span>→</span>
+            <a href="#">Sailing & Boats</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-full">
+        <div class="hero-full__bg">
+            <img src="https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=1600&q=80" alt="Sailing on the Mediterranean">
+        </div>
+        <div class="container">
+            <div class="hero-full__content">
+                <p class="hero-full__overline">Mediterranean Sea</p>
+                <h1 class="hero-full__title">Sailing & Boat Experiences</h1>
+                <p class="hero-full__desc">Set sail along the stunning Costa del Garraf. Hidden coves, dramatic cliffs, and 300 days of sunshine await just 15 minutes from your door.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro__grid">
+                <div class="intro__content">
+                    <h2>Life at Sea</h2>
+                    <h3>The Mediterranean, Your Playground</h3>
+                    <p>The Garraf coast between Sitges and Castelldefels is one of the Mediterranean's best-kept secrets. Magnificent cliffs plunge into crystal-clear waters, creating hidden coves accessible only by boat—perfect for swimming, snorkeling, or simply anchoring in solitude.</p>
+                    <p>From the elegant marina of Port Aiguadolç to the charming harbor of Sitges, a world of nautical adventures awaits. Whether you're a seasoned sailor seeking the thrill of the wind or a first-timer looking for a relaxing sunset cruise, these waters offer something magical.</p>
+                    <div class="intro__stats">
+                        <div class="intro__stat">
+                            <div class="intro__stat-number">300+</div>
+                            <div class="intro__stat-label">Sunny Days/Year</div>
+                        </div>
+                        <div class="intro__stat">
+                            <div class="intro__stat-number">15</div>
+                            <div class="intro__stat-label">Min to Marina</div>
+                        </div>
+                        <div class="intro__stat">
+                            <div class="intro__stat-number">22°</div>
+                            <div class="intro__stat-label">Avg Sea Temp</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro__image">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" alt="Sitges coastline from the sea">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences -->
+    <section class="experiences">
+        <div class="container">
+            <div class="experiences__header">
+                <h2>Set Sail</h2>
+                <h3>Choose Your Adventure</h3>
+            </div>
+
+            <div class="exp-horizontal">
+                <div class="exp-horizontal__image">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80" alt="Sunset sailing">
+                </div>
+                <div class="exp-horizontal__content">
+                    <p class="exp-horizontal__duration">2-3 Hours</p>
+                    <h3 class="exp-horizontal__title">Sunset Sailing Experience</h3>
+                    <p class="exp-horizontal__desc">Watch the sun dip below the horizon as you sail along the Garraf coast. Includes premium Cava, oysters, and the iconic Sitges skyline bathed in golden light.</p>
+                    <ul class="exp-horizontal__features">
+                        <li>Premium Cava & oyster pairing</li>
+                        <li>Professional skipper & crew</li>
+                        <li>Stunning views of Sitges from the sea</li>
+                        <li>Small group or private options</li>
+                    </ul>
+                    <div class="exp-horizontal__meta">
+                        <div class="exp-horizontal__meta-item">
+                            Starting from
+                            <strong>€75/person</strong>
+                        </div>
+                        <div class="exp-horizontal__meta-item">
+                            Best for
+                            <strong>Couples & Groups</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-horizontal">
+                <div class="exp-horizontal__image">
+                    <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&q=80" alt="Private yacht">
+                </div>
+                <div class="exp-horizontal__content">
+                    <p class="exp-horizontal__duration">Half Day • 4-5 Hours</p>
+                    <h3 class="exp-horizontal__title">Private Yacht Charter</h3>
+                    <p class="exp-horizontal__desc">Your own luxury sailboat or motor yacht, complete with captain and optional catering. Explore hidden coves, swim in crystal waters, and create unforgettable memories.</p>
+                    <ul class="exp-horizontal__features">
+                        <li>Fully crewed luxury vessel</li>
+                        <li>Snorkeling equipment included</li>
+                        <li>Customizable itinerary</li>
+                        <li>Optional gourmet catering</li>
+                    </ul>
+                    <div class="exp-horizontal__meta">
+                        <div class="exp-horizontal__meta-item">
+                            Starting from
+                            <strong>€400/boat</strong>
+                        </div>
+                        <div class="exp-horizontal__meta-item">
+                            Capacity
+                            <strong>Up to 11 guests</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-horizontal">
+                <div class="exp-horizontal__image">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Swimming from boat">
+                </div>
+                <div class="exp-horizontal__content">
+                    <p class="exp-horizontal__duration">Full Day • 6-8 Hours</p>
+                    <h3 class="exp-horizontal__title">Costa del Garraf Discovery</h3>
+                    <p class="exp-horizontal__desc">A full day exploring the dramatic coastline from Castelldefels to Sitges. Visit Cala Morisca, swim in secret coves, enjoy lunch on board, and discover the area's maritime heritage.</p>
+                    <ul class="exp-horizontal__features">
+                        <li>Multiple swimming stops</li>
+                        <li>Lunch & refreshments included</li>
+                        <li>Visit to abandoned train station of Vallcarca</li>
+                        <li>Spectacular cliff scenery</li>
+                    </ul>
+                    <div class="exp-horizontal__meta">
+                        <div class="exp-horizontal__meta-item">
+                            Starting from
+                            <strong>€120/person</strong>
+                        </div>
+                        <div class="exp-horizontal__meta-item">
+                            Best for
+                            <strong>Adventure Seekers</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-horizontal">
+                <div class="exp-horizontal__image">
+                    <img src="https://images.unsplash.com/photo-1504185945330-7a3ca1380535?w=800&q=80" alt="Catamaran cruise">
+                </div>
+                <div class="exp-horizontal__content">
+                    <p class="exp-horizontal__duration">3 Hours</p>
+                    <h3 class="exp-horizontal__title">Catamaran Cruise</h3>
+                    <p class="exp-horizontal__desc">Spacious and stable, perfect for families or those who prefer a more relaxed sailing experience. Enjoy the sun deck, music, and complimentary drinks as you cruise the coast.</p>
+                    <ul class="exp-horizontal__features">
+                        <li>Spacious deck with sun loungers</li>
+                        <li>Swimming platform</li>
+                        <li>Complimentary drinks</li>
+                        <li>Great for families</li>
+                    </ul>
+                    <div class="exp-horizontal__meta">
+                        <div class="exp-horizontal__meta-item">
+                            Starting from
+                            <strong>€55/person</strong>
+                        </div>
+                        <div class="exp-horizontal__meta-item">
+                            Best for
+                            <strong>Families</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departure Points -->
+    <section class="departures">
+        <div class="container">
+            <div class="departures__header">
+                <h2>Where to Board</h2>
+                <h3>Marina & Departure Points</h3>
+            </div>
+            <div class="departures__grid">
+                <div class="departure">
+                    <div class="departure__image">
+                        <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=800&q=80" alt="Port Aiguadolç">
+                    </div>
+                    <div class="departure__content">
+                        <h3 class="departure__name">Port de Sitges - Aiguadolç</h3>
+                        <p class="departure__distance">15 minutes from Can Pares</p>
+                        <p class="departure__desc">The main marina in Sitges with over 700 berths. Home to yacht clubs, sailing schools, and some of the best waterfront restaurants on the coast. Most charter companies operate from here.</p>
+                    </div>
+                </div>
+                <div class="departure">
+                    <div class="departure__image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Garraf beach">
+                    </div>
+                    <div class="departure__content">
+                        <h3 class="departure__name">Club Nàutic Garraf</h3>
+                        <p class="departure__distance">20 minutes from Can Pares</p>
+                        <p class="departure__desc">A charming smaller marina at the foot of the Garraf cliffs. Offers sailing lessons, paddle boarding, diving trips and a more intimate atmosphere. Home to Soho House's Little Beach House.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips -->
+    <section class="tips">
+        <div class="container">
+            <div class="tips__header">
+                <h2>Prepare for Your Trip</h2>
+                <h3>What to Know</h3>
+            </div>
+            <div class="tips__grid">
+                <div class="tip">
+                    <div class="tip__icon">🌊</div>
+                    <h4 class="tip__title">Best Time to Sail</h4>
+                    <p class="tip__text">May to October offers the calmest seas and warmest temperatures. Morning departures are ideal for swimming; sunset trips for romance.</p>
+                </div>
+                <div class="tip">
+                    <div class="tip__icon">👙</div>
+                    <h4 class="tip__title">What to Bring</h4>
+                    <p class="tip__text">Swimwear, sunscreen, sunglasses, light jacket for evening, and non-marking shoes. Most boats provide towels and snorkeling gear.</p>
+                </div>
+                <div class="tip">
+                    <div class="tip__icon">🍽️</div>
+                    <h4 class="tip__title">Food & Drink</h4>
+                    <p class="tip__text">Many trips include drinks and snacks. Private charters can arrange gourmet catering with local seafood, paella, and Catalan wines.</p>
+                </div>
+                <div class="tip">
+                    <div class="tip__icon">📱</div>
+                    <h4 class="tip__title">Booking</h4>
+                    <p class="tip__text">Reserve 2-3 days ahead in summer. We can arrange everything for you—just let our concierge know your preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Set Sail?</h2>
+            <h3>Let Us Arrange Your Perfect Day at Sea</h3>
+            <p>Our concierge can book private charters, sunset cruises, or watersports experiences tailored to your group.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montserrat Day Trip | Sacred Mountain & Monastery from Can Pares</title>
+    <meta name="description" content="Visit the magical mountain of Montserrat, its Benedictine monastery, and the famous Black Madonna. Guided tours, hiking, and wine experiences just 45 minutes from Can Pares.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    <style>
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__menu-btn { display: none; width: 44px; height: 44px; background: none; border: none; cursor: pointer; position: relative; z-index: 1001; }
+        .header__menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-charcoal); margin: 5px auto; transition: all 0.3s ease; }
+        .header__menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header__menu-btn.active span:nth-child(2) { opacity: 0; }
+        .header__menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-cream); z-index: 998; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu__nav { text-align: center; margin-bottom: 40px; }
+        .mobile-menu__link { display: block; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; padding: 15px 0; color: var(--color-charcoal); }
+        .mobile-menu__actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .mobile-menu__btn { padding: 16px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .mobile-menu__btn--primary { background: var(--color-charcoal); color: white; }
+        .mobile-menu__btn--secondary { border: 1.5px solid var(--color-charcoal); background: transparent; }
+
+        /* Floating CTA */
+        .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 997; padding: 15px 20px; background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); display: none; }
+        .floating-cta__btn { display: block; width: 100%; padding: 16px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; text-align: center; }
+
+        /* Breadcrumb */
+        .breadcrumb { padding: 100px 0 20px; }
+        .breadcrumb a { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .breadcrumb span { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.4; margin: 0 10px; }
+
+        /* Hero */
+        .hero-full { position: relative; height: 75vh; min-height: 550px; display: flex; align-items: flex-end; padding-bottom: 60px; margin-top: -40px; }
+        .hero-full__bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-full__bg img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-full__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%); }
+        .hero-full__content { position: relative; z-index: 1; color: white; }
+        .hero-full__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-mustard); margin-bottom: 15px; }
+        .hero-full__title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+        .hero-full__desc { font-size: 1.2rem; max-width: 600px; opacity: 0.9; }
+
+        /* About Section */
+        .about { padding: 80px 0; background: white; }
+        .about__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+        .about__content h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .about__content h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; margin-bottom: 25px; }
+        .about__content p { font-size: 1.1rem; color: var(--color-text-light); line-height: 1.8; }
+        .about__content p + p { margin-top: 20px; }
+        .about__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+        .about__stat { text-align: center; padding: 25px 15px; background: var(--color-cream); border-radius: 8px; }
+        .about__stat-number { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--color-charcoal); }
+        .about__stat-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; margin-top: 5px; }
+        .about__image { border-radius: 8px; overflow: hidden; }
+        .about__image img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+
+        /* Highlights */
+        .highlights { padding: 100px 0; background: var(--color-sage); color: white; }
+        .highlights__header { text-align: center; margin-bottom: 60px; }
+        .highlights__header h2 { color: var(--color-mustard); margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .highlights__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .highlights__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .highlight { background: rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
+        .highlight__image { aspect-ratio: 4/3; }
+        .highlight__image img { width: 100%; height: 100%; object-fit: cover; }
+        .highlight__content { padding: 25px; }
+        .highlight__title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
+        .highlight__desc { font-size: 0.9rem; opacity: 0.85; line-height: 1.6; }
+
+        /* Tours */
+        .tours { padding: 100px 0; }
+        .tours__header { text-align: center; margin-bottom: 60px; }
+        .tours__header h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .tours__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+
+        .tour { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; background: white; border-radius: 12px; overflow: hidden; margin-bottom: 30px; }
+        .tour:nth-child(even) { direction: rtl; }
+        .tour:nth-child(even) > * { direction: ltr; }
+        .tour__image { aspect-ratio: 4/3; }
+        .tour__image img { width: 100%; height: 100%; object-fit: cover; }
+        .tour__content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .tour__duration { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 10px; }
+        .tour__title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 15px; }
+        .tour__desc { font-size: 1rem; color: var(--color-text-light); line-height: 1.7; margin-bottom: 20px; }
+        .tour__includes { list-style: none; margin-bottom: 25px; }
+        .tour__includes li { font-size: 0.9rem; padding: 6px 0; padding-left: 22px; position: relative; color: var(--color-text-light); }
+        .tour__includes li::before { content: "✓"; position: absolute; left: 0; color: var(--color-sage); font-weight: bold; }
+        .tour__meta { display: flex; gap: 30px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.08); }
+        .tour__meta-item { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+        .tour__meta-item strong { display: block; font-size: 1rem; font-family: var(--font-display); color: var(--color-charcoal); margin-top: 3px; text-transform: none; letter-spacing: 0; }
+
+        /* Practical Info */
+        .practical { padding: 100px 0; background: var(--color-mauve); color: white; }
+        .practical__header { text-align: center; margin-bottom: 60px; }
+        .practical__header h2 { color: var(--color-mustard); margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .practical__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .practical__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .practical__item { text-align: center; padding: 25px; }
+        .practical__icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .practical__title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+        .practical__text { font-size: 0.85rem; opacity: 0.85; line-height: 1.5; }
+
+        /* CTA */
+        .cta { padding: 100px 0; background: var(--color-mustard); text-align: center; }
+        .cta h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px; opacity: 0.7; }
+        .cta h3 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        .cta p { max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; }
+        .cta__btn { display: inline-block; padding: 18px 40px; background: var(--color-charcoal); color: white; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        /* Footer */
+        .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
+        .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer__logo { display: block; margin-bottom: 30px; }
+        .footer__logo img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 40px; margin-bottom: 30px; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
+        .footer__address { font-size: 0.85rem; opacity: 0.5; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .highlights__grid { grid-template-columns: 1fr; }
+            .practical__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .header__right { display: none; }
+            .header__menu-btn { display: block; }
+            .floating-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .about__grid { grid-template-columns: 1fr; }
+            .about__stats { grid-template-columns: 1fr; }
+            .tour { grid-template-columns: 1fr; }
+            .tour:nth-child(even) { direction: ltr; }
+            .tour__content { padding: 25px; }
+            .practical__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+            </div>
+            <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html" class="mobile-menu__link">Home</a>
+            <a href="stay.html" class="mobile-menu__link">Stay</a>
+            <a href="experiences.html" class="mobile-menu__link">Experiences</a>
+            <a href="location.html" class="mobile-menu__link">Location</a>
+        </nav>
+        <div class="mobile-menu__actions">
+            <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Reserve a Stay</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="experiences.html">Experiences</a>
+            <span>→</span>
+            <a href="#">Montserrat</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-full">
+        <div class="hero-full__bg">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" alt="Montserrat monastery">
+        </div>
+        <div class="container">
+            <div class="hero-full__content">
+                <p class="hero-full__overline">Sacred Mountain of Catalonia</p>
+                <h1 class="hero-full__title">Montserrat</h1>
+                <p class="hero-full__desc">A thousand-year-old monastery perched on a magical mountain, home to the Black Madonna and centuries of pilgrimage. Just 45 minutes from your door.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__content">
+                    <h2>A Spiritual Journey</h2>
+                    <h3>The Magic Mountain</h3>
+                    <p>Rising dramatically from the Catalan plain, Montserrat's serrated peaks have inspired awe and devotion for centuries. The name means "serrated mountain" in Catalan, and its unique rock formations—sculpted by millions of years of wind and water—create one of Spain's most mystical landscapes.</p>
+                    <p>At its heart sits the Santa Maria de Montserrat, a Benedictine abbey founded in 1025. Here, pilgrims come to venerate La Moreneta (the Black Madonna), one of Europe's most beloved religious icons. But Montserrat is more than a pilgrimage site—it's a place where spirituality, nature, art, and Catalan identity intertwine.</p>
+                    <p>Whether you come for the monastery, the mountain hikes, the famous boys' choir, or the world-class museum, Montserrat offers an experience unlike any other.</p>
+                    <div class="about__stats">
+                        <div class="about__stat">
+                            <div class="about__stat-number">1,000+</div>
+                            <div class="about__stat-label">Years of History</div>
+                        </div>
+                        <div class="about__stat">
+                            <div class="about__stat-number">1,236m</div>
+                            <div class="about__stat-label">Peak Elevation</div>
+                        </div>
+                        <div class="about__stat">
+                            <div class="about__stat-number">45</div>
+                            <div class="about__stat-label">Min from Can Pares</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__image">
+                    <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=600&q=80" alt="Montserrat peaks">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights">
+        <div class="container">
+            <div class="highlights__header">
+                <h2>Don't Miss</h2>
+                <h3>Montserrat Highlights</h3>
+            </div>
+            <div class="highlights__grid">
+                <div class="highlight">
+                    <div class="highlight__image">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80" alt="Black Madonna">
+                    </div>
+                    <div class="highlight__content">
+                        <h4 class="highlight__title">The Black Madonna</h4>
+                        <p class="highlight__desc">Visit La Moreneta in the basilica—a 12th-century wooden statue said to have healing powers. Touch the orb in her hand as millions have done before you.</p>
+                    </div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight__image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Boys choir">
+                    </div>
+                    <div class="highlight__content">
+                        <h4 class="highlight__title">Escolania Boys' Choir</h4>
+                        <p class="highlight__desc">One of Europe's oldest boys' choirs, documented since 1223. Hear them sing at 1pm (Mon-Fri) or noon on Sundays—a sublime experience.</p>
+                    </div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight__image">
+                        <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=600&q=80" alt="Mountain hiking">
+                    </div>
+                    <div class="highlight__content">
+                        <h4 class="highlight__title">Mountain Trails</h4>
+                        <p class="highlight__desc">Take the funicular to Sant Joan and hike to abandoned hermitages. The views from Sant Jeroni peak (1,236m) stretch to the Pyrenees and the sea.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours -->
+    <section class="tours">
+        <div class="container">
+            <div class="tours__header">
+                <h2>Visit Options</h2>
+                <h3>Day Trip Experiences</h3>
+            </div>
+
+            <div class="tour">
+                <div class="tour__image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Guided tour">
+                </div>
+                <div class="tour__content">
+                    <p class="tour__duration">Half Day • 5 Hours</p>
+                    <h3 class="tour__title">Montserrat & Monastery Tour</h3>
+                    <p class="tour__desc">A comprehensive introduction to Montserrat. Ride the scenic cable car or rack railway, explore the monastery, visit the Black Madonna, and enjoy free time for hiking or shopping.</p>
+                    <ul class="tour__includes">
+                        <li>Round-trip transportation</li>
+                        <li>Cable car or rack railway tickets</li>
+                        <li>Guided monastery tour</li>
+                        <li>Free time to explore</li>
+                        <li>Option to hear the choir (Mon-Fri)</li>
+                    </ul>
+                    <div class="tour__meta">
+                        <div class="tour__meta-item">
+                            Starting from
+                            <strong>€65/person</strong>
+                        </div>
+                        <div class="tour__meta-item">
+                            Group size
+                            <strong>Small groups</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour">
+                <div class="tour__image">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80" alt="Wine and montserrat">
+                </div>
+                <div class="tour__content">
+                    <p class="tour__duration">Full Day • 8 Hours</p>
+                    <h3 class="tour__title">Montserrat & Wine Experience</h3>
+                    <p class="tour__desc">Combine the spiritual with the sensory. Visit the monastery in the morning, then descend to a local winery for a tapas lunch and wine tasting among the vineyards.</p>
+                    <ul class="tour__includes">
+                        <li>Guided Montserrat visit</li>
+                        <li>Transport to nearby winery</li>
+                        <li>Wine tasting & cellar tour</li>
+                        <li>Tapas or full lunch</li>
+                        <li>Small group or private</li>
+                    </ul>
+                    <div class="tour__meta">
+                        <div class="tour__meta-item">
+                            Starting from
+                            <strong>€115/person</strong>
+                        </div>
+                        <div class="tour__meta-item">
+                            Best for
+                            <strong>Food & wine lovers</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour">
+                <div class="tour__image">
+                    <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=800&q=80" alt="Hiking tour">
+                </div>
+                <div class="tour__content">
+                    <p class="tour__duration">Full Day • 7 Hours</p>
+                    <h3 class="tour__title">Montserrat Hiking Adventure</h3>
+                    <p class="tour__desc">For active travelers. After the monastery visit, take the funicular and embark on a guided hike through the mountain's dramatic landscape to scenic viewpoints and ancient hermitages.</p>
+                    <ul class="tour__includes">
+                        <li>Expert mountain guide</li>
+                        <li>Monastery visit included</li>
+                        <li>Sant Joan funicular</li>
+                        <li>Guided hike (3-4 hours)</li>
+                        <li>Packed lunch option</li>
+                    </ul>
+                    <div class="tour__meta">
+                        <div class="tour__meta-item">
+                            Starting from
+                            <strong>€95/person</strong>
+                        </div>
+                        <div class="tour__meta-item">
+                            Difficulty
+                            <strong>Moderate</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour">
+                <div class="tour__image">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" alt="Montserrat and Sitges">
+                </div>
+                <div class="tour__content">
+                    <p class="tour__duration">Full Day • 8 Hours</p>
+                    <h3 class="tour__title">Montserrat & Sitges Combo</h3>
+                    <p class="tour__desc">The best of mountain and sea. Visit Montserrat in the morning, then drive to the charming coastal town of Sitges for lunch, a beach stroll, and time to explore its artistic heritage.</p>
+                    <ul class="tour__includes">
+                        <li>Guided Montserrat visit</li>
+                        <li>Easy hike option included</li>
+                        <li>Transfer to Sitges</li>
+                        <li>Walking tour of old town</li>
+                        <li>Free time for beach & lunch</li>
+                    </ul>
+                    <div class="tour__meta">
+                        <div class="tour__meta-item">
+                            Starting from
+                            <strong>€89/person</strong>
+                        </div>
+                        <div class="tour__meta-item">
+                            Perfect for
+                            <strong>First-time visitors</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Info -->
+    <section class="practical">
+        <div class="container">
+            <div class="practical__header">
+                <h2>Plan Your Visit</h2>
+                <h3>Practical Information</h3>
+            </div>
+            <div class="practical__grid">
+                <div class="practical__item">
+                    <div class="practical__icon">🚗</div>
+                    <h4 class="practical__title">Getting There</h4>
+                    <p class="practical__text">45 min drive from Can Pares. Or take train + cable car/rack railway from Barcelona (~1.5 hrs).</p>
+                </div>
+                <div class="practical__item">
+                    <div class="practical__icon">⏰</div>
+                    <h4 class="practical__title">Best Time to Visit</h4>
+                    <p class="practical__text">Go early to avoid crowds. Arrive before 10am or visit mid-week. The choir sings at 1pm (Mon-Fri).</p>
+                </div>
+                <div class="practical__item">
+                    <div class="practical__icon">👕</div>
+                    <h4 class="practical__title">What to Wear</h4>
+                    <p class="practical__text">Dress warmly—it's cooler at altitude. Modest dress for basilica. Sturdy shoes if hiking.</p>
+                </div>
+                <div class="practical__item">
+                    <div class="practical__icon">🎟️</div>
+                    <h4 class="practical__title">Tickets</h4>
+                    <p class="practical__text">Monastery is free. Cable car/rack railway and museum require tickets. Book ahead in summer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Discover Montserrat</h2>
+            <h3>Let Us Arrange Your Visit</h3>
+            <p>We can book guided tours, arrange private transportation, or help you plan an independent visit to this magical mountain.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+    </script>
+</body>
+</html>

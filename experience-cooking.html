@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalan Cooking Experiences | Paella Classes & Culinary Tours from Can Pares</title>
+    <meta name="description" content="Learn to cook authentic paella, tapas, and Catalan cuisine. Private cooking classes, market tours, and culinary experiences in Sitges and Barcelona.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    <style>
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__menu-btn { display: none; width: 44px; height: 44px; background: none; border: none; cursor: pointer; position: relative; z-index: 1001; }
+        .header__menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-charcoal); margin: 5px auto; transition: all 0.3s ease; }
+        .header__menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header__menu-btn.active span:nth-child(2) { opacity: 0; }
+        .header__menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-cream); z-index: 998; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu__nav { text-align: center; margin-bottom: 40px; }
+        .mobile-menu__link { display: block; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; padding: 15px 0; color: var(--color-charcoal); }
+        .mobile-menu__actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .mobile-menu__btn { padding: 16px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .mobile-menu__btn--primary { background: var(--color-charcoal); color: white; }
+        .mobile-menu__btn--secondary { border: 1.5px solid var(--color-charcoal); background: transparent; }
+
+        /* Floating CTA */
+        .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 997; padding: 15px 20px; background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); display: none; }
+        .floating-cta__btn { display: block; width: 100%; padding: 16px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; text-align: center; }
+
+        /* Breadcrumb */
+        .breadcrumb { padding: 100px 0 20px; }
+        .breadcrumb a { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .breadcrumb span { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.4; margin: 0 10px; }
+
+        /* Hero */
+        .hero-full { position: relative; height: 70vh; min-height: 500px; display: flex; align-items: flex-end; padding-bottom: 60px; margin-top: -40px; }
+        .hero-full__bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-full__bg img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-full__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%); }
+        .hero-full__content { position: relative; z-index: 1; color: white; }
+        .hero-full__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-mustard); margin-bottom: 15px; }
+        .hero-full__title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+        .hero-full__desc { font-size: 1.2rem; max-width: 600px; opacity: 0.9; }
+
+        /* Intro */
+        .intro { padding: 80px 0; background: white; }
+        .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .intro__content h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .intro__content h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; margin-bottom: 25px; }
+        .intro__content p { font-size: 1.1rem; color: var(--color-text-light); line-height: 1.8; }
+        .intro__content p + p { margin-top: 20px; }
+        .intro__quote { margin-top: 30px; padding: 25px; background: var(--color-cream); border-left: 4px solid var(--color-terracotta); border-radius: 0 8px 8px 0; }
+        .intro__quote p { font-size: 1.1rem; font-style: italic; margin: 0; }
+        .intro__quote cite { display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .intro__image { border-radius: 8px; overflow: hidden; }
+        .intro__image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+
+        /* Classes Grid */
+        .classes { padding: 100px 0; background: var(--color-cream); }
+        .classes__header { text-align: center; margin-bottom: 60px; }
+        .classes__header h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .classes__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .classes__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .class-card { background: white; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.2fr; }
+        .class-card__image { aspect-ratio: 1; }
+        .class-card__image img { width: 100%; height: 100%; object-fit: cover; }
+        .class-card__content { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+        .class-card__tag { display: inline-block; padding: 5px 12px; background: var(--color-mustard); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 20px; margin-bottom: 15px; align-self: flex-start; }
+        .class-card__title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; }
+        .class-card__desc { font-size: 0.95rem; color: var(--color-text-light); line-height: 1.6; margin-bottom: 20px; }
+        .class-card__includes { list-style: none; margin-bottom: 20px; }
+        .class-card__includes li { font-size: 0.85rem; padding: 4px 0; padding-left: 20px; position: relative; color: var(--color-text-light); }
+        .class-card__includes li::before { content: "✓"; position: absolute; left: 0; color: var(--color-sage); }
+        .class-card__meta { display: flex; justify-content: space-between; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.08); }
+        .class-card__meta-item { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; }
+        .class-card__meta-item strong { color: var(--color-charcoal); }
+
+        /* Menu Section */
+        .menu { padding: 100px 0; background: var(--color-terracotta); color: white; }
+        .menu__header { text-align: center; margin-bottom: 60px; }
+        .menu__header h2 { color: var(--color-mustard); margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .menu__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .menu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .menu__category { text-align: center; }
+        .menu__category-icon { font-size: 3rem; margin-bottom: 15px; }
+        .menu__category-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; }
+        .menu__items { list-style: none; }
+        .menu__items li { font-size: 0.95rem; padding: 8px 0; opacity: 0.9; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+        /* Experience Flow */
+        .flow { padding: 100px 0; background: white; }
+        .flow__header { text-align: center; margin-bottom: 60px; }
+        .flow__header h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 15px; }
+        .flow__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .flow__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .flow__step { text-align: center; padding: 30px 20px; position: relative; }
+        .flow__step::after { content: '→'; position: absolute; right: -15px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: var(--color-mauve); }
+        .flow__step:last-child::after { display: none; }
+        .flow__number { width: 50px; height: 50px; background: var(--color-sage); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin: 0 auto 20px; }
+        .flow__step-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+        .flow__step-desc { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+
+        /* CTA */
+        .cta { padding: 100px 0; background: var(--color-mustard); text-align: center; }
+        .cta h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px; opacity: 0.7; }
+        .cta h3 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        .cta p { max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; }
+        .cta__btn { display: inline-block; padding: 18px 40px; background: var(--color-charcoal); color: white; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        /* Footer */
+        .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
+        .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer__logo { display: block; margin-bottom: 30px; }
+        .footer__logo img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 40px; margin-bottom: 30px; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
+        .footer__address { font-size: 0.85rem; opacity: 0.5; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .classes__grid { grid-template-columns: 1fr; }
+            .menu__grid { grid-template-columns: 1fr; }
+            .flow__steps { grid-template-columns: repeat(2, 1fr); }
+            .flow__step::after { display: none; }
+        }
+        @media (max-width: 768px) {
+            .header__right { display: none; }
+            .header__menu-btn { display: block; }
+            .floating-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .intro__grid { grid-template-columns: 1fr; }
+            .class-card { grid-template-columns: 1fr; }
+            .flow__steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+            </div>
+            <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html" class="mobile-menu__link">Home</a>
+            <a href="stay.html" class="mobile-menu__link">Stay</a>
+            <a href="experiences.html" class="mobile-menu__link">Experiences</a>
+            <a href="location.html" class="mobile-menu__link">Location</a>
+        </nav>
+        <div class="mobile-menu__actions">
+            <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Reserve a Stay</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="experiences.html">Experiences</a>
+            <span>→</span>
+            <a href="#">Cooking Classes</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-full">
+        <div class="hero-full__bg">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1600&q=80" alt="Paella cooking class">
+        </div>
+        <div class="container">
+            <div class="hero-full__content">
+                <p class="hero-full__overline">Catalan Cuisine</p>
+                <h1 class="hero-full__title">Cooking Experiences</h1>
+                <p class="hero-full__desc">Master the art of paella, discover the secrets of tapas, and taste your way through Catalonia's incredible culinary heritage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro__grid">
+                <div class="intro__content">
+                    <h2>A Culinary Journey</h2>
+                    <h3>Cook Like a Catalan</h3>
+                    <p>Catalonia's cuisine is a celebration of land and sea—from the rice dishes of Valencia that became the world's beloved paella, to the simple perfection of pa amb tomàquet (bread rubbed with tomato). Here, cooking is an act of love, passed down through generations.</p>
+                    <p>Whether you're a passionate home cook or a complete beginner, our curated cooking experiences connect you with local chefs who share not just recipes, but stories—of families, traditions, and the ingredients that define this remarkable region.</p>
+                    <div class="intro__quote">
+                        <p>"The paella was one of the best meals of our entire trip. Learning to make it ourselves made it even more special."</p>
+                        <cite>— Recent Guest</cite>
+                    </div>
+                </div>
+                <div class="intro__image">
+                    <img src="https://images.unsplash.com/photo-1515443961218-a51367888e4b?w=800&q=80" alt="Fresh Mediterranean ingredients">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes -->
+    <section class="classes">
+        <div class="container">
+            <div class="classes__header">
+                <h2>Get Cooking</h2>
+                <h3>Culinary Experiences</h3>
+            </div>
+            <div class="classes__grid">
+                <div class="class-card">
+                    <div class="class-card__image">
+                        <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=600&q=80" alt="Paella class">
+                    </div>
+                    <div class="class-card__content">
+                        <span class="class-card__tag">Most Popular</span>
+                        <h3 class="class-card__title">Private Paella Masterclass</h3>
+                        <p class="class-card__desc">Learn the secrets of authentic paella from a local chef on a rooftop terrace in Sitges with views of the Mediterranean.</p>
+                        <ul class="class-card__includes">
+                            <li>Welcome Sangria & tapas</li>
+                            <li>Hands-on paella cooking</li>
+                            <li>Crema Catalana dessert</li>
+                            <li>Wine pairings included</li>
+                            <li>Recipes emailed to you</li>
+                        </ul>
+                        <div class="class-card__meta">
+                            <span class="class-card__meta-item"><strong>3 hours</strong></span>
+                            <span class="class-card__meta-item">From <strong>€140/person</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-card__image">
+                        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Tapas class">
+                    </div>
+                    <div class="class-card__content">
+                        <span class="class-card__tag">Group Friendly</span>
+                        <h3 class="class-card__title">Tapas & Sangria Workshop</h3>
+                        <p class="class-card__desc">Master classic Spanish tapas—tortilla española, patatas bravas, gambas al ajillo—plus learn the art of perfect sangria.</p>
+                        <ul class="class-card__includes">
+                            <li>5-6 traditional tapas recipes</li>
+                            <li>Sangria making class</li>
+                            <li>All ingredients & equipment</li>
+                            <li>Eat everything you make</li>
+                            <li>Small group or private</li>
+                        </ul>
+                        <div class="class-card__meta">
+                            <span class="class-card__meta-item"><strong>2.5 hours</strong></span>
+                            <span class="class-card__meta-item">From <strong>€85/person</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-card__image">
+                        <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80" alt="Market tour">
+                    </div>
+                    <div class="class-card__content">
+                        <span class="class-card__tag">Full Experience</span>
+                        <h3 class="class-card__title">Market to Table Experience</h3>
+                        <p class="class-card__desc">Start at Barcelona's famous La Boqueria market, select fresh ingredients with a chef, then cook a full Catalan meal together.</p>
+                        <ul class="class-card__includes">
+                            <li>Guided market tour</li>
+                            <li>Fresh ingredient shopping</li>
+                            <li>Cooking class in El Born</li>
+                            <li>3-course meal</li>
+                            <li>Wine & cava included</li>
+                        </ul>
+                        <div class="class-card__meta">
+                            <span class="class-card__meta-item"><strong>4-5 hours</strong></span>
+                            <span class="class-card__meta-item">From <strong>€129/person</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="class-card">
+                    <div class="class-card__image">
+                        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=600&q=80" alt="Private chef">
+                    </div>
+                    <div class="class-card__content">
+                        <span class="class-card__tag">At Can Pares</span>
+                        <h3 class="class-card__title">Private Chef at the Masia</h3>
+                        <p class="class-card__desc">Have a Valencian chef come to Can Pares and cook an authentic paella feast for your group in our outdoor kitchen.</p>
+                        <ul class="class-card__includes">
+                            <li>Chef comes to you</li>
+                            <li>Tapas starter selection</li>
+                            <li>Paella cooked over fire</li>
+                            <li>Sangria or cava</li>
+                            <li>Minimum 6 guests</li>
+                        </ul>
+                        <div class="class-card__meta">
+                            <span class="class-card__meta-item"><strong>2-3 hours</strong></span>
+                            <span class="class-card__meta-item">From <strong>€65/person</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section class="menu">
+        <div class="container">
+            <div class="menu__header">
+                <h2>On the Menu</h2>
+                <h3>What You'll Learn to Cook</h3>
+            </div>
+            <div class="menu__grid">
+                <div class="menu__category">
+                    <div class="menu__category-icon">🥘</div>
+                    <h4 class="menu__category-title">Rice & Main Dishes</h4>
+                    <ul class="menu__items">
+                        <li>Paella Valenciana (chicken & rabbit)</li>
+                        <li>Seafood Paella</li>
+                        <li>Paella Mixta</li>
+                        <li>Fideuà (noodle paella)</li>
+                        <li>Arroz Negro (squid ink rice)</li>
+                    </ul>
+                </div>
+                <div class="menu__category">
+                    <div class="menu__category-icon">🍢</div>
+                    <h4 class="menu__category-title">Tapas Classics</h4>
+                    <ul class="menu__items">
+                        <li>Tortilla Española</li>
+                        <li>Gambas al Ajillo</li>
+                        <li>Patatas Bravas</li>
+                        <li>Pan con Tomate</li>
+                        <li>Gazpacho</li>
+                    </ul>
+                </div>
+                <div class="menu__category">
+                    <div class="menu__category-icon">🍮</div>
+                    <h4 class="menu__category-title">Desserts & Drinks</h4>
+                    <ul class="menu__items">
+                        <li>Crema Catalana</li>
+                        <li>Classic Sangria</li>
+                        <li>White Cava Sangria</li>
+                        <li>Churros con Chocolate</li>
+                        <li>Tarta de Santiago</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Flow -->
+    <section class="flow">
+        <div class="container">
+            <div class="flow__header">
+                <h2>Your Experience</h2>
+                <h3>How It Works</h3>
+            </div>
+            <div class="flow__steps">
+                <div class="flow__step">
+                    <div class="flow__number">1</div>
+                    <h4 class="flow__step-title">Welcome Drinks</h4>
+                    <p class="flow__step-desc">Arrive and unwind with a glass of cava or sangria while meeting your chef and fellow cooks.</p>
+                </div>
+                <div class="flow__step">
+                    <div class="flow__number">2</div>
+                    <h4 class="flow__step-title">Learn the Story</h4>
+                    <p class="flow__step-desc">Discover the history behind each dish, the key ingredients, and the techniques that make them special.</p>
+                </div>
+                <div class="flow__step">
+                    <div class="flow__number">3</div>
+                    <h4 class="flow__step-title">Cook Together</h4>
+                    <p class="flow__step-desc">Get hands-on, chopping, stirring, and tasting as you bring traditional recipes to life.</p>
+                </div>
+                <div class="flow__step">
+                    <div class="flow__number">4</div>
+                    <h4 class="flow__step-title">Feast & Celebrate</h4>
+                    <p class="flow__step-desc">Sit down to enjoy everything you've made, family-style, with wine pairings and new friends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Hungry for More?</h2>
+            <h3>Let Us Book Your Culinary Adventure</h3>
+            <p>Tell us what you'd like to cook and how many are in your group. We'll arrange the perfect experience.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+    </script>
+</body>
+</html>

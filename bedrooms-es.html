@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitaciones | Masia Can Pares - 5 Habitaciones de Lujo cerca de Barcelona y Sitges</title>
+    <meta name="description" content="Descubre las 5 habitaciones bellamente decoradas de Masia Can Pares. Dos casas de huéspedes independientes con equipamiento moderno, baños privados y vistas al jardín botánico. Hasta 10 huéspedes.">
+    <meta name="keywords" content="masia can pares habitaciones, casa huespedes sitges habitaciones, alojamiento lujo barcelona, casa blanca habitaciones, casa mediterranea">
+    <link rel="canonical" href="https://www.masiacanpares.com/bedrooms-es.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    
+    <style>
+        :root {
+            --color-bg: #FAF8F5; --color-bg-warm: #F3EDE4; --color-bg-dark: #A65D57;
+            --color-text: #2C2825; --color-text-light: #6B635A; --color-text-inverse: #FAF8F5;
+            --color-terracotta: #A65D57; --color-border: #DDD5C8; --color-gold: #D4B062;
+            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.8; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.2; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo { height: 45px; }
+        .header__right { display: flex; align-items: center; gap: 25px; }
+        .header__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__cta { padding: 12px 24px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-gold); color: var(--color-bg-dark); }
+
+        .section-nav { position: sticky; top: 85px; z-index: 999; background: var(--color-gold); }
+        .section-nav__inner { display: flex; justify-content: center; }
+        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
+        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; }
+        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
+        .section-nav__link.active { background: rgba(0,0,0,0.1); }
+
+        .page-hero { padding: 180px 0 100px; background: var(--color-bg-warm); text-align: center; }
+        .page-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 20px; }
+        .page-hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto; }
+
+        .house { padding: 100px 0; border-bottom: 1px solid var(--color-border); }
+        .house:last-of-type { border-bottom: none; }
+        .house--alt { background: var(--color-bg-warm); }
+        
+        .house__header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+        .house__header-image { height: 450px; overflow: hidden; }
+        .house__header-image img { width: 100%; height: 100%; object-fit: cover; }
+        .house__header-content h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 15px; }
+        .house__header-content p { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 25px; line-height: 1.8; }
+        .house__stats { display: flex; gap: 40px; margin-top: 30px; }
+        .house__stat { text-align: center; }
+        .house__stat-value { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-terracotta); }
+        .house__stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); }
+
+        .house__rooms-title { font-size: 1.5rem; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border); }
+        .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .room { background: var(--color-bg); overflow: hidden; border: 1px solid var(--color-border); }
+        .house--alt .room { background: var(--color-bg-warm); }
+        .room__image { height: 260px; overflow: hidden; }
+        .room__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .room:hover .room__image img { transform: scale(1.05); }
+        .room__content { padding: 30px; }
+        .room__name { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 10px; }
+        .room__desc { font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 15px; }
+        .room__features { display: flex; flex-wrap: wrap; gap: 12px; }
+        .room__feature { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--color-text-light); }
+        .room__feature svg { width: 16px; height: 16px; color: var(--color-terracotta); }
+
+        .house__amenities { background: var(--color-bg-warm); padding: 60px; margin-top: 60px; }
+        .house--alt .house__amenities { background: var(--color-bg); }
+        .house__amenities-header { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
+        .house__amenities-title { font-size: 1.3rem; }
+        .house__amenities-icon { width: 28px; height: 28px; color: var(--color-terracotta); }
+        
+        .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .amenity-category__title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--color-border); }
+        .amenity-category__list { display: flex; flex-direction: column; gap: 12px; }
+        .amenity-item { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; }
+        .amenity-item svg { width: 18px; height: 18px; color: var(--color-terracotta); flex-shrink: 0; }
+
+        .cta { padding: 100px 0; background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
+        .cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta p { opacity: 0.7; margin-bottom: 40px; }
+        .cta__btn { display: inline-block; padding: 18px 45px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; }
+
+        .footer { background: #A65D57; color: var(--color-text-inverse); padding: 60px 0 30px; text-align: center; }
+        .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+        .footer__link { font-size: 0.85rem; opacity: 0.7; }
+        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 1024px) {
+            .house__header { grid-template-columns: 1fr; }
+            .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .header__link { display: none; }
+            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
+            .house__stats { gap: 25px; }
+            .amenities-grid { grid-template-columns: 1fr; }
+            .house__amenities { padding: 40px 25px; }
+            .rooms { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index-es.html"><img src="cdn/logos/canpares-logo.webp" alt="Masia Can Pares" class="header__logo"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contáctanos</a>
+                <a href="https://www.masiacanpares.com/book" class="header__cta">Reservar</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <div class="section-nav__inner">
+            <ul class="section-nav__links">
+                <li><a href="history-es.html" class="section-nav__link">Historia</a></li>
+                <li><a href="gallery-es.html" class="section-nav__link">Visita</a></li>
+                <li><a href="bedrooms-es.html" class="section-nav__link active">Habitaciones</a></li>
+                <li><a href="designed-for-es.html" class="section-nav__link">Diseñado Para</a></li>
+                <li><a href="equipment-es.html" class="section-nav__link">Equipamiento</a></li>
+                <li><a href="experiences-es.html" class="section-nav__link">Experiencias</a></li>
+                <li><a href="location-es.html" class="section-nav__link">Ubicación</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Habitaciones</h1>
+            <p>Cinco habitaciones bellamente decoradas en dos casas de huéspedes independientes</p>
+        </div>
+    </section>
+
+    <!-- Casa Blanca -->
+    <section class="house">
+        <div class="container">
+            <div class="house__header">
+                <div class="house__header-image">
+                    <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Blanca exterior">
+                </div>
+                <div class="house__header-content">
+                    <h2>Casa Blanca</h2>
+                    <p>El confort moderno se encuentra con la herencia catalana en nuestra casa de huéspedes más grande. Espacios luminosos y aireados con elementos de diseño contemporáneo que se fusionan perfectamente con la arquitectura tradicional. Cada habitación abre a vistas del jardín botánico.</p>
+                    <div class="house__stats">
+                        <div class="house__stat">
+                            <div class="house__stat-value">3</div>
+                            <div class="house__stat-label">Habitaciones</div>
+                        </div>
+                        <div class="house__stat">
+                            <div class="house__stat-value">3</div>
+                            <div class="house__stat-label">Baños</div>
+                        </div>
+                        <div class="house__stat">
+                            <div class="house__stat-value">6</div>
+                            <div class="house__stat-label">Huéspedes</div>
+                        </div>
+                        <div class="house__stat">
+                            <div class="house__stat-value">140</div>
+                            <div class="house__stat-label">m²</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="house__rooms-title">Habitaciones</h3>
+            <div class="rooms">
+                <div class="room">
+                    <div class="room__image">
+                        <img src="cdn/images/hero/hero-2.webp" alt="Suite Principal">
+                    </div>
+                    <div class="room__content">
+                        <h3 class="room__name">Suite Principal</h3>
+                        <p class="room__desc">Amplia habitación principal con cama king-size y vistas panorámicas al jardín a través de ventanales del suelo al techo.</p>
+                        <div class="room__features">
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Cama King</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Baño privado</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v4M3 5h4"/></svg> Vista al jardín</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room">
+                    <div class="room__image">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Habitación Jardín">
+                    </div>
+                    <div class="room__content">
+                        <h3 class="room__name">Habitación Jardín</h3>
+                        <p class="room__desc">Luminosa habitación doble con vistas al jardín botánico y baño privado.</p>
+                        <div class="room__features">
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Cama Doble</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Baño privado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room">
+                    <div class="room__image">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Habitación Terraza">
+                    </div>
+                    <div class="room__content">
+                        <h3 class="room__name">Habitación Terraza</h3>
+                        <p class="room__desc">Acogedora habitación con acceso directo a la terraza privada, perfecta para el café de la mañana.</p>
+                        <div class="room__features">
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Camas Gemelas</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Baño privado</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8V4m0 0h4M4 4l5 5"/></svg> Acceso terraza</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="house__amenities">
+                <div class="house__amenities-header">
+                    <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                    <h3 class="house__amenities-title">Equipamiento Casa Blanca</h3>
+                </div>
+                <div class="amenities-grid">
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Cocina</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cocina equipada</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Refrigerador</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Horno y vitrocerámica</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Lavavajillas</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cafetera Nespresso</div>
+                        </div>
+                    </div>
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Salón</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Smart TV</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Netflix y streaming</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Altavoz Bluetooth</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Mesa comedor (6 pax)</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Chimenea</div>
+                        </div>
+                    </div>
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Confort</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Aire acondicionado</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Calefacción central</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>WiFi alta velocidad</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Ropa de cama premium</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cortinas opacas</div>
+                        </div>
+                    </div>
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Exterior</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Terraza privada</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Mobiliario exterior</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Acceso BBQ</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Acceso piscina</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Vistas al jardín</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casa Mediterranea -->
+    <section class="house house--alt">
+        <div class="container">
+            <div class="house__header">
+                <div class="house__header-content">
+                    <h2>Casa Mediterranea</h2>
+                    <p>Encanto rústico en nuestro acogedor cottage. Paredes de piedra vista, vigas de madera y espacios acogedores crean una atmósfera catalana auténtica. Perfecto para parejas o familias pequeñas que buscan tranquilidad.</p>
+                    <div class="house__stats">
+                        <div class="house__stat">
+                            <div class="house__stat-value">2</div>
+                            <div class="house__stat-label">Habitaciones</div>
+                        </div>
+                        <div class="house__stat">
+                            <div class="house__stat-value">1</div>
+                            <div class="house__stat-label">Baño</div>
+                        </div>
+                        <div class="house__stat">
+                            <div class="house__stat-value">4</div>
+                            <div class="house__stat-label">Huéspedes</div>
+                        </div>
+                        <div class="house__stat">
+                            <div class="house__stat-value">85</div>
+                            <div class="house__stat-label">m²</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="house__header-image">
+                    <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Mediterranea exterior">
+                </div>
+            </div>
+
+            <h3 class="house__rooms-title">Habitaciones</h3>
+            <div class="rooms">
+                <div class="room">
+                    <div class="room__image">
+                        <img src="cdn/images/hero/hero-2.webp" alt="Habitación Principal">
+                    </div>
+                    <div class="room__content">
+                        <h3 class="room__name">Habitación Principal</h3>
+                        <p class="room__desc">Encantadora habitación con paredes de piedra vista, vigas originales y suave luz natural.</p>
+                        <div class="room__features">
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Cama Queen</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg> Elementos históricos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="room">
+                    <div class="room__image">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Habitación Acogedora">
+                    </div>
+                    <div class="room__content">
+                        <h3 class="room__name">Habitación Acogedora</h3>
+                        <p class="room__desc">Espacio íntimo perfecto para niños o un viajero solo, con vistas al jardín.</p>
+                        <div class="room__features">
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Camas Gemelas</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v4M3 5h4"/></svg> Vista al jardín</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="house__amenities">
+                <div class="house__amenities-header">
+                    <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                    <h3 class="house__amenities-title">Equipamiento Casa Mediterranea</h3>
+                </div>
+                <div class="amenities-grid">
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Cocina</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cocina pequeña</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Mini nevera</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Vitrocerámica (2 fuegos)</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cafetera</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Utensilios básicos</div>
+                        </div>
+                    </div>
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Salón</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Salón acogedor</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Smart TV</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Colección de libros</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Zona comedor (4 pax)</div>
+                        </div>
+                    </div>
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Confort</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Aire acondicionado</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Calefacción</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>WiFi alta velocidad</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Ropa de cama calidad</div>
+                        </div>
+                    </div>
+                    <div class="amenity-category">
+                        <h4 class="amenity-category__title">Exterior</h4>
+                        <div class="amenity-category__list">
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Patio privado</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Acceso jardín</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Acceso piscina</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Hamaca</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Reserva Tu Habitación</h2>
+            <p>Elige tus fechas y reserva tu escapada perfecta</p>
+            <a href="https://www.masiacanpares.com/book" class="cta__btn">Ver Disponibilidad</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

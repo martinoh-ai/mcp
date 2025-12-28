@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housekeeping Portal | Masia Can Pares</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    <style>
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: #f5f5f5; color: var(--color-text); line-height: 1.6; }
+
+        /* Selection Screen */
+        .selection-screen { min-height: 100vh; display: flex; flex-direction: column; }
+        .selection-header { background: var(--color-charcoal); color: white; padding: 20px; text-align: center; }
+        .selection-header__logo { height: 40px; filter: brightness(0) invert(1); margin-bottom: 10px; }
+        .selection-header__title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+        .selection-content { flex: 1; padding: 30px 20px; max-width: 600px; margin: 0 auto; width: 100%; }
+        .selection-section { margin-bottom: 30px; }
+        .selection-section__title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 15px; }
+
+        .property-card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; display: flex; align-items: center; gap: 20px; }
+        .property-card:hover { border-color: var(--color-charcoal); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .property-card.selected { border-color: var(--color-sage); background: rgba(45, 74, 62, 0.05); }
+        .property-card__icon { width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .property-card__icon--blanca { background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); border: 1px solid #e0e0e0; }
+        .property-card__icon--mediterranea { background: linear-gradient(135deg, #e8d4a8 0%, #c9a86c 100%); }
+        .property-card__icon--common { background: linear-gradient(135deg, var(--color-sage) 0%, #1a3a2e 100%); }
+        .property-card__icon .material-symbols-outlined { font-size: 28px; }
+        .property-card__icon--blanca .material-symbols-outlined { color: var(--color-charcoal); }
+        .property-card__icon--mediterranea .material-symbols-outlined { color: #5a4020; }
+        .property-card__icon--common .material-symbols-outlined { color: white; }
+        .property-card__info { flex: 1; }
+        .property-card__name { font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; }
+        .property-card__desc { font-size: 0.85rem; color: var(--color-text-light); }
+        .property-card__check { width: 24px; height: 24px; border: 2px solid rgba(0,0,0,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .property-card.selected .property-card__check { background: var(--color-sage); border-color: var(--color-sage); }
+        .property-card__check .material-symbols-outlined { font-size: 16px; color: white; opacity: 0; }
+        .property-card.selected .property-card__check .material-symbols-outlined { opacity: 1; }
+
+        .cleaning-type { display: flex; gap: 15px; margin-bottom: 20px; }
+        .cleaning-type__btn { flex: 1; padding: 20px 15px; background: white; border: 2px solid transparent; border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.3s; }
+        .cleaning-type__btn:hover { border-color: rgba(0,0,0,0.1); }
+        .cleaning-type__btn.selected { border-color: var(--color-charcoal); background: var(--color-cream); }
+        .cleaning-type__icon { font-size: 28px; margin-bottom: 8px; }
+        .cleaning-type__btn--checkout .cleaning-type__icon { color: var(--color-terracotta); }
+        .cleaning-type__btn--checkin .cleaning-type__icon { color: var(--color-sage); }
+        .cleaning-type__btn--maintenance .cleaning-type__icon { color: var(--color-mustard); }
+        .cleaning-type__label { font-weight: 600; font-size: 0.9rem; }
+        .cleaning-type__desc { font-size: 0.75rem; color: var(--color-text-light); margin-top: 4px; }
+
+        .guest-info { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .guest-info__title { font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+        .guest-info__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .guest-info__item label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-light); margin-bottom: 6px; }
+        .guest-info__item input { width: 100%; padding: 12px; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem; }
+
+        .start-btn { width: 100%; padding: 18px; background: var(--color-charcoal); color: white; border: none; border-radius: 12px; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s; }
+        .start-btn:hover { background: var(--color-terracotta); }
+        .start-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .main-app { display: none; }
+        .main-app.active { display: block; }
+        .selection-screen.hidden { display: none; }
+
+        /* Header */
+        .header { background: var(--color-charcoal); color: white; padding: 15px 20px; position: sticky; top: 0; z-index: 100; }
+        .header__inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .header__left { display: flex; align-items: center; gap: 15px; }
+        .header__back { background: rgba(255,255,255,0.1); border: none; width: 40px; height: 40px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .header__back .material-symbols-outlined { color: white; font-size: 20px; }
+        .header__logo img { height: 32px; filter: brightness(0) invert(1); }
+        .header__time { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.7; }
+        .header__avatar { width: 36px; height: 36px; background: var(--color-sage); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; margin-left: 10px; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+        /* Session Header */
+        .session-header { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .session-header__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+        .session-header__house { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; }
+        .session-header__type { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; }
+        .session-header__type--checkout { background: rgba(166, 93, 87, 0.15); color: var(--color-terracotta); }
+        .session-header__type--checkin { background: rgba(45, 74, 62, 0.15); color: var(--color-sage); }
+        .session-header__type--maintenance { background: rgba(233, 184, 74, 0.2); color: #9a7a00; }
+        .session-header__info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .session-header__item { text-align: center; padding: 15px; background: var(--color-cream); border-radius: 8px; }
+        .session-header__item-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light); margin-bottom: 5px; }
+        .session-header__item-value { font-weight: 600; }
+
+        /* Timer */
+        .timer { background: linear-gradient(135deg, var(--color-charcoal) 0%, #5a252d 100%); color: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; text-align: center; }
+        .timer__label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 10px; }
+        .timer__display { font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; }
+        .timer__controls { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
+        .timer__btn { padding: 12px 25px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .timer__btn--start { background: var(--color-sage); color: white; }
+        .timer__btn--pause { background: var(--color-mustard); color: var(--color-charcoal); }
+        .timer__btn--stop { background: rgba(255,255,255,0.15); color: white; }
+
+        /* Progress */
+        .progress { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .progress__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .progress__label { font-weight: 500; }
+        .progress__count { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-light); }
+        .progress__bar { height: 10px; background: rgba(0,0,0,0.08); border-radius: 5px; overflow: hidden; }
+        .progress__fill { height: 100%; background: linear-gradient(90deg, var(--color-sage) 0%, var(--color-mustard) 100%); border-radius: 5px; transition: width 0.5s; }
+        .progress__rooms { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
+        .progress__room { padding: 5px 10px; border-radius: 6px; font-size: 0.7rem; background: rgba(0,0,0,0.05); color: var(--color-text-light); display: flex; align-items: center; gap: 4px; }
+        .progress__room--done { background: rgba(45, 74, 62, 0.15); color: var(--color-sage); }
+        .progress__room .material-symbols-outlined { font-size: 14px; }
+
+        /* Tabs */
+        .tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; }
+        .tab { padding: 12px 18px; background: white; border-radius: 8px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; white-space: nowrap; display: flex; align-items: center; gap: 8px; border: 2px solid transparent; }
+        .tab:hover { border-color: rgba(0,0,0,0.1); }
+        .tab.active { background: var(--color-charcoal); color: white; }
+        .tab__badge { background: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 10px; font-size: 0.6rem; }
+        .tab.active .tab__badge { background: rgba(255,255,255,0.2); }
+
+        /* Room Section */
+        .room-section { background: white; border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
+        .room-section__header { padding: 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+        .room-section__header:hover { background: rgba(0,0,0,0.02); }
+        .room-section__title { display: flex; align-items: center; gap: 12px; }
+        .room-section__icon { width: 44px; height: 44px; background: var(--color-cream); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .room-section__icon .material-symbols-outlined { font-size: 22px; color: var(--color-charcoal); }
+        .room-section__icon--done { background: var(--color-sage); }
+        .room-section__icon--done .material-symbols-outlined { color: white; }
+        .room-section__name { font-weight: 600; }
+        .room-section__status { font-size: 0.8rem; color: var(--color-text-light); }
+        .room-section__toggle { display: flex; align-items: center; gap: 10px; }
+        .room-section__progress-mini { width: 50px; height: 5px; background: rgba(0,0,0,0.1); border-radius: 3px; overflow: hidden; }
+        .room-section__progress-mini-fill { height: 100%; background: var(--color-sage); }
+        .room-section__chevron { transition: transform 0.3s; }
+        .room-section.open .room-section__chevron { transform: rotate(180deg); }
+        .room-section__content { display: none; padding: 0 18px 18px; }
+        .room-section.open .room-section__content { display: block; }
+
+        /* Checklist */
+        .checklist { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 15px; }
+        .checklist__item { display: flex; align-items: flex-start; gap: 12px; padding: 12px; margin-bottom: 8px; background: var(--color-cream); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+        .checklist__item:hover { background: #ebe6d7; }
+        .checklist__item.checked { background: rgba(45, 74, 62, 0.1); }
+        .checklist__checkbox { width: 24px; height: 24px; border: 2px solid rgba(0,0,0,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .checklist__item.checked .checklist__checkbox { background: var(--color-sage); border-color: var(--color-sage); }
+        .checklist__checkbox .material-symbols-outlined { font-size: 16px; color: white; opacity: 0; }
+        .checklist__item.checked .checklist__checkbox .material-symbols-outlined { opacity: 1; }
+        .checklist__text { flex: 1; }
+        .checklist__label { font-size: 0.9rem; }
+        .checklist__item.checked .checklist__label { text-decoration: line-through; opacity: 0.6; }
+        .checklist__hint { font-size: 0.75rem; color: var(--color-text-light); margin-top: 2px; }
+        .checklist__action { width: 32px; height: 32px; border-radius: 6px; border: none; background: rgba(0,0,0,0.05); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .checklist__action:hover { background: rgba(166, 93, 87, 0.15); }
+        .checklist__action .material-symbols-outlined { font-size: 18px; color: var(--color-text-light); }
+
+        .room-complete { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .room-complete__btn { padding: 12px 24px; background: var(--color-sage); color: white; border: none; border-radius: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .room-complete__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Inventory */
+        .inventory { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .inventory__title { font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .inventory__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .inventory__item { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: var(--color-cream); border-radius: 8px; }
+        .inventory__item--low { border-left: 3px solid var(--color-terracotta); }
+        .inventory__item-name { font-size: 0.85rem; }
+        .inventory__item-control { display: flex; align-items: center; gap: 8px; }
+        .inventory__item-btn { width: 28px; height: 28px; border-radius: 6px; border: none; background: white; cursor: pointer; font-size: 1.1rem; font-weight: 600; }
+        .inventory__item-count { font-family: var(--font-mono); font-weight: 600; min-width: 25px; text-align: center; }
+
+        /* Issues */
+        .issues-list { background: white; border-radius: 12px; padding: 20px; }
+        .issues-list__title { font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .issues-list__empty { text-align: center; padding: 30px; color: var(--color-text-light); }
+        .issue-card { padding: 15px; background: var(--color-cream); border-radius: 8px; margin-bottom: 10px; border-left: 4px solid var(--color-mustard); }
+        .issue-card__header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .issue-card__location { font-weight: 600; font-size: 0.9rem; }
+        .issue-card__severity { font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; background: rgba(233,184,74,0.2); }
+        .issue-card__desc { font-size: 0.85rem; color: var(--color-text-light); }
+
+        /* Complete */
+        .signature-section { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .signature-section__title { font-weight: 600; margin-bottom: 15px; }
+        .signature-pad { border: 2px solid rgba(0,0,0,0.1); border-radius: 8px; height: 120px; position: relative; background: #fafafa; }
+        .signature-pad canvas { width: 100%; height: 100%; }
+        .signature-pad__clear { position: absolute; top: 8px; right: 8px; padding: 5px 10px; background: white; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; font-size: 0.7rem; cursor: pointer; }
+
+        .final-submit { background: linear-gradient(135deg, var(--color-sage) 0%, #1a3a2e 100%); color: white; border-radius: 12px; padding: 30px; text-align: center; }
+        .final-submit__title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 10px; }
+        .final-submit__desc { opacity: 0.8; margin-bottom: 20px; font-size: 0.9rem; }
+        .final-submit__btn { padding: 14px 35px; background: white; color: var(--color-sage); border: none; border-radius: 8px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; }
+        .final-submit__btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; border-radius: 16px; width: 100%; max-width: 450px; max-height: 85vh; overflow-y: auto; }
+        .modal__header { padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; }
+        .modal__title { font-weight: 600; font-size: 1.1rem; }
+        .modal__close { width: 32px; height: 32px; border-radius: 8px; border: none; background: rgba(0,0,0,0.05); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .modal__body { padding: 20px; }
+        .modal__footer { padding: 15px 20px; border-top: 1px solid rgba(0,0,0,0.08); display: flex; gap: 10px; justify-content: flex-end; }
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-light); margin-bottom: 6px; }
+        .form-input, .form-textarea { width: 100%; padding: 10px 12px; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; }
+        .form-textarea { min-height: 80px; resize: vertical; }
+        .severity-options { display: flex; gap: 10px; }
+        .severity-option { flex: 1; padding: 10px; border: 2px solid rgba(0,0,0,0.1); border-radius: 8px; text-align: center; cursor: pointer; }
+        .severity-option.selected { border-color: var(--color-charcoal); background: var(--color-cream); }
+        .severity-option__label { font-size: 0.75rem; font-weight: 500; }
+        .btn { padding: 12px 20px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: none; }
+        .btn--primary { background: var(--color-charcoal); color: white; }
+        .btn--secondary { background: rgba(0,0,0,0.05); color: var(--color-text); }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        @media (max-width: 600px) {
+            .session-header__info { grid-template-columns: 1fr; gap: 10px; }
+            .timer__display { font-size: 2rem; }
+            .inventory__grid { grid-template-columns: 1fr; }
+            .cleaning-type { flex-direction: column; }
+            .guest-info__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SELECTION SCREEN -->
+    <div class="selection-screen" id="selection-screen">
+        <div class="selection-header">
+            <img src="cdn/logos/canpares-logo.webp" alt="Can Pares" class="selection-header__logo">
+            <div class="selection-header__title">Housekeeping Portal</div>
+        </div>
+        <div class="selection-content">
+            <div class="selection-section">
+                <div class="selection-section__title">Select Property / Area</div>
+                <div id="property-cards-container">
+                    <div style="text-align:center;padding:40px;color:#6B635A;">Loading properties...</div>
+                </div>
+            </div>
+            <div class="selection-section">
+                <div class="selection-section__title">Cleaning Type</div>
+                <div class="cleaning-type">
+                    <div class="cleaning-type__btn cleaning-type__btn--checkout" onclick="selectType(this, 'checkout')">
+                        <div class="material-symbols-outlined cleaning-type__icon">logout</div>
+                        <div class="cleaning-type__label">Check-out</div>
+                        <div class="cleaning-type__desc">Deep clean</div>
+                    </div>
+                    <div class="cleaning-type__btn cleaning-type__btn--checkin" onclick="selectType(this, 'checkin')">
+                        <div class="material-symbols-outlined cleaning-type__icon">login</div>
+                        <div class="cleaning-type__label">Check-in</div>
+                        <div class="cleaning-type__desc">Final touch</div>
+                    </div>
+                    <div class="cleaning-type__btn cleaning-type__btn--maintenance" onclick="selectType(this, 'maintenance')">
+                        <div class="material-symbols-outlined cleaning-type__icon">build</div>
+                        <div class="cleaning-type__label">Maintenance</div>
+                        <div class="cleaning-type__desc">Regular</div>
+                    </div>
+                </div>
+            </div>
+            <div class="guest-info" id="guest-info-section" style="display: none;">
+                <h4 class="guest-info__title"><span class="material-symbols-outlined">schedule</span> Timing</h4>
+                <div class="guest-info__grid">
+                    <div class="guest-info__item">
+                        <label>Previous Guest Left</label>
+                        <input type="time" id="departure-time" value="11:00">
+                    </div>
+                    <div class="guest-info__item">
+                        <label>Next Guest Arrives</label>
+                        <input type="time" id="arrival-time" value="16:00">
+                    </div>
+                </div>
+            </div>
+            <button class="start-btn" id="start-btn" disabled onclick="startSession()">
+                <span class="material-symbols-outlined">play_arrow</span>
+                Start Cleaning Session
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div class="main-app" id="main-app">
+        <header class="header">
+            <div class="header__inner">
+                <div class="header__left">
+                    <button class="header__back" onclick="goBack()"><span class="material-symbols-outlined">arrow_back</span></button>
+                    <div class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></div>
+                </div>
+                <div style="display:flex;align-items:center;">
+                    <div class="header__time" id="current-time">14:32</div>
+                    <div class="header__avatar">MC</div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="session-header">
+                <div class="session-header__top">
+                    <div class="session-header__house" id="session-property">Casa Blanca</div>
+                    <div class="session-header__type session-header__type--checkout" id="session-type"><span class="material-symbols-outlined">logout</span> Check-out</div>
+                </div>
+                <div class="session-header__info">
+                    <div class="session-header__item">
+                        <div class="session-header__item-label">Departed</div>
+                        <div class="session-header__item-value" id="session-departure">11:00</div>
+                    </div>
+                    <div class="session-header__item">
+                        <div class="session-header__item-label">Arrives</div>
+                        <div class="session-header__item-value" id="session-arrival">16:00</div>
+                    </div>
+                    <div class="session-header__item">
+                        <div class="session-header__item-label">Available</div>
+                        <div class="session-header__item-value" id="time-available">5h 00m</div>
+                    </div>
+                </div>
+            </div>
+            <div class="timer">
+                <div class="timer__label">Session Duration</div>
+                <div class="timer__display" id="timer-display">00:00:00</div>
+                <div class="timer__controls">
+                    <button class="timer__btn timer__btn--start" id="timer-start" onclick="startTimer()"><span class="material-symbols-outlined">play_arrow</span> Start</button>
+                    <button class="timer__btn timer__btn--pause" id="timer-pause" style="display:none;" onclick="pauseTimer()"><span class="material-symbols-outlined">pause</span> Pause</button>
+                    <button class="timer__btn timer__btn--stop" onclick="resetTimer()"><span class="material-symbols-outlined">stop</span> Reset</button>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress__header">
+                    <span class="progress__label">Progress</span>
+                    <span class="progress__count" id="progress-count">0 / 0</span>
+                </div>
+                <div class="progress__bar"><div class="progress__fill" id="progress-fill" style="width:0%;"></div></div>
+                <div class="progress__rooms" id="progress-rooms"></div>
+            </div>
+            <div class="tabs">
+                <div class="tab active" data-tab="checklist"><span class="material-symbols-outlined">checklist</span> Checklist</div>
+                <div class="tab" data-tab="inventory"><span class="material-symbols-outlined">inventory_2</span> Inventory</div>
+                <div class="tab" data-tab="issues"><span class="material-symbols-outlined">report_problem</span> Issues <span class="tab__badge" id="issues-count">0</span></div>
+                <div class="tab" data-tab="complete"><span class="material-symbols-outlined">task_alt</span> Complete</div>
+            </div>
+            <div class="tab-content active" id="checklist"><div id="rooms-container"></div></div>
+            <div class="tab-content" id="inventory">
+                <div class="inventory">
+                    <h3 class="inventory__title"><span class="material-symbols-outlined">inventory_2</span> Supply Levels</h3>
+                    <div class="inventory__grid" id="inventory-grid"></div>
+                </div>
+            </div>
+            <div class="tab-content" id="issues">
+                <div class="issues-list">
+                    <h3 class="issues-list__title"><span class="material-symbols-outlined">report_problem</span> Issues</h3>
+                    <div id="issues-container"><div class="issues-list__empty"><span class="material-symbols-outlined" style="font-size:40px;opacity:0.3;">check_circle</span><p>No issues</p></div></div>
+                </div>
+            </div>
+            <div class="tab-content" id="complete">
+                <div class="signature-section">
+                    <h3 class="signature-section__title">Signature</h3>
+                    <div class="signature-pad"><canvas id="signature-canvas"></canvas><button class="signature-pad__clear" onclick="clearSignature()">Clear</button></div>
+                </div>
+                <div class="final-submit">
+                    <h3 class="final-submit__title">Ready?</h3>
+                    <p class="final-submit__desc">Complete all areas and sign above.</p>
+                    <button class="final-submit__btn" id="submit-btn" disabled onclick="submitCleaning()"><span class="material-symbols-outlined">send</span> Submit Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ISSUE MODAL -->
+    <div class="modal-overlay" id="issue-modal">
+        <div class="modal">
+            <div class="modal__header">
+                <h3 class="modal__title">Report Issue</h3>
+                <button class="modal__close" onclick="closeIssueModal()"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div class="modal__body">
+                <div class="form-group">
+                    <label class="form-label">Location</label>
+                    <input type="text" class="form-input" id="issue-location" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Severity</label>
+                    <div class="severity-options">
+                        <div class="severity-option" onclick="selectSeverity(this,'low')"><div class="severity-option__label" style="color:var(--color-sage)">Low</div></div>
+                        <div class="severity-option selected" onclick="selectSeverity(this,'medium')"><div class="severity-option__label" style="color:var(--color-mustard)">Medium</div></div>
+                        <div class="severity-option" onclick="selectSeverity(this,'high')"><div class="severity-option__label" style="color:var(--color-terracotta)">High</div></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" id="issue-description" placeholder="Describe..."></textarea>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--secondary" onclick="closeIssueModal()">Cancel</button>
+                <button class="btn btn--primary" onclick="submitIssue()">Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // =============================================
+    // ⚙️ CONFIGURATION - EDIT THIS SECTION TO CUSTOMIZE
+    // =============================================
+    
+    var CONFIG = {};
+
+    // Load config from Firebase
+    function loadConfig() {
+        firebase.firestore().collection('cleaning-config').get().then(function(snapshot) {
+            if (snapshot.empty) {
+                // Use default hardcoded config if Firebase is empty
+                CONFIG = getDefaultConfig();
+            } else {
+                snapshot.forEach(function(doc) {
+                    CONFIG[doc.id] = doc.data();
+                });
+            }
+            console.log('Config loaded:', Object.keys(CONFIG).length, 'properties');
+            renderPropertyCards();
+        }).catch(function(error) {
+            console.error('Error loading config:', error);
+            CONFIG = getDefaultConfig();
+            renderPropertyCards();
+        });
+    }
+
+    function getDefaultConfig() {
+        return {
+        'casa-blanca': {
+            name: 'Casa Blanca',
+            rooms: [
+                { id: 'entrance-cb', name: 'Entrance', icon: 'door_front', tasks: [
+                    'Sweep and mop floors', 'Dust surfaces', 'Clean entrance door', 'Clean mirrors', 'Check lights'
+                ]},
+                { id: 'living-cb', name: 'Living Room', icon: 'weekend', tasks: [
+                    'Vacuum floors and rugs', 'Dust all surfaces', 'Clean windows', 'Arrange cushions', 'Clean TV screen',
+                    'Check TV remote batteries', 'Place welcome book', 'Check fireplace'
+                ]},
+                { id: 'kitchen-cb', name: 'Kitchen', icon: 'kitchen', tasks: [
+                    'Clean countertops', 'Clean inside fridge', 'Clean oven and stovetop', 'Clean microwave',
+                    'Run/empty dishwasher', 'Clean coffee machine', 'Clean sink and taps', 'Mop floor',
+                    'Empty bins', 'Replace dish towels', 'New sponge', 'Check dish soap'
+                ]},
+                { id: 'bed1-cb', name: 'Bedroom 1 (Master)', icon: 'king_bed', tasks: [
+                    'Strip & replace linens', 'Make bed (hospital corners)', 'Place throw blanket',
+                    'Vacuum floor', 'Dust surfaces', 'Check wardrobe', 'Place water bottles', 'Check lights'
+                ]},
+                { id: 'bed2-cb', name: 'Bedroom 2', icon: 'bed', tasks: [
+                    'Strip & replace linens', 'Make bed', 'Vacuum floor', 'Dust surfaces', 'Check wardrobe', 'Place water bottles'
+                ]},
+                { id: 'bed3-cb', name: 'Bedroom 3', icon: 'single_bed', tasks: [
+                    'Strip & replace linens', 'Make beds', 'Vacuum floor', 'Dust surfaces', 'Check wardrobe', 'Place water bottles'
+                ]},
+                { id: 'bath-cb', name: 'Bathrooms (3)', icon: 'bathtub', tasks: [
+                    'Clean all toilets', 'Clean all showers', 'Clean all sinks', 'Clean mirrors',
+                    'Mop floors', 'Replace towels (2 bath + 2 hand each)', 'Refill soap', 'Check toilet paper', 'Empty bins', 'Place amenities'
+                ]},
+                { id: 'terrace-cb', name: 'Private Terrace', icon: 'deck', tasks: [
+                    'Sweep terrace', 'Clean furniture', 'Arrange cushions', 'Wipe table'
+                ]}
+            ],
+            inventory: [
+                { name: 'Toilet Paper', count: 12, min: 6 },
+                { name: 'Paper Towels', count: 4, min: 3 },
+                { name: 'Hand Soap', count: 3, min: 2 },
+                { name: 'Shampoo', count: 6, min: 3 },
+                { name: 'Nespresso Pods', count: 20, min: 10 },
+                { name: 'Water Bottles', count: 12, min: 6 }
+            ]
+        },
+        'casa-mediterranea': {
+            name: 'Casa Mediterranea',
+            rooms: [
+                { id: 'entrance-cm', name: 'Entrance', icon: 'door_front', tasks: [
+                    'Sweep terracotta floors', 'Dust antique furniture', 'Clean door', 'Clean mirrors', 'Check lights'
+                ]},
+                { id: 'living-cm', name: 'Living & Dining', icon: 'weekend', tasks: [
+                    'Vacuum rugs', 'Dust surfaces', 'Clean windows', 'Arrange cushions',
+                    'Clean TV', 'Check remote', 'Place house guide', 'Polish dining table'
+                ]},
+                { id: 'kitchen-cm', name: 'Kitchenette', icon: 'countertops', tasks: [
+                    'Clean counters', 'Clean fridge', 'Clean stovetop', 'Clean microwave',
+                    'Clean coffee maker', 'Clean sink', 'Mop floor', 'Empty bin', 'Replace towels'
+                ]},
+                { id: 'bed1-cm', name: 'Bedroom 1', icon: 'king_bed', tasks: [
+                    'Strip & replace linens', 'Make bed', 'Place throw', 'Vacuum floor',
+                    'Dust surfaces', 'Check wardrobe', 'Place water bottles', 'Check lights'
+                ]},
+                { id: 'bed2-cm', name: 'Bedroom 2', icon: 'bed', tasks: [
+                    'Strip & replace linens', 'Make bed', 'Vacuum floor', 'Dust surfaces', 'Check wardrobe', 'Place water bottles'
+                ]},
+                { id: 'bath-cm', name: 'Bathrooms (2)', icon: 'bathtub', tasks: [
+                    'Clean toilets', 'Clean showers', 'Clean sinks', 'Clean mirrors',
+                    'Mop floors', 'Replace towels', 'Refill soap', 'Check toilet paper', 'Empty bins', 'Place amenities'
+                ]},
+                { id: 'patio-cm', name: 'Private Patio', icon: 'yard', tasks: [
+                    'Sweep patio', 'Clean furniture', 'Water plants', 'Wipe table'
+                ]}
+            ],
+            inventory: [
+                { name: 'Toilet Paper', count: 8, min: 4 },
+                { name: 'Paper Towels', count: 3, min: 2 },
+                { name: 'Hand Soap', count: 2, min: 2 },
+                { name: 'Shampoo', count: 4, min: 2 },
+                { name: 'Coffee Pods', count: 15, min: 8 },
+                { name: 'Water Bottles', count: 8, min: 4 }
+            ]
+        },
+        'common-areas': {
+            name: 'Common Areas',
+            rooms: [
+                { id: 'pool', name: 'Pool Area', icon: 'pool', tasks: [
+                    'Check pool water', 'Clean pool deck', 'Arrange loungers', 'Place pool towels',
+                    'Clean outdoor shower', 'Empty bins', 'Check safety equipment', 'Wipe tables'
+                ]},
+                { id: 'bbq', name: 'BBQ & Outdoor Kitchen', icon: 'outdoor_grill', tasks: [
+                    'Clean BBQ grill', 'Empty grease trap', 'Wipe counters', 'Clean sink',
+                    'Check propane/charcoal', 'Sweep area', 'Clean dining furniture', 'Check lights'
+                ]},
+                { id: 'garden', name: 'Garden & Paths', icon: 'park', tasks: [
+                    'Sweep pathways', 'Remove litter', 'Check garden furniture', 'Check hammock',
+                    'Check garden lights', 'Look for hazards', 'Water potted plants'
+                ]},
+                { id: 'terrace-main', name: 'Main Terrace', icon: 'deck', tasks: [
+                    'Sweep terrace', 'Clean furniture', 'Arrange cushions', 'Clean tables',
+                    'Check string lights', 'Empty ashtrays', 'Water plants'
+                ]},
+                { id: 'parking', name: 'Parking & Entrance', icon: 'local_parking', tasks: [
+                    'Sweep parking', 'Check gate', 'Check house numbers', 'Check entrance lights', 'Remove rubbish'
+                ]},
+                { id: 'utility', name: 'Utility Areas', icon: 'warehouse', tasks: [
+                    'Tidy laundry room', 'Empty lint traps', 'Organize supplies', 'Check storage locked', 'Note repairs needed'
+                ]}
+            ],
+            inventory: [
+                { name: 'Pool Towels', count: 12, min: 8 },
+                { name: 'Charcoal Bags', count: 3, min: 2 },
+                { name: 'Propane Tanks', count: 2, min: 1 },
+                { name: 'Large Bin Bags', count: 20, min: 10 },
+                { name: 'Outdoor Bulbs', count: 6, min: 4 },
+                { name: 'Cleaning Cloths', count: 15, min: 10 }
+            ]
+        }
+        };
+    }
+
+    function renderPropertyCards() {
+        var container = document.getElementById('property-cards-container');
+        if (!container) return;
+        
+        var html = '';
+        var icons = {
+            'casa-blanca': { class: 'blanca', icon: 'cottage' },
+            'casa-mediterranea': { class: 'mediterranea', icon: 'villa' },
+            'common-areas': { class: 'common', icon: 'deck' }
+        };
+        
+        for (var id in CONFIG) {
+            var prop = CONFIG[id];
+            var iconInfo = icons[id] || { class: 'blanca', icon: 'home' };
+            var roomCount = prop.rooms ? prop.rooms.length : 0;
+            
+            html += '<div class="property-card" onclick="selectProperty(this, \'' + id + '\')">';
+            html += '<div class="property-card__icon property-card__icon--' + iconInfo.class + '"><span class="material-symbols-outlined">' + iconInfo.icon + '</span></div>';
+            html += '<div class="property-card__info"><div class="property-card__name">' + prop.name + '</div>';
+            html += '<div class="property-card__desc">' + roomCount + ' rooms</div></div>';
+            html += '<div class="property-card__check"><span class="material-symbols-outlined">check</span></div>';
+            html += '</div>';
+        }
+        container.innerHTML = html;
+    }
+
+    // Config will be loaded after Firebase init (see bottom of file)
+
+    // =============================================
+    // APP STATE & LOGIC
+    // =============================================
+
+    var selectedProperty = null, selectedType = null, issues = [], timerSeconds = 0, timerRunning = false, timerInterval;
+
+    function selectProperty(el, id) {
+        document.querySelectorAll('.property-card').forEach(function(c) { c.classList.remove('selected'); });
+        el.classList.add('selected');
+        selectedProperty = id;
+        document.getElementById('guest-info-section').style.display = id === 'common-areas' ? 'none' : 'block';
+        checkCanStart();
+    }
+
+    function selectType(el, type) {
+        document.querySelectorAll('.cleaning-type__btn').forEach(function(b) { b.classList.remove('selected'); });
+        el.classList.add('selected');
+        selectedType = type;
+        checkCanStart();
+    }
+
+    function checkCanStart() {
+        document.getElementById('start-btn').disabled = !(selectedProperty && selectedType);
+    }
+
+    function startSession() {
+        var cfg = CONFIG[selectedProperty];
+        document.getElementById('session-property').textContent = cfg.name;
+        
+        var types = { checkout: ['logout','Check-out','checkout'], checkin: ['login','Check-in','checkin'], maintenance: ['build','Maintenance','maintenance'] };
+        var t = types[selectedType];
+        document.getElementById('session-type').innerHTML = '<span class="material-symbols-outlined">' + t[0] + '</span> ' + t[1];
+        document.getElementById('session-type').className = 'session-header__type session-header__type--' + t[2];
+
+        var dep = document.getElementById('departure-time').value;
+        var arr = document.getElementById('arrival-time').value;
+        document.getElementById('session-departure').textContent = dep;
+        document.getElementById('session-arrival').textContent = arr;
+
+        if (selectedProperty !== 'common-areas') {
+            var depParts = dep.split(':').map(Number);
+            var arrParts = arr.split(':').map(Number);
+            var diff = (arrParts[1] + arrParts[0]*60) - (depParts[1] + depParts[0]*60);
+            document.getElementById('time-available').textContent = Math.floor(diff/60) + 'h ' + (diff%60).toString().padStart(2,'0') + 'm';
+        } else {
+            document.getElementById('time-available').textContent = 'Flexible';
+        }
+
+        generateRooms(cfg.rooms);
+        generateInventory(cfg.inventory);
+
+        document.getElementById('selection-screen').classList.add('hidden');
+        document.getElementById('main-app').classList.add('active');
+        setTimeout(initSignature, 100);
+        updateProgress();
+    }
+
+    function goBack() {
+        if (confirm('Exit? Progress will be lost.')) {
+            document.getElementById('selection-screen').classList.remove('hidden');
+            document.getElementById('main-app').classList.remove('active');
+            resetTimer();
+        }
+    }
+
+    function generateRooms(rooms) {
+        var container = document.getElementById('rooms-container');
+        var progress = document.getElementById('progress-rooms');
+        container.innerHTML = ''; progress.innerHTML = '';
+
+        rooms.forEach(function(room, i) {
+            progress.innerHTML += '<span class="progress__room" data-room="' + room.id + '"><span class="material-symbols-outlined">radio_button_unchecked</span> ' + room.name.split(' ')[0] + '</span>';
+            
+            var tasks = room.tasks.map(function(task) {
+                return '<div class="checklist__item" onclick="toggleCheck(this)"><div class="checklist__checkbox"><span class="material-symbols-outlined">check</span></div><div class="checklist__text"><div class="checklist__label">' + task + '</div></div><button class="checklist__action" onclick="event.stopPropagation();openIssue(\'' + room.name + '\',\'' + task + '\')"><span class="material-symbols-outlined">flag</span></button></div>';
+            }).join('');
+
+            container.innerHTML += '<div class="room-section ' + (i===0?'open':'') + '" data-room="' + room.id + '"><div class="room-section__header" onclick="toggleRoom(this)"><div class="room-section__title"><div class="room-section__icon"><span class="material-symbols-outlined">' + room.icon + '</span></div><div><div class="room-section__name">' + room.name + '</div><div class="room-section__status">0 / ' + room.tasks.length + '</div></div></div><div class="room-section__toggle"><div class="room-section__progress-mini"><div class="room-section__progress-mini-fill" style="width:0%"></div></div><span class="material-symbols-outlined room-section__chevron">expand_more</span></div></div><div class="room-section__content"><div class="checklist">' + tasks + '</div><div class="room-complete"><span style="font-size:0.8rem;color:var(--color-text-light)">Complete all to mark done</span><button class="room-complete__btn" disabled onclick="completeRoom(\'' + room.id + '\')"><span class="material-symbols-outlined">check_circle</span> Done</button></div></div></div>';
+        });
+        document.getElementById('progress-count').textContent = '0 / ' + rooms.length;
+    }
+
+    function generateInventory(items) {
+        document.getElementById('inventory-grid').innerHTML = items.map(function(item) {
+            return '<div class="inventory__item ' + (item.count <= item.min ? 'inventory__item--low' : '') + '"><span class="inventory__item-name">' + item.name + '</span><div class="inventory__item-control"><button class="inventory__item-btn" onclick="updateInv(this,-1)">−</button><span class="inventory__item-count">' + item.count + '</span><button class="inventory__item-btn" onclick="updateInv(this,1)">+</button></div></div>';
+        }).join('');
+    }
+
+    function toggleRoom(h) { h.closest('.room-section').classList.toggle('open'); }
+
+    function toggleCheck(item) {
+        item.classList.toggle('checked');
+        var section = item.closest('.room-section');
+        var items = section.querySelectorAll('.checklist__item');
+        var checked = section.querySelectorAll('.checklist__item.checked');
+        section.querySelector('.room-section__status').textContent = checked.length + ' / ' + items.length;
+        section.querySelector('.room-section__progress-mini-fill').style.width = (checked.length/items.length*100)+'%';
+        section.querySelector('.room-complete__btn').disabled = checked.length !== items.length;
+        updateProgress();
+    }
+
+    function completeRoom(id) {
+        var section = document.querySelector('div.room-section[data-room="' + id + '"]');
+        if (section) {
+            var icon = section.querySelector('.room-section__icon');
+            if (icon) icon.classList.add('room-section__icon--done');
+            section.classList.remove('open');
+        }
+        updateProgress();
+    }
+
+    function updateProgress() {
+        var rooms = document.querySelectorAll('.room-section');
+        var done = document.querySelectorAll('.room-section__icon--done');
+        document.getElementById('progress-fill').style.width = (done.length/rooms.length*100)+'%';
+        document.getElementById('progress-count').textContent = done.length + ' / ' + rooms.length;
+        document.querySelectorAll('.progress__room').forEach(function(r,i) {
+            var isDone = rooms[i] && rooms[i].querySelector('.room-section__icon--done');
+            r.classList.toggle('progress__room--done', isDone);
+            if (isDone) r.querySelector('.material-symbols-outlined').textContent = 'check_circle';
+        });
+        document.getElementById('submit-btn').disabled = done.length !== rooms.length;
+    }
+
+    function updateInv(btn, d) {
+        const cnt = btn.parentElement.querySelector('.inventory__item-count');
+        let v = Math.max(0, parseInt(cnt.textContent) + d);
+        cnt.textContent = v;
+        btn.closest('.inventory__item').classList.toggle('inventory__item--low', v <= 3);
+    }
+
+    // Timer
+    function startTimer() {
+        timerRunning = true;
+        document.getElementById('timer-start').style.display = 'none';
+        document.getElementById('timer-pause').style.display = 'flex';
+        timerInterval = setInterval(function() { timerSeconds++; updateTimerDisplay(); }, 1000);
+    }
+    function pauseTimer() {
+        timerRunning = false;
+        clearInterval(timerInterval);
+        document.getElementById('timer-start').style.display = 'flex';
+        document.getElementById('timer-pause').style.display = 'none';
+    }
+    function resetTimer() { pauseTimer(); timerSeconds = 0; updateTimerDisplay(); }
+    function updateTimerDisplay() {
+        var h = Math.floor(timerSeconds/3600), m = Math.floor((timerSeconds%3600)/60), s = timerSeconds%60;
+        document.getElementById('timer-display').textContent = h.toString().padStart(2,'0') + ':' + m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0');
+    }
+
+    // Issues
+    var currentSeverity = 'medium';
+    function openIssue(loc, item) {
+        document.getElementById('issue-location').value = loc + ' - ' + item;
+        document.getElementById('issue-description').value = '';
+        document.getElementById('issue-modal').classList.add('active');
+    }
+    function closeIssueModal() { document.getElementById('issue-modal').classList.remove('active'); }
+    function selectSeverity(el, sev) {
+        document.querySelectorAll('.severity-option').forEach(function(o) { o.classList.remove('selected'); });
+        el.classList.add('selected');
+        currentSeverity = sev;
+    }
+    function submitIssue() {
+        issues.push({ location: document.getElementById('issue-location').value, severity: currentSeverity, desc: document.getElementById('issue-description').value });
+        document.getElementById('issues-count').textContent = issues.length;
+        document.getElementById('issues-container').innerHTML = issues.map(function(i) {
+            return '<div class="issue-card"><div class="issue-card__header"><span class="issue-card__location">' + i.location + '</span><span class="issue-card__severity">' + i.severity + '</span></div><p class="issue-card__desc">' + (i.desc||'No description') + '</p></div>';
+        }).join('');
+        closeIssueModal();
+    }
+
+    // Signature
+    var canvas, ctx;
+    function initSignature() {
+        canvas = document.getElementById('signature-canvas');
+        ctx = canvas.getContext('2d');
+        var rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width; canvas.height = rect.height;
+        ctx.strokeStyle = '#2C2825'; ctx.lineWidth = 2; ctx.lineCap = 'round';
+        var drawing = false;
+        canvas.addEventListener('mousedown', function() { drawing = true; });
+        canvas.addEventListener('mouseup', function() { drawing = false; ctx.beginPath(); });
+        canvas.addEventListener('touchstart', function() { drawing = true; });
+        canvas.addEventListener('touchend', function() { drawing = false; ctx.beginPath(); });
+        function draw(e) {
+            if (!drawing) return;
+            e.preventDefault();
+            var r = canvas.getBoundingClientRect();
+            var x = (e.clientX || e.touches[0].clientX) - r.left;
+            var y = (e.clientY || e.touches[0].clientY) - r.top;
+            ctx.lineTo(x, y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(x, y);
+        }
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchmove', draw);
+    }
+    function clearSignature() { ctx?.clearRect(0, 0, canvas.width, canvas.height); }
+
+    function submitCleaning() { alert('✅ Report submitted! Thank you.'); }
+    </script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+
+    <script>
+    // Firebase Configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDlqtcXUqEctwsvLbXzGOenleNPDwOj4n4",
+        authDomain: "masia-can-pares.firebaseapp.com",
+        projectId: "masia-can-pares",
+        storageBucket: "masia-can-pares.firebasestorage.app",
+        messagingSenderId: "898469617158",
+        appId: "1:898469617158:web:94f57c383501f81b9d2d87"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    var storage = firebase.storage();
+
+    var currentSessionId = null;
+    var staffName = 'Staff'; // Default name
+
+    // Load config from Firebase
+    loadConfig();
+
+    // Override submitIssue to save to Firebase
+    var originalSubmitIssue = submitIssue;
+    submitIssue = function() {
+        var issueData = {
+            property: selectedProperty,
+            cleaningType: selectedType,
+            location: document.getElementById('issue-location').value,
+            severity: currentSeverity,
+            description: document.getElementById('issue-description').value,
+            reportedBy: staffName || 'Staff',
+            reportedAt: firebase.firestore.FieldValue.serverTimestamp(),
+            status: 'open',
+            sessionId: currentSessionId
+        };
+
+        db.collection('issues').add(issueData).then(function(docRef) {
+            console.log('Issue saved with ID:', docRef.id);
+            issues.push({ 
+                id: docRef.id,
+                location: issueData.location, 
+                severity: issueData.severity, 
+                desc: issueData.description 
+            });
+            document.getElementById('issues-count').textContent = issues.length;
+            document.getElementById('issues-container').innerHTML = issues.map(function(i) {
+                return '<div class="issue-card"><div class="issue-card__header"><span class="issue-card__location">' + i.location + '</span><span class="issue-card__severity">' + i.severity + '</span></div><p class="issue-card__desc">' + (i.desc || 'No description') + '</p></div>';
+            }).join('');
+            closeIssueModal();
+        }).catch(function(error) {
+            console.error('Error saving issue:', error);
+            alert('Error saving issue. Please try again.');
+        });
+    };
+
+    // Override startSession to create Firebase record
+    var originalStartSession = startSession;
+    startSession = function() {
+        if (!selectedProperty || !selectedType) {
+            alert('Please select a property and cleaning type.');
+            return;
+        }
+
+        var sessionData = {
+            property: selectedProperty,
+            cleaningType: selectedType,
+            staffName: staffName || 'Staff',
+            startTime: firebase.firestore.FieldValue.serverTimestamp(),
+            status: 'in-progress',
+            guestDeparture: document.getElementById('guest-departure')?.value || null,
+            guestArrival: document.getElementById('guest-arrival')?.value || null
+        };
+
+        db.collection('cleaning-sessions').add(sessionData).then(function(docRef) {
+            currentSessionId = docRef.id;
+            console.log('Session started with ID:', currentSessionId);
+            
+            // Show the main app UI (copied from original startSession)
+            var cfg = CONFIG[selectedProperty];
+            document.getElementById('session-property').textContent = cfg.name;
+            
+            var types = { checkout: ['logout','Check-out','checkout'], checkin: ['login','Check-in','checkin'], maintenance: ['build','Maintenance','maintenance'] };
+            var t = types[selectedType];
+            document.getElementById('session-type').innerHTML = '<span class="material-symbols-outlined">' + t[0] + '</span> ' + t[1];
+            document.getElementById('session-type').className = 'session-header__type session-header__type--' + t[2];
+
+            var dep = document.getElementById('departure-time').value;
+            var arr = document.getElementById('arrival-time').value;
+            document.getElementById('session-departure').textContent = dep;
+            document.getElementById('session-arrival').textContent = arr;
+
+            if (selectedProperty !== 'common-areas') {
+                var depParts = dep.split(':').map(Number);
+                var arrParts = arr.split(':').map(Number);
+                var diff = (arrParts[0]*60+arrParts[1]) - (depParts[0]*60+depParts[1]);
+                document.getElementById('time-available').textContent = Math.floor(diff/60) + 'h ' + (diff%60).toString().padStart(2,'0') + 'm';
+            } else {
+                document.getElementById('time-available').textContent = 'Flexible';
+            }
+
+            generateRooms(cfg.rooms);
+            generateInventory(cfg.inventory);
+
+            document.getElementById('selection-screen').classList.add('hidden');
+            document.getElementById('main-app').classList.add('active');
+            setTimeout(initSignature, 100);
+            updateProgress();
+        }).catch(function(error) {
+            console.error('Error starting session:', error);
+            alert('Error starting session. Please try again.');
+        });
+    };
+
+    // Override submitCleaning to save completion
+    submitCleaning = function() {
+        if (!currentSessionId) {
+            alert('No active session found.');
+            return;
+        }
+
+        // Get signature as image
+        var signatureData = null;
+        if (canvas) {
+            signatureData = canvas.toDataURL('image/png');
+        }
+
+        // Get completed rooms count
+        var rooms = document.querySelectorAll('.room-section');
+        var completedRooms = document.querySelectorAll('.room-section__icon--done').length;
+
+        // Get inventory data
+        var inventoryItems = [];
+        document.querySelectorAll('.inventory__item').forEach(function(item) {
+            var name = item.querySelector('.inventory__item-name').textContent;
+            var count = parseInt(item.querySelector('.inventory__item-count').textContent);
+            var isLow = item.classList.contains('inventory__item--low');
+            inventoryItems.push({ name: name, count: count, lowStock: isLow });
+        });
+
+        // Low stock items for alert
+        var lowStockItems = inventoryItems.filter(function(i) { return i.lowStock; });
+
+        var completionData = {
+            endTime: firebase.firestore.FieldValue.serverTimestamp(),
+            status: 'completed',
+            duration: timerSeconds,
+            roomsCompleted: completedRooms,
+            totalRooms: rooms.length,
+            issuesReported: issues.length,
+            inventory: inventoryItems,
+            lowStockAlerts: lowStockItems.length,
+            signature: signatureData ? true : false
+        };
+
+        // Update session
+        db.collection('cleaning-sessions').doc(currentSessionId).update(completionData).then(function() {
+            console.log('Session completed!');
+
+            // Save signature if exists
+            if (signatureData) {
+                var signatureRef = storage.ref('signatures/' + currentSessionId + '.png');
+                signatureRef.putString(signatureData, 'data_url').then(function() {
+                    console.log('Signature saved!');
+                });
+            }
+
+            // Create low stock alerts
+            if (lowStockItems.length > 0) {
+                db.collection('inventory-alerts').add({
+                    property: selectedProperty,
+                    items: lowStockItems,
+                    reportedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    sessionId: currentSessionId,
+                    status: 'pending'
+                });
+            }
+
+            alert('✅ Cleaning report submitted successfully!\n\nSession ID: ' + currentSessionId + '\nDuration: ' + document.getElementById('timer-display').textContent + '\nIssues reported: ' + issues.length + '\nLow stock items: ' + lowStockItems.length);
+            
+            // Reset and go back to selection
+            window.location.reload();
+        }).catch(function(error) {
+            console.error('Error completing session:', error);
+            alert('Error saving report. Please try again.');
+        });
+    };
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+            document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Time
+    function updateTime() {
+        document.getElementById('current-time').textContent = new Date().toLocaleTimeString('en-US', {hour:'2-digit',minute:'2-digit',hour12:false});
+    }
+    updateTime(); setInterval(updateTime, 60000);
+    </script>
+</body>
+</html>

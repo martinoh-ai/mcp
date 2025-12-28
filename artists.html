@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Artist Residency Spain | Music Studio Barcelona | Creative Retreat | Masia Can Pares</title>
+    <meta name="description" content="Artist residency program near Barcelona with music studio, professional kitchen, and inspiring spaces. Perfect for musicians, writers, visual artists & creative teams. 20,000m² botanical sanctuary.">
+    <meta name="keywords" content="artist residency spain, music studio barcelona, creative retreat catalonia, artist retreat sitges, musician residency spain, writer retreat barcelona, creative space mediterranean">
+    <link rel="canonical" href="https://www.masiacanpares.com/artists">
+    
+    <meta property="og:title" content="Artist Residencies | Masia Can Pares Barcelona">
+    <meta property="og:description" content="Creative sanctuary with music studio & inspiring spaces for artists, musicians, and creators.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Masia Can Pares - Artist Residency",
+        "description": "Artist residency and creative retreat venue with music studio near Barcelona",
+        "address": {"@type": "PostalAddress", "addressLocality": "Sant Pere de Ribes", "addressCountry": "ES"}
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-bg: #FDFCFA; --color-bg-warm: #F7F5F0; --color-bg-dark: #1C1C1C;
+            --color-text: #1C1C1C; --color-text-light: #6B6B6B; --color-text-inverse: #FDFCFA;
+            --color-accent: #8B7355; --color-border: #E5E2DA;
+            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+            --section-padding: clamp(80px, 12vw, 140px); --container-max: 1300px; --container-padding: clamp(24px, 6vw, 80px);
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.7; font-weight: 400; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; }
+        .heading-xl { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.02em; font-weight: 300; }
+        .heading-lg { font-size: clamp(2rem, 4vw, 3.5rem); }
+        .overline { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-light); }
+        .body-lg { font-size: clamp(1.1rem, 1.5vw, 1.25rem); line-height: 1.8; font-weight: 300; }
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); }
+        .section { padding: var(--section-padding) 0; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(253,252,250,0.97); backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--color-border); }
+        .nav__inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav__logo { font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+        .nav__links { display: flex; gap: 35px; list-style: none; }
+        .nav__link { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+        .nav__cta { background: var(--color-text); color: var(--color-text-inverse); padding: 12px 28px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; padding: 100px 0 80px; margin-top: 60px; }
+        .hero__media { position: absolute; inset: 0; z-index: -1; }
+        .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,28,28,0.1), rgba(28,28,28,0.5)); }
+        .hero__media img { width: 100%; height: 100%; object-fit: cover; }
+        .hero__content { color: var(--color-text-inverse); }
+        .hero__tag { display: inline-block; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.3); margin-bottom: 25px; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .hero__subtitle { font-size: clamp(1rem, 1.5vw, 1.2rem); opacity: 0.9; max-width: 550px; font-weight: 300; margin-top: 20px; }
+
+        .intro { background: var(--color-bg-warm); }
+        .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .intro__text p { color: var(--color-text-light); margin-bottom: 25px; font-weight: 300; }
+
+        .facilities { background: var(--color-bg); }
+        .facilities__header { text-align: center; margin-bottom: 60px; }
+        .facilities__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .facility { background: var(--color-bg-warm); overflow: hidden; }
+        .facility__image { height: 250px; overflow: hidden; }
+        .facility__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-smooth); }
+        .facility:hover .facility__image img { transform: scale(1.05); }
+        .facility__content { padding: 35px; }
+        .facility__title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 12px; }
+        .facility__text { color: var(--color-text-light); font-weight: 300; font-size: 0.92rem; }
+
+        .disciplines { background: var(--color-bg-dark); color: var(--color-text-inverse); }
+        .disciplines__header { text-align: center; margin-bottom: 60px; }
+        .disciplines__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .discipline__icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .discipline__title { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 8px; }
+        .discipline__text { font-size: 0.85rem; opacity: 0.7; font-weight: 300; }
+
+        .programs { background: var(--color-bg-warm); }
+        .programs__header { text-align: center; margin-bottom: 60px; }
+        .programs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .program { background: var(--color-bg); padding: 40px 30px; text-align: center; }
+        .program__duration { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 15px; }
+        .program__title { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 15px; }
+        .program__text { color: var(--color-text-light); font-weight: 300; font-size: 0.9rem; margin-bottom: 25px; }
+        .program__cta { display: inline-block; padding: 12px 30px; border: 1px solid var(--color-text); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: background var(--transition-smooth), color var(--transition-smooth); }
+        .program__cta:hover { background: var(--color-text); color: var(--color-text-inverse); }
+
+        .quote { background: var(--color-bg); text-align: center; }
+        .quote__text { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); font-style: italic; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+
+        .cta { background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
+        .cta h2 { margin-bottom: 25px; }
+        .cta p { opacity: 0.75; max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
+        .btn-primary { display: inline-block; padding: 18px 50px; background: var(--color-text-inverse); color: var(--color-text); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .footer { background: #A65D57; color: var(--color-text-inverse); padding: 50px 0 25px; text-align: center; }
+        .footer__logo { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .footer__links { display: flex; justify-content: center; gap: 30px; list-style: none; margin-bottom: 30px; }
+        .footer__links a { font-size: 0.82rem; opacity: 0.7; }
+        .footer__bottom { font-size: 0.75rem; opacity: 0.4; }
+
+        @media (max-width: 1024px) {
+            .nav__links { display: none; }
+            .intro__grid { grid-template-columns: 1fr; gap: 50px; }
+            .facilities__grid { grid-template-columns: 1fr; }
+            .disciplines__grid { grid-template-columns: repeat(2, 1fr); }
+            .programs__grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .disciplines__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container nav__inner">
+            <a href="index.html" class="nav__logo">Masia Can Pares</a>
+            <ul class="nav__links">
+                <li><a href="houses.html" class="nav__link">Guest Houses</a></li>
+                <li><a href="film-location.html" class="nav__link">Film & Photo</a></li>
+                <li><a href="corporate.html" class="nav__link">Corporate</a></li>
+                <li><a href="wellness.html" class="nav__link">Wellness</a></li>
+                <li><a href="artists.html" class="nav__link" style="border-bottom: 1px solid var(--color-text);">Artists</a></li>
+            </ul>
+            <a href="/cdn-cgi/l/email-protection#59313635381934382a30383a383729382b3c2a773a3634662a2c3b333c3a2d64182b2d302a2d7c6b690b3c2a303d3c373a207c6b691037282c302b20" class="nav__cta">Apply</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero__media">
+            <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8c38efc0-0210-4b04-927c-f831b82da0d0/REC%2BCLUB-5.jpg" alt="Artist residency Spain - Music studio">
+        </div>
+        <div class="container hero__content">
+            <span class="hero__tag">Artist Residencies</span>
+            <h1 class="heading-xl">Create Here</h1>
+            <p class="hero__subtitle">A creative sanctuary for musicians, writers, visual artists, and makers. Music studio, professional kitchen, and endless inspiration.</p>
+        </div>
+    </section>
+
+    <section class="intro section">
+        <div class="container intro__grid">
+            <div>
+                <p class="overline">The Creative Space</p>
+                <h2 class="heading-lg">Where Ideas Come to Life</h2>
+                <p class="body-lg">Masia Can Pares has long been a haven for creative souls. Our 16th-century farmhouse, surrounded by 20,000m² of botanical gardens, provides the perfect environment for deep creative work.</p>
+                <p>Whether you're recording an album, writing a novel, developing new work, or seeking creative renewal, our facilities and inspiring setting support your artistic vision.</p>
+            </div>
+            <div>
+                <img src="cdn/images/houses/casa-blanca.webp" alt="Creative retreat space near Barcelona">
+            </div>
+        </div>
+    </section>
+
+    <section class="facilities section">
+        <div class="container">
+            <div class="facilities__header">
+                <p class="overline">Creative Facilities</p>
+                <h2 class="heading-lg">Tools for Your Craft</h2>
+            </div>
+            <div class="facilities__grid">
+                <article class="facility">
+                    <div class="facility__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8c38efc0-0210-4b04-927c-f831b82da0d0/REC%2BCLUB-5.jpg" alt="Music recording studio Barcelona">
+                    </div>
+                    <div class="facility__content">
+                        <h3 class="facility__title">Music Studio</h3>
+                        <p class="facility__text">Professional recording space with excellent acoustics, suitable for recording, mixing, and production. Perfect for musicians, bands, and producers seeking an inspiring environment.</p>
+                    </div>
+                </article>
+                <article class="facility">
+                    <div class="facility__image">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Professional kitchen for chefs">
+                    </div>
+                    <div class="facility__content">
+                        <h3 class="facility__title">Professional Kitchen</h3>
+                        <p class="facility__text">Fully equipped kitchen perfect for culinary artists, recipe development, food photography, or hosting cooking workshops. All the tools a chef needs.</p>
+                    </div>
+                </article>
+                <article class="facility">
+                    <div class="facility__image">
+                        <img src="cdn/images/hero/hero-3.webp" alt="Writing retreat space">
+                    </div>
+                    <div class="facility__content">
+                        <h3 class="facility__title">Writing Spaces</h3>
+                        <p class="facility__text">Quiet corners, natural light, and peaceful surroundings. Multiple spaces for focused writing work, from the library to garden terraces.</p>
+                    </div>
+                </article>
+                <article class="facility">
+                    <div class="facility__image">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Botanical garden for inspiration">
+                    </div>
+                    <div class="facility__content">
+                        <h3 class="facility__title">Garden & Nature</h3>
+                        <p class="facility__text">20,000m² of botanical gardens with 600 trees. Walking paths, hidden corners, and natural beauty for inspiration and contemplation.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="disciplines section">
+        <div class="container">
+            <div class="disciplines__header">
+                <p class="overline" style="opacity: 0.6;">Welcome All Disciplines</p>
+                <h2 class="heading-lg">Perfect For</h2>
+            </div>
+            <div class="disciplines__grid">
+                <div class="discipline">
+                    <div class="discipline__icon">🎵</div>
+                    <h3 class="discipline__title">Musicians</h3>
+                    <p class="discipline__text">Recording, writing, rehearsing</p>
+                </div>
+                <div class="discipline">
+                    <div class="discipline__icon">✍️</div>
+                    <h3 class="discipline__title">Writers</h3>
+                    <p class="discipline__text">Novels, screenplays, poetry</p>
+                </div>
+                <div class="discipline">
+                    <div class="discipline__icon">🎨</div>
+                    <h3 class="discipline__title">Visual Artists</h3>
+                    <p class="discipline__text">Painting, photography, film</p>
+                </div>
+                <div class="discipline">
+                    <div class="discipline__icon">👨‍🍳</div>
+                    <h3 class="discipline__title">Culinary Artists</h3>
+                    <p class="discipline__text">Recipe development, food content</p>
+                </div>
+                <div class="discipline">
+                    <div class="discipline__icon">💻</div>
+                    <h3 class="discipline__title">Digital Creators</h3>
+                    <p class="discipline__text">Content, design, development</p>
+                </div>
+                <div class="discipline">
+                    <div class="discipline__icon">🎭</div>
+                    <h3 class="discipline__title">Performers</h3>
+                    <p class="discipline__text">Rehearsals, workshops, development</p>
+                </div>
+                <div class="discipline">
+                    <div class="discipline__icon">📚</div>
+                    <h3 class="discipline__title">Researchers</h3>
+                    <p class="discipline__text">Academic retreats, sabbaticals</p>
+                </div>
+                <div class="discipline">
+                    <div class="discipline__icon">🎬</div>
+                    <h3 class="discipline__title">Filmmakers</h3>
+                    <p class="discipline__text">Script development, pre-production</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs section">
+        <div class="container">
+            <div class="programs__header">
+                <p class="overline">Residency Programs</p>
+                <h2 class="heading-lg">Flexible Stays</h2>
+            </div>
+            <div class="programs__grid">
+                <article class="program">
+                    <p class="program__duration">1 Week</p>
+                    <h3 class="program__title">Creative Sprint</h3>
+                    <p class="program__text">Intensive focused work. Perfect for finishing a project, recording sessions, or kickstarting new work.</p>
+                    <a href="/cdn-cgi/l/email-protection#6d0502010c2d000c1e040c0e0c031d0c1f081e430e0200521e180f07080e19505c485f5d3a080806485f5d3f081e040908030e14" class="program__cta">Inquire</a>
+                </article>
+                <article class="program">
+                    <p class="program__duration">2 Weeks</p>
+                    <h3 class="program__title">Deep Dive</h3>
+                    <p class="program__text">Extended creative time. Develop substantial work with room for exploration and experimentation.</p>
+                    <a href="/cdn-cgi/l/email-protection#a9c1c6c5c8e9c4c8dac0c8cac8c7d9c8dbccda87cac6c496dadccbc3cccadd949b8c9b99feccccc28c9b99fbccdac0cdccc7cad0" class="program__cta">Inquire</a>
+                </article>
+                <article class="program">
+                    <p class="program__duration">1 Month+</p>
+                    <h3 class="program__title">Full Immersion</h3>
+                    <p class="program__text">Transform your practice. Long-term residencies for major projects or artistic renewal.</p>
+                    <a href="/cdn-cgi/l/email-protection#49212625280924283a20282a282739283b2c3a672a2624763a3c2b232c2a3d740526272e6c7b791d2c3b246c7b791b2c3a202d2c272a30" class="program__cta">Inquire</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote section">
+        <div class="container">
+            <p class="quote__text">"A farmhouse full of poetry that breathes the Mediterranean. The perfect place to transmit, learn, and create."</p>
+        </div>
+    </section>
+
+    <section class="cta section">
+        <div class="container">
+            <p class="overline" style="opacity: 0.5; margin-bottom: 15px;">Ready to create?</p>
+            <h2 class="heading-lg">Apply for Residency</h2>
+            <p class="body-lg">Tell us about your work and what you'd like to create at Masia Can Pares.</p>
+            <a href="/cdn-cgi/l/email-protection#cca4a3a0ad8ca1adbfa5adafada2bcadbea9bfe2afa3a1f3bfb9aea6a9afb8f18dbeb8a5bfb8e9fefc9ea9bfa5a8a9a2afb5e9fefc8dbcbca0a5afadb8a5a3a2" class="btn-primary">Submit Application</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html" class="footer__logo">Masia Can Pares</a>
+            <ul class="footer__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="houses.h

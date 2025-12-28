@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Inside | Masia Can Pares - Photo Gallery</title>
+    <meta name="description" content="Explore Masia Can Pares through our photo gallery. See the botanical gardens, guest houses, pool, and historic architecture of this 16th century Catalan estate.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('cdn/fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+        h3 { font-family: var(--font-display); font-weight: 600; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang svg { width: 12px; height: 12px; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
+        /* Mobile Menu Button */
+        .header__menu-btn { display: none; width: 44px; height: 44px; background: none; border: none; cursor: pointer; position: relative; z-index: 1001; }
+        .header__menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-charcoal); margin: 5px auto; transition: all 0.3s ease; }
+        .header__menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header__menu-btn.active span:nth-child(2) { opacity: 0; }
+        .header__menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        /* Mobile Menu Overlay */
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-cream); z-index: 998; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu__nav { text-align: center; margin-bottom: 40px; }
+        .mobile-menu__link { display: block; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; padding: 15px 0; color: var(--color-charcoal); transition: color 0.3s ease; }
+        .mobile-menu__link:hover { color: var(--color-terracotta); }
+        .mobile-menu__actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .mobile-menu__btn { padding: 16px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .mobile-menu__btn--primary { background: var(--color-charcoal); color: white; }
+        .mobile-menu__btn--secondary { border: 1.5px solid var(--color-charcoal); background: transparent; }
+        .mobile-menu__lang { display: flex; gap: 20px; margin-top: 30px; }
+        .mobile-menu__lang a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.5; }
+        .mobile-menu__lang a.active { opacity: 1; }
+        /* Floating CTA Button */
+        .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 997; padding: 15px 20px; background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); display: none; }
+        .floating-cta__btn { display: block; width: 100%; padding: 16px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; text-align: center; transition: background 0.3s ease; }
+        .floating-cta__btn:hover { background: var(--color-terracotta); }
+        .section-nav { position: sticky; top: 69px; z-index: 998; background: var(--color-charcoal); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+        .section-nav__inner::-webkit-scrollbar { display: none; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; opacity: 0.7; }
+        .section-nav__link:hover { opacity: 1; background: rgba(255,255,255,0.05); }
+        .section-nav__link.active { opacity: 1; background: rgba(255,255,255,0.1); }
+        .page-hero { padding: 170px 0 80px; background: var(--color-cream); text-align: center; }
+        .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
+        .page-hero h1 { font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; margin-bottom: 25px; }
+        .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
+        /* Gallery Grid */
+        .gallery { padding: 80px 0; background: var(--color-cream); }
+        .gallery__category { margin-bottom: 80px; }
+        .gallery__category-header { margin-bottom: 40px; }
+        .gallery__category-header h2 { color: var(--color-terracotta); margin-bottom: 10px; }
+        .gallery__category-header h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+        .gallery__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+        .gallery__item { overflow: hidden; cursor: pointer; position: relative; }
+        .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery__item:hover img { transform: scale(1.05); }
+        .gallery__item::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.3s; }
+        .gallery__item:hover::after { background: rgba(0,0,0,0.1); }
+        /* Different sizes */
+        .gallery__item--large { grid-column: span 8; height: 500px; }
+        .gallery__item--medium { grid-column: span 4; height: 500px; }
+        .gallery__item--small { grid-column: span 4; height: 300px; }
+        .gallery__item--wide { grid-column: span 6; height: 350px; }
+        /* Lightbox */
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2000; display: none; align-items: center; justify-content: center; }
+        .lightbox.active { display: flex; }
+        .lightbox__close { position: absolute; top: 30px; right: 30px; width: 50px; height: 50px; background: none; border: none; cursor: pointer; color: white; font-size: 2rem; }
+        .lightbox__img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+        .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
+        .cta h2 { color: var(--color-mustard); margin-bottom: 15px; }
+        .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta p { opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-mustard); color: var(--color-charcoal); font-weight: 700; }
+                /* Footer */
+        .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
+        .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer__logo { display: block; margin-bottom: 30px; }
+        .footer__logo img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 40px; margin-bottom: 30px; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
+        .footer__link:hover { opacity: 1; }
+        .footer__address { font-size: 0.85rem; opacity: 0.5; }
+
+        
+        @media (max-width: 1024px) {
+            .gallery__item--large, .gallery__item--medium { grid-column: span 6; height: 350px; }
+            .gallery__item--small, .gallery__item--wide { grid-column: span 6; height: 280px; }
+        }
+        @media (max-width: 768px) {
+            .header__right { display: none; }
+            .header__menu-btn { display: block; }
+            .section-nav__inner { justify-content: flex-start; padding: 0 20px; }
+            .floating-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .page-hero { padding: 140px 0 60px; }
+            .page-hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
+            .gallery__item--large, .gallery__item--medium, .gallery__item--small, .gallery__item--wide { grid-column: span 12; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+                <a href="login.html" class="header__btn header__btn--filled">Sign In</a>
+            </div>
+            <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="history.html" class="mobile-menu__link">History</a>
+            <a href="gallery.html" class="mobile-menu__link">Step Inside</a>
+            <a href="stay.html" class="mobile-menu__link">Stay</a>
+            <a href="designed-for.html" class="mobile-menu__link">Designed For</a>
+            <a href="experiences.html" class="mobile-menu__link">Experiences</a>
+            <a href="location.html" class="mobile-menu__link">Location</a>
+        </nav>
+        <div class="mobile-menu__actions">
+            <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Reserve a Stay</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
+        </div>
+        <div class="mobile-menu__lang">
+            <a href="gallery.html" class="active">EN</a>
+            <a href="gallery-fr.html">FR</a>
+            <a href="gallery-es.html">ES</a>
+        </div>
+    </div>
+
+    <nav class="section-nav" id="sectionNav">
+        <div class="section-nav__inner">
+            <ul class="section-nav__links">
+                <li><a href="history.html" class="section-nav__link">History</a></li>
+                <li><a href="gallery.html" class="section-nav__link active">Step Inside</a></li>
+                <li><a href="stay.html" class="section-nav__link">Stay</a></li>
+                <li><a href="designed-for.html" class="section-nav__link">Designed For</a></li>
+                
+                <li><a href="experiences.html" class="section-nav__link">Experiences</a></li>
+                <li><a href="location.html" class="section-nav__link">Location</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="page-hero">
+        <div class="container">
+            <p class="page-hero__overline">Masia Can Pares</p>
+            <h1>Step Inside</h1>
+            <p>Explore every corner of our estate through images that capture the essence of Can Pares.</p>
+        </div>
+    </section>
+    <section class="gallery">
+        <div class="container">
+            <!-- The Estate -->
+            <div class="gallery__category">
+                <div class="gallery__category-header">
+                    <h2>Overview</h2>
+                    <h3>The Estate</h3>
+                </div>
+                <div class="gallery__grid">
+                    <div class="gallery__item gallery__item--large">
+                        <img src="cdn/images/houses/casa-blanca.webp" alt="Masia Can Pares Main Building">
+                    </div>
+                    <div class="gallery__item gallery__item--medium">
+                        <img src="cdn/images/hero/hero-4.webp" alt="Botanical Garden">
+                    </div>
+                </div>
+            </div>
+            <!-- The Gardens -->
+            <div class="gallery__category">
+                <div class="gallery__category-header">
+                    <h2>20,000m² of Nature</h2>
+                    <h3>The Botanical Garden</h3>
+                </div>
+                <div class="gallery__grid">
+                    <div class="gallery__item gallery__item--wide">
+                        <img src="cdn/images/hero/hero-1.webp" alt="Garden Path">
+                    </div>
+                    <div class="gallery__item gallery__item--wide">
+                        <img src="cdn/images/hero/hero-2.webp" alt="Garden Detail">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="cdn/images/hero/hero-4.webp" alt="Trees">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="cdn/images/houses/casa-blanca.webp" alt="Garden View">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="cdn/images/hero/hero-1.webp" alt="Flowers">
+                    </div>
+                </div>
+            </div>
+            <!-- The Houses -->
+            <div class="gallery__category">
+                <div class="gallery__category-header">
+                    <h2>Two Retreats</h2>
+                    <h3>The Guest Houses</h3>
+                </div>
+                <div class="gallery__grid">
+                    <div class="gallery__item gallery__item--medium">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Blanca">
+                    </div>
+                    <div class="gallery__item gallery__item--large">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Mediterranea">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="cdn/images/hero/hero-2.webp" alt="Interior">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Bedroom">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Living Space">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox__close" onclick="closeLightbox()">×</button>
+        <img src="" alt="" class="lightbox__img" id="lightboxImg">
+    </div>
+    <section class="cta">
+        <div class="container">
+            <h2>Seen Enough?</h2>
+            <h3>Experience It In Person</h3>
+            <p>Photos can only capture so much. Come discover Can Pares for yourself.</p>
+            <a href="https://www.masiacanpares.com/book" class="cta__btn">Book Your Stay</a>
+        </div>
+    </section>
+        <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Floating CTA (Mobile) -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
+    <script>
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        document.querySelectorAll('.gallery__item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

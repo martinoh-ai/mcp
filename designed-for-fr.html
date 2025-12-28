@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conçu Pour | Masia Can Pares - Familles, Bien-être, Séminaires, Artistes, Tournages</title>
+    <meta name="description" content="Masia Can Pares est parfait pour les vacances en famille, retraites bien-être, événements corporate, résidences d'artistes et tournages photo/film. Découvrez comment notre mas catalan peut accueillir votre prochain événement.">
+    <meta name="keywords" content="vacances famille sitges, retraite bien-etre barcelone, seminaire espagne, residence artiste catalogne, lieu tournage barcelone">
+    <link rel="canonical" href="https://www.masiacanpares.com/designed-for-fr.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    
+    <style>
+        :root {
+            --color-bg: #FAF8F5; --color-bg-warm: #F3EDE4; --color-bg-dark: #A65D57;
+            --color-text: #2C2825; --color-text-light: #6B635A; --color-text-inverse: #FAF8F5;
+            --color-terracotta: #A65D57; --color-border: #DDD5C8; --color-gold: #D4B062;
+            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.8; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo { height: 45px; }
+        .header__right { display: flex; align-items: center; gap: 25px; }
+        .header__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__cta { padding: 12px 24px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-gold); color: var(--color-bg-dark); }
+
+        .section-nav { position: sticky; top: 85px; z-index: 999; background: var(--color-gold); }
+        .section-nav__inner { display: flex; justify-content: center; }
+        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
+        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; }
+        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
+        .section-nav__link.active { background: rgba(0,0,0,0.1); }
+
+        .page-hero { padding: 180px 0 100px; background: var(--color-bg-warm); text-align: center; }
+        .page-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 20px; }
+        .page-hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 650px; margin: 0 auto; }
+
+        .uses { padding: 0; }
+        .use { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
+        .use:nth-child(even) { direction: rtl; }
+        .use:nth-child(even) > * { direction: ltr; }
+        .use__image { position: relative; overflow: hidden; }
+        .use__image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+        .use__content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+        .use:nth-child(odd) .use__content { background: var(--color-bg); }
+        .use:nth-child(even) .use__content { background: var(--color-bg-warm); }
+        .use__icon { width: 50px; height: 50px; color: var(--color-terracotta); margin-bottom: 25px; }
+        .use__title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .use__desc { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 30px; line-height: 1.8; }
+        .use__features { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 35px; }
+        .use__feature { padding: 12px 20px; background: rgba(0,0,0,0.03); font-size: 0.85rem; display: flex; align-items: center; gap: 10px; }
+        .use__feature svg { width: 18px; height: 18px; color: var(--color-terracotta); }
+        .use__btn { display: inline-flex; align-items: center; gap: 12px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-terracotta); padding: 16px 0; border-bottom: 2px solid var(--color-terracotta); transition: all 0.3s; align-self: flex-start; }
+        .use__btn:hover { padding-left: 10px; }
+        .use__btn svg { transition: transform 0.3s; }
+        .use__btn:hover svg { transform: translateX(5px); }
+
+        .cta { padding: 100px 0; background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
+        .cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta p { opacity: 0.7; margin-bottom: 40px; }
+        .cta__btn { display: inline-block; padding: 18px 45px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; }
+
+        .footer { background: #A65D57; color: var(--color-text-inverse); padding: 60px 0 30px; text-align: center; }
+        .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+        .footer__link { font-size: 0.85rem; opacity: 0.7; }
+        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 1024px) {
+            .use { grid-template-columns: 1fr; min-height: auto; }
+            .use:nth-child(even) { direction: ltr; }
+            .use__image { height: 400px; position: relative; }
+            .use__image img { position: relative; }
+            .use__content { padding: 60px 40px; }
+        }
+        @media (max-width: 768px) {
+            .header__link { display: none; }
+            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
+            .use__content { padding: 50px 25px; }
+            .use__image { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index-fr.html"><img src="cdn/logos/canpares-logo.webp" alt="Masia Can Pares" class="header__logo"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contactez-nous</a>
+                <a href="https://www.masiacanpares.com/book" class="header__cta">Réserver</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <div class="section-nav__inner">
+            <ul class="section-nav__links">
+                <li><a href="history-fr.html" class="section-nav__link">Histoire</a></li>
+                <li><a href="gallery-fr.html" class="section-nav__link">Visite</a></li>
+                <li><a href="bedrooms-fr.html" class="section-nav__link">Chambres</a></li>
+                <li><a href="designed-for-fr.html" class="section-nav__link active">Conçu Pour</a></li>
+                <li><a href="equipment-fr.html" class="section-nav__link">Équipements</a></li>
+                <li><a href="experiences-fr.html" class="section-nav__link">Expériences</a></li>
+                <li><a href="location-fr.html" class="section-nav__link">Accès</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Conçu Pour</h1>
+            <p>Des réunions de famille intimes aux productions professionnelles, Masia Can Pares s'adapte à votre vision</p>
+        </div>
+    </section>
+
+    <section class="uses">
+        <!-- 1. FAMILLE -->
+        <div class="use">
+            <div class="use__image">
+                <img src="cdn/images/houses/casa-mediterranea.webp" alt="Vacances en famille à Masia Can Pares">
+            </div>
+            <div class="use__content">
+                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <h2 class="use__title">Vacances en Famille</h2>
+                <p class="use__desc">Créez des souvenirs inoubliables dans un cadre qui ravit tous les âges. Les enfants explorent les jardins botaniques et s'amusent dans la piscine pendant que les adultes se détendent sur la terrasse avec un verre de vin local du vignoble voisin.</p>
+                <div class="use__features">
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Piscine</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espaces adaptés aux enfants</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>BBQ & repas en plein air</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>10 min de la plage de Sitges</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cuisine équipée</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jardin de 20 000m²</span>
+                </div>
+                <a href="https://www.masiacanpares.com/book" class="use__btn">Réserver un séjour famille <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+
+        <!-- 2. BIEN-ÊTRE -->
+        <div class="use">
+            <div class="use__image">
+                <img src="cdn/images/hero/hero-4.webp" alt="Retraite yoga et bien-être">
+            </div>
+            <div class="use__content">
+                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                <h2 class="use__title">Retraites Yoga & Bien-être</h2>
+                <p class="use__desc">Transformez votre corps et votre esprit dans notre sanctuaire botanique paisible. Les jardins offrent des espaces de pratique en plein air parfaits avec une intimité totale pour une expérience bien-être vraiment immersive. Reconnectez-vous avec la nature et vous-même.</p>
+                <div class="use__features">
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espaces yoga extérieurs</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jardins de méditation</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Traiteur bien-être disponible</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Intimité totale</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Piscine pour relaxation</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Immersion nature</span>
+                </div>
+                <a href="https://www.masiacanpares.com/contact" class="use__btn">Organiser votre retraite <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+
+        <!-- 3. SÉMINAIRES -->
+        <div class="use">
+            <div class="use__image">
+                <img src="cdn/images/hero/hero-1.webp" alt="Lieu de séminaire">
+            </div>
+            <div class="use__content">
+                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <h2 class="use__title">Séminaires d'Entreprise</h2>
+                <p class="use__desc">Échappez au bureau pour la planification stratégique, le team building ou les séminaires de direction. Notre cadre privé encourage un travail concentré tandis que nos équipements assurent des séjours confortables. Idéal pour les équipes en quête d'inspiration.</p>
+                <div class="use__features">
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>WiFi ultra rapide</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espaces de réunion</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jusqu'à 30 personnes</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Traiteur disponible</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Activités team building</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>40 min de Barcelone</span>
+                </div>
+                <a href="https://www.masiacanpares.com/contact" class="use__btn">Planifier votre séminaire <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+
+        <!-- 4. ARTISTES -->
+        <div class="use">
+            <div class="use__image">
+                <img src="cdn/images/hero/hero-2.webp" alt="Espace résidence d'artiste">
+            </div>
+            <div class="use__content">
+                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                <h2 class="use__title">Résidences d'Artistes</h2>
+                <p class="use__desc">Créez votre chef-d'œuvre entouré de siècles d'histoire et de beauté naturelle. Les longs séjours sont les bienvenus pour les écrivains, musiciens, peintres et créateurs de tous horizons. Laissez la lumière méditerranéenne inspirer votre travail.</p>
+                <div class="use__features">
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espace studio musique</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Retraites d'écriture</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Inspiration nature</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Longs séjours bienvenus</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Environnement calme</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Communauté créative</span>
+                </div>
+                <a href="https://www.masiacanpares.com/contact" class="use__btn">Candidater pour une résidence <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+
+        <!-- 5. TOURNAGES & PHOTOS -->
+        <div class="use">
+            <div class="use__image">
+                <img src="cdn/images/houses/casa-blanca.webp" alt="Lieu de tournage film et photo">
+            </div>
+            <div class="use__content">
+                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                <h2 class="use__title">Tournages & Séances Photo</h2>
+                <p class="use__desc">Notre domaine de 20 000m² offre des décors variés pour toute production : architecture en pierre du XVIe siècle, jardins botaniques luxuriants, piscine méditerranéenne, intérieurs modernes et détails catalans rustiques. Lumière naturelle tout au long de la journée.</p>
+                <div class="use__features">
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Architecture historique</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jardin botanique</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Piscine & terrasses</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Parking équipes</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Lumière naturelle</span>
+                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Décors variés</span>
+                </div>
+                <a href="https://www.masiacanpares.com/contact" class="use__btn">Renseignements production <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Vous avez une idée unique ?</h2>
+            <p>Nous adorons les projets créatifs. Parlez-nous du vôtre.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Nous Contacter</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine & Cava Experiences | Penedès Wine Tours from Can Pares</title>
+    <meta name="description" content="Discover world-class wine and cava experiences in the Penedès region. Visit family wineries, taste exceptional wines, and explore 2,000 years of winemaking tradition just 20 minutes from Can Pares.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    <style>
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
+        .header__menu-btn { display: none; width: 44px; height: 44px; background: none; border: none; cursor: pointer; position: relative; z-index: 1001; }
+        .header__menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-charcoal); margin: 5px auto; transition: all 0.3s ease; }
+        .header__menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header__menu-btn.active span:nth-child(2) { opacity: 0; }
+        .header__menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-cream); z-index: 998; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu__nav { text-align: center; margin-bottom: 40px; }
+        .mobile-menu__link { display: block; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; padding: 15px 0; color: var(--color-charcoal); }
+        .mobile-menu__actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .mobile-menu__btn { padding: 16px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .mobile-menu__btn--primary { background: var(--color-charcoal); color: white; }
+        .mobile-menu__btn--secondary { border: 1.5px solid var(--color-charcoal); background: transparent; }
+
+        /* Floating CTA */
+        .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 997; padding: 15px 20px; background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); display: none; }
+        .floating-cta__btn { display: block; width: 100%; padding: 16px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; text-align: center; }
+
+        /* Breadcrumb */
+        .breadcrumb { padding: 100px 0 20px; }
+        .breadcrumb a { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .breadcrumb span { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.4; margin: 0 10px; }
+
+        /* Hero */
+        .exp-hero { padding: 40px 0 80px; }
+        .exp-hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .exp-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 20px; }
+        .exp-hero__title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 30px; }
+        .exp-hero__desc { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 30px; max-width: 500px; }
+        .exp-hero__stats { display: flex; gap: 40px; }
+        .exp-hero__stat { text-align: center; }
+        .exp-hero__stat-number { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--color-charcoal); }
+        .exp-hero__stat-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .exp-hero__image { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; }
+        .exp-hero__image img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Intro Section */
+        .intro { padding: 80px 0; background: var(--color-mauve); color: white; }
+        .intro__content { max-width: 900px; margin: 0 auto; text-align: center; }
+        .intro h2 { color: var(--color-mustard); margin-bottom: 30px; }
+        .intro p { font-size: 1.15rem; line-height: 1.9; }
+        .intro p + p { margin-top: 20px; }
+
+        /* Experiences Grid */
+        .experiences { padding: 100px 0; }
+        .experiences__header { text-align: center; margin-bottom: 60px; }
+        .experiences__header h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .experiences__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .experiences__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .exp-card { background: white; border-radius: 12px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .exp-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .exp-card__image { aspect-ratio: 16/10; overflow: hidden; }
+        .exp-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .exp-card:hover .exp-card__image img { transform: scale(1.05); }
+        .exp-card__content { padding: 25px; }
+        .exp-card__duration { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 10px; }
+        .exp-card__title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; }
+        .exp-card__desc { font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 15px; line-height: 1.6; }
+        .exp-card__details { display: flex; gap: 20px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.08); }
+        .exp-card__detail { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.6; }
+
+        /* Featured Wineries */
+        .wineries { padding: 100px 0; background: var(--color-sage); color: white; }
+        .wineries__header { text-align: center; margin-bottom: 60px; }
+        .wineries__header h2 { color: var(--color-mustard); margin-bottom: 15px; }
+        .wineries__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .wineries__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .winery { display: grid; grid-template-columns: 1fr 1.2fr; gap: 30px; background: rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; }
+        .winery__image { aspect-ratio: 1; }
+        .winery__image img { width: 100%; height: 100%; object-fit: cover; }
+        .winery__content { padding: 30px 30px 30px 0; display: flex; flex-direction: column; justify-content: center; }
+        .winery__name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; }
+        .winery__location { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-bottom: 15px; }
+        .winery__desc { font-size: 0.95rem; line-height: 1.7; opacity: 0.9; margin-bottom: 20px; }
+        .winery__highlights { list-style: none; }
+        .winery__highlights li { font-size: 0.9rem; padding: 5px 0; padding-left: 20px; position: relative; opacity: 0.8; }
+        .winery__highlights li::before { content: "✓"; position: absolute; left: 0; color: var(--color-mustard); }
+
+        /* What to Expect */
+        .expect { padding: 100px 0; }
+        .expect__header { text-align: center; margin-bottom: 60px; }
+        .expect__header h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .expect__header h3 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 600; }
+        .expect__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .expect__item { text-align: center; padding: 30px; }
+        .expect__icon { width: 60px; height: 60px; background: var(--color-terracotta); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; }
+        .expect__item h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+        .expect__item p { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+
+        /* CTA Section */
+        .cta { padding: 100px 0; background: var(--color-mustard); text-align: center; }
+        .cta h2 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 15px; opacity: 0.7; }
+        .cta h3 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        .cta p { max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; }
+        .cta__btn { display: inline-block; padding: 18px 40px; background: var(--color-charcoal); color: white; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.3s ease; }
+        .cta__btn:hover { background: var(--color-sage); }
+
+        /* Footer */
+        .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
+        .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer__logo { display: block; margin-bottom: 30px; }
+        .footer__logo img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 40px; margin-bottom: 30px; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
+        .footer__link:hover { opacity: 1; }
+        .footer__address { font-size: 0.85rem; opacity: 0.5; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .experiences__grid { grid-template-columns: repeat(2, 1fr); }
+            .wineries__grid { grid-template-columns: 1fr; }
+            .expect__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .header__right { display: none; }
+            .header__menu-btn { display: block; }
+            .floating-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .exp-hero__grid { grid-template-columns: 1fr; gap: 40px; }
+            .exp-hero__stats { justify-content: center; }
+            .experiences__grid { grid-template-columns: 1fr; }
+            .winery { grid-template-columns: 1fr; }
+            .winery__content { padding: 25px; }
+            .expect__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+            </div>
+            <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="index.html" class="mobile-menu__link">Home</a>
+            <a href="stay.html" class="mobile-menu__link">Stay</a>
+            <a href="experiences.html" class="mobile-menu__link">Experiences</a>
+            <a href="location.html" class="mobile-menu__link">Location</a>
+        </nav>
+        <div class="mobile-menu__actions">
+            <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Reserve a Stay</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="experiences.html">Experiences</a>
+            <span>→</span>
+            <a href="#">Wine & Cava</a>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="exp-hero">
+        <div class="container">
+            <div class="exp-hero__grid">
+                <div class="exp-hero__content">
+                    <p class="exp-hero__overline">Penedès Wine Region</p>
+                    <h1 class="exp-hero__title">Wine & Cava Experiences</h1>
+                    <p class="exp-hero__desc">Step into the birthplace of Cava, where rolling vineyards meet centuries-old cellars. The Penedès region, just 20 minutes from Can Pares, offers some of Spain's most prestigious wine experiences.</p>
+                    <div class="exp-hero__stats">
+                        <div class="exp-hero__stat">
+                            <div class="exp-hero__stat-number">300+</div>
+                            <div class="exp-hero__stat-label">Wineries</div>
+                        </div>
+                        <div class="exp-hero__stat">
+                            <div class="exp-hero__stat-number">2,000</div>
+                            <div class="exp-hero__stat-label">Years of History</div>
+                        </div>
+                        <div class="exp-hero__stat">
+                            <div class="exp-hero__stat-number">20</div>
+                            <div class="exp-hero__stat-label">Min from Can Pares</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exp-hero__image">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80" alt="Penedès vineyards">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro__content">
+                <h2>The Heart of Catalan Winemaking</h2>
+                <p>The Penedès region sits halfway between the Mediterranean Sea and the sacred mountain of Montserrat, creating a microclimate that has produced exceptional wines for over two millennia. This is where Cava was born—Catalonia's answer to Champagne—and where family wineries have perfected their craft over generations.</p>
+                <p>From Sant Sadurní d'Anoia, the undisputed capital of Cava, to the modernist cellars designed by Gaudí's contemporaries, every visit tells a story of tradition, innovation, and passion. Whether you're exploring underground cellars carved into limestone, touring vineyards by 4x4, or enjoying a sunset tasting overlooking endless rows of vines, the Penedès promises an unforgettable wine journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences -->
+    <section class="experiences">
+        <div class="container">
+            <div class="experiences__header">
+                <h2>Curated Experiences</h2>
+                <h3>Choose Your Wine Adventure</h3>
+            </div>
+            <div class="experiences__grid">
+                <div class="exp-card">
+                    <div class="exp-card__image">
+                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" alt="Cava tasting">
+                    </div>
+                    <div class="exp-card__content">
+                        <p class="exp-card__duration">Half Day • 4-5 Hours</p>
+                        <h3 class="exp-card__title">Classic Cava Tour</h3>
+                        <p class="exp-card__desc">Visit two family-run cellars in Sant Sadurní d'Anoia, learn the traditional method, and taste 6-8 exceptional Cavas paired with local cheeses and charcuterie.</p>
+                        <div class="exp-card__details">
+                            <span class="exp-card__detail">From €65/person</span>
+                            <span class="exp-card__detail">Small Groups</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-card__image">
+                        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=600&q=80" alt="4x4 vineyard tour">
+                    </div>
+                    <div class="exp-card__content">
+                        <p class="exp-card__duration">Full Day • 7-8 Hours</p>
+                        <h3 class="exp-card__title">4x4 Vineyard Adventure</h3>
+                        <p class="exp-card__desc">Explore a 2,000-year-old estate by convertible 4x4. Taste 3 wines and 4 Cavas, visit underground cellars, and enjoy tapas overlooking the vineyards.</p>
+                        <div class="exp-card__details">
+                            <span class="exp-card__detail">From €95/person</span>
+                            <span class="exp-card__detail">Premium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-card__image">
+                        <img src="https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?w=600&q=80" alt="Bike tour vineyards">
+                    </div>
+                    <div class="exp-card__content">
+                        <p class="exp-card__duration">Half Day • 4 Hours</p>
+                        <h3 class="exp-card__title">E-Bike Wine Route</h3>
+                        <p class="exp-card__desc">Cycle through scenic vineyards on electric bikes, stopping at boutique wineries for tastings. Perfect for combining exercise with indulgence.</p>
+                        <div class="exp-card__details">
+                            <span class="exp-card__detail">From €75/person</span>
+                            <span class="exp-card__detail">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-card__image">
+                        <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?w=600&q=80" alt="Wine and food pairing">
+                    </div>
+                    <div class="exp-card__content">
+                        <p class="exp-card__duration">Half Day • 3-4 Hours</p>
+                        <h3 class="exp-card__title">Gourmet Wine & Lunch</h3>
+                        <p class="exp-card__desc">Winery tour followed by a multi-course Catalan meal with expertly paired wines. Experience farm-to-table dining in a stunning vineyard setting.</p>
+                        <div class="exp-card__details">
+                            <span class="exp-card__detail">From €90/person</span>
+                            <span class="exp-card__detail">Gourmet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-card__image">
+                        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=600&q=80" alt="Sunset wine tasting">
+                    </div>
+                    <div class="exp-card__content">
+                        <p class="exp-card__duration">Evening • 3 Hours</p>
+                        <h3 class="exp-card__title">Sunset Vineyard Experience</h3>
+                        <p class="exp-card__desc">Watch the golden hour paint the vineyards while sipping premium wines. Includes a guided walk through the vines and an artisanal cheese board.</p>
+                        <div class="exp-card__details">
+                            <span class="exp-card__detail">From €55/person</span>
+                            <span class="exp-card__detail">Romantic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-card__image">
+                        <img src="https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=600&q=80" alt="Private wine experience">
+                    </div>
+                    <div class="exp-card__content">
+                        <p class="exp-card__duration">Custom • Flexible</p>
+                        <h3 class="exp-card__title">Private Winery Visit</h3>
+                        <p class="exp-card__desc">Exclusive access to boutique family wineries with personalized tastings, cellar tours, and the opportunity to meet the winemakers themselves.</p>
+                        <div class="exp-card__details">
+                            <span class="exp-card__detail">From €150/person</span>
+                            <span class="exp-card__detail">Exclusive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Wineries -->
+    <section class="wineries">
+        <div class="container">
+            <div class="wineries__header">
+                <h2>Where to Visit</h2>
+                <h3>Legendary Wineries of Penedès</h3>
+            </div>
+            <div class="wineries__grid">
+                <div class="winery">
+                    <div class="winery__image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Gramona winery">
+                    </div>
+                    <div class="winery__content">
+                        <h3 class="winery__name">Gramona</h3>
+                        <p class="winery__location">Sant Sadurní d'Anoia • 25 min</p>
+                        <p class="winery__desc">Five generations of Cavas from this pioneering family. Explore their three underground cellar levels and taste wines aged for up to 30 years.</p>
+                        <ul class="winery__highlights">
+                            <li>Family-guided tours available</li>
+                            <li>500-year-old barrel on display</li>
+                            <li>Biodynamic & organic wines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="winery">
+                    <div class="winery__image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Recaredo winery">
+                    </div>
+                    <div class="winery__content">
+                        <h3 class="winery__name">Recaredo</h3>
+                        <p class="winery__location">Sant Sadurní d'Anoia • 25 min</p>
+                        <p class="winery__desc">Pioneers of organic and biodynamic Cava production. Known for their exceptional long-aged sparkling wines made with indigenous yeasts.</p>
+                        <ul class="winery__highlights">
+                            <li>Private tastings with winemakers</li>
+                            <li>100% organic & biodynamic</li>
+                            <li>Award-winning Gran Reservas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="winery">
+                    <div class="winery__image">
+                        <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80" alt="Torres winery">
+                    </div>
+                    <div class="winery__content">
+                        <h3 class="winery__name">Familia Torres</h3>
+                        <p class="winery__location">Pacs del Penedès • 30 min</p>
+                        <p class="winery__desc">One of Spain's most iconic wine families. Visit their solar-powered cellars, historic vineyards, and taste award-winning wines from five generations.</p>
+                        <ul class="winery__highlights">
+                            <li>Sustainable winemaking leader</li>
+                            <li>Historic train tour of cellars</li>
+                            <li>Premium tasting experiences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="winery">
+                    <div class="winery__image">
+                        <img src="https://images.unsplash.com/photo-1566903451935-7e8835ed3e97?w=600&q=80" alt="Llopart winery">
+                    </div>
+                    <div class="winery__content">
+                        <h3 class="winery__name">Llopart</h3>
+                        <p class="winery__location">Subirats • 20 min</p>
+                        <p class="winery__desc">Family winery since the 1500s with stunning views of Montserrat. Known for elegant Cavas and excellent charcuterie pairings.</p>
+                        <ul class="winery__highlights">
+                            <li>Breathtaking Montserrat views</li>
+                            <li>Artisanal charcuterie pairing</li>
+                            <li>500+ years of winemaking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect -->
+    <section class="expect">
+        <div class="container">
+            <div class="expect__header">
+                <h2>Your Visit</h2>
+                <h3>What to Expect</h3>
+            </div>
+            <div class="expect__grid">
+                <div class="expect__item">
+                    <div class="expect__icon">🍇</div>
+                    <h4>Vineyard Walks</h4>
+                    <p>Stroll through rows of Macabeo, Xarel·lo, and Parellada grapes—the holy trinity of Cava.</p>
+                </div>
+                <div class="expect__item">
+                    <div class="expect__icon">🏛️</div>
+                    <h4>Historic Cellars</h4>
+                    <p>Descend into underground galleries where bottles rest for years, developing their unique character.</p>
+                </div>
+                <div class="expect__item">
+                    <div class="expect__icon">🥂</div>
+                    <h4>Expert Tastings</h4>
+                    <p>Guided by sommeliers who reveal the secrets behind each vintage and grape variety.</p>
+                </div>
+                <div class="expect__item">
+                    <div class="expect__icon">🧀</div>
+                    <h4>Local Pairings</h4>
+                    <p>Catalan cheeses, Iberian ham, and artisanal products that perfectly complement each wine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Plan Your Visit</h2>
+            <h3>Let Us Arrange Your Perfect Wine Day</h3>
+            <p>Our concierge can book private tours, arrange transportation, and create custom wine experiences tailored to your preferences.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+    </script>
+</body>
+</html>
