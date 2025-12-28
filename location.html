@@ -86,6 +86,8 @@
         .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
         .page-hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin-bottom: 25px; }
         .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
+        .page-hero__cta { display: inline-block; margin-top: 30px; padding: 16px 35px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-charcoal); color: white; transition: all 0.3s ease; }
+        .page-hero__cta:hover { background: var(--color-terracotta); }
         /* Map Section */
         .map-section { background: var(--color-charcoal); }
         .map-section__map { height: 450px; width: 100%; filter: grayscale(100%) contrast(1.1); }
@@ -226,38 +228,18 @@
     </nav>
     <section class="page-hero">
         <div class="container">
-            <p class="page-hero__overline">Torre del Veguer</p>
+            <p class="page-hero__overline">Sant Pere de Ribes, Catalunya</p>
             <h1>Location</h1>
-            <p>Perfectly positioned between Barcelona's energy and the Mediterranean's calm, in the heart of the Garraf wine region.</p>
+            <p>Nestled in the hills of the Garraf Natural Park, just 10 minutes from Sitges and 35 minutes from Barcelona. The best of both worlds: Mediterranean calm and urban energy within easy reach.</p>
+            <a href="https://www.google.com/maps/search/Masia+Can+Pares,+08810+Sant+Pere+de+Ribes" target="_blank" class="page-hero__cta">
+                Voir sur Google Maps →
+            </a>
         </div>
     </section>
     <!-- Map -->
     <section class="map-section">
         <div class="map-section__map">
             <iframe src="https://maps.google.com/maps?q=Masia+Can+Pares,+08810+Sant+Pere+de+Ribes,+Spain&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </section>
-    <!-- Address -->
-    <section class="address">
-        <div class="container">
-            <div class="address__grid">
-                <div class="address__item">
-                    <h2>Address</h2>
-                    <p>Urbanización Torre del Veguer s/n<br>Sant Pere de Ribes<br>08810 Barcelona, Spain</p>
-                </div>
-                <div class="address__item">
-                    <h2>Coordinates</h2>
-                    <p>41.2833° N<br>1.8166° E</p>
-                </div>
-                <div class="address__item">
-                    <h2>Contact</h2>
-                    <p><a href="/cdn-cgi/l/email-protection#3e565b5252517e535f4d575f5d5f504e5f4c5b4d105d5153"><span class="__cf_email__" data-cfemail="08606d6464674865697b61696b696678697a6d7b266b6765">[email&#160;protected]</span></a></p>
-                </div>
-                <div class="address__item">
-                    <h2>Directions</h2>
-                    <p><a href="https://www.google.com/maps/search/Masia+Can+Pares,+08810+Sant+Pere+de+Ribes" target="_blank">Open in Google Maps →</a></p>
-                </div>
-            </div>
         </div>
     </section>
     <!-- Distances -->
