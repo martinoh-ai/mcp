@@ -9,12 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
     
     <style>
         @font-face {
             font-family: 'Boogy Brut Poster';
-            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            src: url('cdn/fonts/BoogyBrutPoster-White.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -193,6 +193,10 @@
         .booking-modal__body { flex: 1; overflow: hidden; }
         .booking-modal__iframe { width: 100%; height: 100%; border: none; }
         .booking-modal__loading { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--color-text-light); }
+        .booking-modal__footer { padding: 15px 25px; background: var(--color-cream); border-top: 1px solid rgba(0,0,0,0.08); text-align: center; }
+        .booking-modal__footer p { font-size: 0.9rem; color: var(--color-text-light); margin: 0 0 5px 0; }
+        .booking-modal__footer a { font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-charcoal); text-decoration: none; font-weight: 600; }
+        .booking-modal__footer a:hover { color: var(--color-terracotta); }
 
         @media (max-width: 768px) {
             .booking-modal__content { height: 95vh; max-height: none; border-radius: 0; }
@@ -266,7 +270,7 @@
 <body>
     <header class="header" id="header">
         <div class="container header__inner">
-            <a href="index.html" class="header__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
                 <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -320,19 +324,19 @@
     <section class="hero">
         <div class="hero__bg">
             <div class="hero__slide active">
-                <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Masia Can Pares">
+                <img src="cdn/images/houses/casa-blanca.webp" alt="Masia Can Pares">
             </div>
             <div class="hero__slide">
-                <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Garden">
+                <img src="cdn/images/hero/hero-4.webp" alt="Garden">
             </div>
             <div class="hero__slide">
-                <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Guest House">
+                <img src="cdn/images/houses/casa-mediterranea.webp" alt="Guest House">
             </div>
             <div class="hero__overlay"></div>
         </div>
         <div class="hero__content">
-            <p class="hero__overline">Torre del Veguer · Sant Pere de Ribes</p>
-            <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Can Pares" class="hero__logo">
+            <p class="hero__overline">Sant Pere de Ribes, Catalunya</p>
+            <img src="cdn/logos/canpares-logo.webp" alt="Can Pares" class="hero__logo">
             <p class="hero__subtitle">A hidden paradise within a 20,000m² botanical garden, minutes from Barcelona and the Mediterranean sea.</p>
             <div class="hero__ctas">
                 <button onclick="openBookingModal()" class="hero__btn hero__btn--primary" style="cursor:pointer;border:none;">Check Availability</button>
@@ -349,18 +353,18 @@
                     <h2>A Story to Live</h2>
                     <p>Set in the hills of Sant Pere de Ribes, just 10 minutes from Sitges and 35 from Barcelona, Can Pares embodies the dream of a Catalan country retreat. A fully renovated 16th-century masia, it welcomes its guests—whether families, groups of friends or teams—to stay in a unique setting, nestled in the Mediterranean landscape.</p>
                     <div class="story__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Garden View">
+                        <img src="cdn/images/hero/hero-4.webp" alt="Garden View">
                     </div>
                 </div>
                 <div class="story__col story__col--center">
                     <div class="story__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Interior Window">
+                        <img src="cdn/images/hero/hero-1.webp" alt="Interior Window">
                     </div>
                 </div>
                 <div class="story__col story__col--right">
                     <p>Over five centuries, the estate has evolved from a working agricultural farm to a hidden paradise. Today, its 20,000m² botanical garden—home to over 600 different trees—offers countless corners to discover: an 18-meter pool, sun-drenched terraces, shaded reading nooks, and fragrant herb gardens.</p>
                     <div class="story__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Staircase">
+                        <img src="cdn/images/hero/hero-2.webp" alt="Staircase">
                     </div>
                     <a href="history.html" class="story__link">Read more about the story of Can Pares <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
                 </div>
@@ -379,7 +383,7 @@
             <div class="houses__grid">
                 <div class="house-card">
                     <div class="house-card__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Casa Blanca">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Blanca">
                     </div>
                     <div class="house-card__content">
                         <h3 class="house-card__name">Casa Blanca</h3>
@@ -403,7 +407,7 @@
                 </div>
                 <div class="house-card">
                     <div class="house-card__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" alt="Casa Mediterranea">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Mediterranea">
                     </div>
                     <div class="house-card__content">
                         <h3 class="house-card__name">Casa Mediterranea</h3>
@@ -523,7 +527,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
-                <a href="index.html" class="footer__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
                 <div class="footer__links">
                     <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
                     <a href="host.html" class="footer__link">Host</a>
@@ -552,6 +556,10 @@
             <div class="booking-modal__body">
                 <div class="booking-modal__loading" id="booking-loading">Loading calendar...</div>
                 <iframe class="booking-modal__iframe" id="booking-iframe" style="display:none;"></iframe>
+            </div>
+            <div class="booking-modal__footer">
+                <p>Can't find your dates?</p>
+                <a href="mailto:book@masiacanpares.com">book@masiacanpares.com</a>
             </div>
         </div>
     </div>
@@ -630,8 +638,8 @@
             loading.style.display = 'flex';
             iframe.style.display = 'none';
             
-            // Beds24 booking widget URL
-            iframe.src = `https://beds24.com/booking2.php?propid=${propertyId}&layout=1`;
+            // Beds24 booking widget URL (showmap=0 hides map)
+            iframe.src = `https://beds24.com/booking2.php?propid=${propertyId}&layout=1&showmap=0`;
             
             iframe.onload = function() {
                 loading.style.display = 'none';
