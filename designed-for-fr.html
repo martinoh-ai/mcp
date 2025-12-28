@@ -3,243 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conçu Pour | Masia Can Pares - Familles, Bien-être, Séminaires, Artistes, Tournages</title>
-    <meta name="description" content="Masia Can Pares est parfait pour les vacances en famille, retraites bien-être, événements corporate, résidences d'artistes et tournages photo/film. Découvrez comment notre mas catalan peut accueillir votre prochain événement.">
-    <meta name="keywords" content="vacances famille sitges, retraite bien-etre barcelone, seminaire espagne, residence artiste catalogne, lieu tournage barcelone">
-    <link rel="canonical" href="https://www.masiacanpares.com/designed-for-fr.html">
-    
+    <title>Designed For | Masia Can Pares - Family, Yoga, Corporate, Artists, Film</title>
+    <meta name="description" content="Masia Can Pares is perfect for family holidays, yoga retreats, corporate offsites, artist residencies, and film productions near Barcelona.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
-    
     <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('cdn/fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
-            --color-bg: #FAF8F5; --color-bg-warm: #F3EDE4; --color-bg-dark: #A65D57;
-            --color-text: #2C2825; --color-text-light: #6B635A; --color-text-inverse: #FAF8F5;
-            --color-terracotta: #A65D57; --color-border: #DDD5C8; --color-gold: #D4B062;
-            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-sage-light: #D4DDD0;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
         }
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.8; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
         img { max-width: 100%; height: auto; display: block; }
         a { color: inherit; text-decoration: none; }
-        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; }
+        h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+        h3 { font-family: var(--font-display); font-weight: 600; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
-
-        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
-        .header__logo { height: 45px; }
-        .header__right { display: flex; align-items: center; gap: 25px; }
-        .header__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-        .header__cta { padding: 12px 24px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-gold); color: var(--color-bg-dark); }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang svg { width: 12px; height: 12px; }
+        .header__lang-dropdown { position: relative; }
+        .header__lang-menu { display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 120px; z-index: 1001; margin-top: 8px; }
+        .header__lang-menu.active { display: block; }
+        .header__lang-menu a { display: block; padding: 10px 15px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text); transition: background 0.2s; }
+        .header__lang-menu a:hover { background: var(--color-cream); }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
+        /* Mobile Menu Button */
+        .header__menu-btn { display: none; width: 44px; height: 44px; background: none; border: none; cursor: pointer; position: relative; z-index: 1001; }
+        .header__menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-charcoal); margin: 5px auto; transition: all 0.3s ease; }
+        .header__menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header__menu-btn.active span:nth-child(2) { opacity: 0; }
+        .header__menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        /* Mobile Menu Overlay */
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-cream); z-index: 998; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu__nav { text-align: center; margin-bottom: 40px; }
+        .mobile-menu__link { display: block; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; padding: 15px 0; color: var(--color-charcoal); transition: color 0.3s ease; }
+        .mobile-menu__link:hover { color: var(--color-terracotta); }
+        .mobile-menu__actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .mobile-menu__btn { padding: 16px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .mobile-menu__btn--primary { background: var(--color-charcoal); color: white; }
+        .mobile-menu__btn--secondary { border: 1.5px solid var(--color-charcoal); background: transparent; }
+        .mobile-menu__lang { display: flex; gap: 20px; margin-top: 30px; }
+        .mobile-menu__lang a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.5; }
+        .mobile-menu__lang a.active { opacity: 1; }
+        /* Floating CTA Button */
+        .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 997; padding: 15px 20px; background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); display: none; }
+        .floating-cta__btn { display: block; width: 100%; padding: 16px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; text-align: center; transition: background 0.3s ease; }
+        .floating-cta__btn:hover { background: var(--color-terracotta); }
+        .section-nav { position: sticky; top: 69px; z-index: 998; background: var(--color-sage); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+        .section-nav__inner::-webkit-scrollbar { display: none; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
+        .section-nav__link:hover { background: rgba(255,255,255,0.1); }
+        .section-nav__link.active { background: rgba(255,255,255,0.15); }
+        .page-hero { padding: 170px 0 80px; background: var(--color-sage-light); text-align: center; }
+        .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
+        .page-hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 25px; }
+        .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
+        /* Use Case Sections */
+        .use-case { padding: 100px 0; }
+        .use-case:nth-child(odd) { background: var(--color-cream); }
+        .use-case:nth-child(even) { background: var(--color-sage-light); }
+        .use-case__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .use-case:nth-child(even) .use-case__grid { direction: rtl; }
+        .use-case:nth-child(even) .use-case__grid > * { direction: ltr; }
+        .use-case__image { position: relative; }
+        .use-case__image img { width: 100%; height: 500px; object-fit: cover; }
+        .use-case__number { position: absolute; top: -20px; left: -20px; width: 60px; height: 60px; background: var(--color-sage); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: white; }
+        .use-case__content h2 { color: var(--color-sage); margin-bottom: 15px; }
+        .use-case__content h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 25px; }
+        .use-case__text { font-size: 1.05rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 30px; }
+        .use-case__features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .use-case__feature { display: flex; align-items: center; gap: 12px; padding: 15px 20px; background: white; }
+        .use-case:nth-child(even) .use-case__feature { background: var(--color-cream); }
+        .use-case__feature svg { width: 20px; height: 20px; color: var(--color-sage); flex-shrink: 0; }
+        .use-case__feature span { font-size: 0.9rem; }
+        .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
+        .cta h2 { color: var(--color-sage); margin-bottom: 15px; }
+        .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta p { opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-sage); color: white; font-weight: 700; }
+                /* Footer */
+        .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
+        .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer__logo { display: block; margin-bottom: 30px; }
+        .footer__logo img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 40px; margin-bottom: 30px; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
+        .footer__link:hover { opacity: 1; }
+        .footer__address { font-size: 0.85rem; opacity: 0.5; }
 
-        .section-nav { position: sticky; top: 85px; z-index: 999; background: var(--color-gold); }
-        .section-nav__inner { display: flex; justify-content: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
-        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; }
-        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
-        .section-nav__link.active { background: rgba(0,0,0,0.1); }
-
-        .page-hero { padding: 180px 0 100px; background: var(--color-bg-warm); text-align: center; }
-        .page-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 20px; }
-        .page-hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 650px; margin: 0 auto; }
-
-        .uses { padding: 0; }
-        .use { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
-        .use:nth-child(even) { direction: rtl; }
-        .use:nth-child(even) > * { direction: ltr; }
-        .use__image { position: relative; overflow: hidden; }
-        .use__image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-        .use__content { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
-        .use:nth-child(odd) .use__content { background: var(--color-bg); }
-        .use:nth-child(even) .use__content { background: var(--color-bg-warm); }
-        .use__icon { width: 50px; height: 50px; color: var(--color-terracotta); margin-bottom: 25px; }
-        .use__title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
-        .use__desc { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 30px; line-height: 1.8; }
-        .use__features { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 35px; }
-        .use__feature { padding: 12px 20px; background: rgba(0,0,0,0.03); font-size: 0.85rem; display: flex; align-items: center; gap: 10px; }
-        .use__feature svg { width: 18px; height: 18px; color: var(--color-terracotta); }
-        .use__btn { display: inline-flex; align-items: center; gap: 12px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-terracotta); padding: 16px 0; border-bottom: 2px solid var(--color-terracotta); transition: all 0.3s; align-self: flex-start; }
-        .use__btn:hover { padding-left: 10px; }
-        .use__btn svg { transition: transform 0.3s; }
-        .use__btn:hover svg { transform: translateX(5px); }
-
-        .cta { padding: 100px 0; background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
-        .cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
-        .cta p { opacity: 0.7; margin-bottom: 40px; }
-        .cta__btn { display: inline-block; padding: 18px 45px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; }
-
-        .footer { background: #A65D57; color: var(--color-text-inverse); padding: 60px 0 30px; text-align: center; }
-        .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
-        .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer__link { font-size: 0.85rem; opacity: 0.7; }
-        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.5; }
-
+        
         @media (max-width: 1024px) {
-            .use { grid-template-columns: 1fr; min-height: auto; }
-            .use:nth-child(even) { direction: ltr; }
-            .use__image { height: 400px; position: relative; }
-            .use__image img { position: relative; }
-            .use__content { padding: 60px 40px; }
+            .use-case__grid { grid-template-columns: 1fr; }
+            .use-case:nth-child(even) .use-case__grid { direction: ltr; }
         }
         @media (max-width: 768px) {
-            .header__link { display: none; }
-            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
-            .use__content { padding: 50px 25px; }
-            .use__image { height: 300px; }
+            .header__right { display: none; }
+            .header__menu-btn { display: block; }
+            .section-nav__inner { justify-content: flex-start; padding: 0 20px; }
+            .floating-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .page-hero { padding: 140px 0 60px; }
+            .page-hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
+            .use-case__features { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="container header__inner">
-            <a href="index-fr.html"><img src="cdn/logos/canpares-logo.webp" alt="Masia Can Pares" class="header__logo"></a>
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contactez-nous</a>
-                <a href="https://www.masiacanpares.com/book" class="header__cta">Réserver</a>
+                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Réserver</a>
+                <a href="login.html" class="header__btn header__btn--filled">Connexion</a>
             </div>
+            <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <nav class="section-nav">
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="history.html" class="mobile-menu__link">Histoire</a>
+            <a href="gallery.html" class="mobile-menu__link">Visite Virtuelle</a>
+            <a href="stay.html" class="mobile-menu__link">Stay</a>
+            <a href="designed-for.html" class="mobile-menu__link">Pour Qui</a>
+            <a href="experiences.html" class="mobile-menu__link">Expériences</a>
+            <a href="location.html" class="mobile-menu__link">Localisation</a>
+        </nav>
+        <div class="mobile-menu__actions">
+            <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Réserver</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contactez-nous</a>
+        </div>
+        <div class="mobile-menu__lang">
+            <a href="designed-for.html" class="active">EN</a>
+            <a href="designed-for-fr.html">FR</a>
+            <a href="designed-for-es.html">ES</a>
+        </div>
+    </div>
+
+    <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
-                <li><a href="history-fr.html" class="section-nav__link">Histoire</a></li>
-                <li><a href="gallery-fr.html" class="section-nav__link">Visite</a></li>
-                <li><a href="bedrooms-fr.html" class="section-nav__link">Chambres</a></li>
-                <li><a href="designed-for-fr.html" class="section-nav__link active">Conçu Pour</a></li>
-                <li><a href="equipment-fr.html" class="section-nav__link">Équipements</a></li>
-                <li><a href="experiences-fr.html" class="section-nav__link">Expériences</a></li>
-                <li><a href="location-fr.html" class="section-nav__link">Accès</a></li>
+                <li><a href="history.html" class="section-nav__link">Histoire</a></li>
+                <li><a href="gallery.html" class="section-nav__link">Visite Virtuelle</a></li>
+                <li><a href="stay.html" class="section-nav__link">Stay</a></li>
+                <li><a href="designed-for.html" class="section-nav__link active">Pour Qui</a></li>
+                
+                <li><a href="experiences.html" class="section-nav__link">Expériences</a></li>
+                <li><a href="location.html" class="section-nav__link">Localisation</a></li>
             </ul>
         </div>
     </nav>
-
     <section class="page-hero">
         <div class="container">
-            <h1>Conçu Pour</h1>
-            <p>Des réunions de famille intimes aux productions professionnelles, Masia Can Pares s'adapte à votre vision</p>
+            <p class="page-hero__overline">Masia Can Pares</p>
+            <h1>Pour Qui</h1>
+            <p>Whether you're planning a family holiday, wellness retreat, corporate offsite, or creative project, Can Pares adapts to your vision.</p>
         </div>
     </section>
-
-    <section class="uses">
-        <!-- 1. FAMILLE -->
-        <div class="use">
-            <div class="use__image">
-                <img src="cdn/images/houses/casa-mediterranea.webp" alt="Vacances en famille à Masia Can Pares">
-            </div>
-            <div class="use__content">
-                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <h2 class="use__title">Vacances en Famille</h2>
-                <p class="use__desc">Créez des souvenirs inoubliables dans un cadre qui ravit tous les âges. Les enfants explorent les jardins botaniques et s'amusent dans la piscine pendant que les adultes se détendent sur la terrasse avec un verre de vin local du vignoble voisin.</p>
-                <div class="use__features">
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Piscine</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espaces adaptés aux enfants</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>BBQ & repas en plein air</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>10 min de la plage de Sitges</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cuisine équipée</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jardin de 20 000m²</span>
+    <!-- Family -->
+    <section class="use-case">
+        <div class="container">
+            <div class="use-case__grid">
+                <div class="use-case__image">
+                    <img src="cdn/images/hero/hero-4.webp" alt="Family Holidays">
+                    <span class="use-case__number">01</span>
                 </div>
-                <a href="https://www.masiacanpares.com/book" class="use__btn">Réserver un séjour famille <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-        </div>
-
-        <!-- 2. BIEN-ÊTRE -->
-        <div class="use">
-            <div class="use__image">
-                <img src="cdn/images/hero/hero-4.webp" alt="Retraite yoga et bien-être">
-            </div>
-            <div class="use__content">
-                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                <h2 class="use__title">Retraites Yoga & Bien-être</h2>
-                <p class="use__desc">Transformez votre corps et votre esprit dans notre sanctuaire botanique paisible. Les jardins offrent des espaces de pratique en plein air parfaits avec une intimité totale pour une expérience bien-être vraiment immersive. Reconnectez-vous avec la nature et vous-même.</p>
-                <div class="use__features">
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espaces yoga extérieurs</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jardins de méditation</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Traiteur bien-être disponible</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Intimité totale</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Piscine pour relaxation</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Immersion nature</span>
+                <div class="use-case__content">
+                    <h2>Perfect For</h2>
+                    <h3>Family Holidays</h3>
+                    <p class="use-case__text">Create lasting memories in a setting that delights all ages. Children can explore the botanical garden while adults relax by the pool. Just 10 minutes from Sitges beach, with plenty of space for everyone to find their own rhythm.</p>
+                    <div class="use-case__features">
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>18m swimming pool</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Child-safe garden spaces</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>BBQ & outdoor dining</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>10 min to Sitges beach</span>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://www.masiacanpares.com/contact" class="use__btn">Organiser votre retraite <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-        </div>
-
-        <!-- 3. SÉMINAIRES -->
-        <div class="use">
-            <div class="use__image">
-                <img src="cdn/images/hero/hero-1.webp" alt="Lieu de séminaire">
-            </div>
-            <div class="use__content">
-                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                <h2 class="use__title">Séminaires d'Entreprise</h2>
-                <p class="use__desc">Échappez au bureau pour la planification stratégique, le team building ou les séminaires de direction. Notre cadre privé encourage un travail concentré tandis que nos équipements assurent des séjours confortables. Idéal pour les équipes en quête d'inspiration.</p>
-                <div class="use__features">
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>WiFi ultra rapide</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espaces de réunion</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jusqu'à 30 personnes</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Traiteur disponible</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Activités team building</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>40 min de Barcelone</span>
-                </div>
-                <a href="https://www.masiacanpares.com/contact" class="use__btn">Planifier votre séminaire <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-        </div>
-
-        <!-- 4. ARTISTES -->
-        <div class="use">
-            <div class="use__image">
-                <img src="cdn/images/hero/hero-2.webp" alt="Espace résidence d'artiste">
-            </div>
-            <div class="use__content">
-                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                <h2 class="use__title">Résidences d'Artistes</h2>
-                <p class="use__desc">Créez votre chef-d'œuvre entouré de siècles d'histoire et de beauté naturelle. Les longs séjours sont les bienvenus pour les écrivains, musiciens, peintres et créateurs de tous horizons. Laissez la lumière méditerranéenne inspirer votre travail.</p>
-                <div class="use__features">
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Espace studio musique</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Retraites d'écriture</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Inspiration nature</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Longs séjours bienvenus</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Environnement calme</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Communauté créative</span>
-                </div>
-                <a href="https://www.masiacanpares.com/contact" class="use__btn">Candidater pour une résidence <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-        </div>
-
-        <!-- 5. TOURNAGES & PHOTOS -->
-        <div class="use">
-            <div class="use__image">
-                <img src="cdn/images/houses/casa-blanca.webp" alt="Lieu de tournage film et photo">
-            </div>
-            <div class="use__content">
-                <svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                <h2 class="use__title">Tournages & Séances Photo</h2>
-                <p class="use__desc">Notre domaine de 20 000m² offre des décors variés pour toute production : architecture en pierre du XVIe siècle, jardins botaniques luxuriants, piscine méditerranéenne, intérieurs modernes et détails catalans rustiques. Lumière naturelle tout au long de la journée.</p>
-                <div class="use__features">
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Architecture historique</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Jardin botanique</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Piscine & terrasses</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Parking équipes</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Lumière naturelle</span>
-                    <span class="use__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Décors variés</span>
-                </div>
-                <a href="https://www.masiacanpares.com/contact" class="use__btn">Renseignements production <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
         </div>
     </section>
-
+    <!-- Yoga & Wellness -->
+    <section class="use-case">
+        <div class="container">
+            <div class="use-case__grid">
+                <div class="use-case__image">
+                    <img src="cdn/images/hero/hero-2.webp" alt="Yoga Retreats">
+                    <span class="use-case__number">02</span>
+                </div>
+                <div class="use-case__content">
+                    <h2>Perfect For</h2>
+                    <h3>Yoga & Wellness Retreats</h3>
+                    <p class="use-case__text">Find your center in a sanctuary designed for restoration. Multiple outdoor spaces for yoga practice, meditation gardens tucked among ancient trees, and complete privacy to disconnect and recharge.</p>
+                    <div class="use-case__features">
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Outdoor yoga spaces</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Meditation gardens</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Total privacy</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Massage & wellness services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Corporate -->
+    <section class="use-case">
+        <div class="container">
+            <div class="use-case__grid">
+                <div class="use-case__image">
+                    <img src="cdn/images/houses/casa-mediterranea.webp" alt="Corporate Retreats">
+                    <span class="use-case__number">03</span>
+                </div>
+                <div class="use-case__content">
+                    <h2>Perfect For</h2>
+                    <h3>Séminaires d'Entreprise</h3>
+                    <p class="use-case__text">Inspire your team in an environment that sparks creativity. Ultra-fast WiFi, flexible meeting spaces, and a setting that encourages meaningful connection. Host up to 30 people for day events.</p>
+                    <div class="use-case__features">
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Ultra-fast WiFi</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Flexible meeting spaces</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Up to 30 people</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Catering available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Artists -->
+    <section class="use-case">
+        <div class="container">
+            <div class="use-case__grid">
+                <div class="use-case__image">
+                    <img src="cdn/images/hero/hero-1.webp" alt="Artist Residencies">
+                    <span class="use-case__number">04</span>
+                </div>
+                <div class="use-case__content">
+                    <h2>Perfect For</h2>
+                    <h3>Artist Residencies</h3>
+                    <p class="use-case__text">Find inspiration in every corner. A music studio space for recording, endless natural light for painters, and the solitude writers crave. Long stays welcome—let the Mediterranean muse guide your work.</p>
+                    <div class="use-case__features">
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Music studio space</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Natural light studios</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Writing retreats</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Long stays welcome</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Film & Photo -->
+    <section class="use-case">
+        <div class="container">
+            <div class="use-case__grid">
+                <div class="use-case__image">
+                    <img src="cdn/images/houses/casa-blanca.webp" alt="Film Productions">
+                    <span class="use-case__number">05</span>
+                </div>
+                <div class="use-case__content">
+                    <h2>Perfect For</h2>
+                    <h3>Film & Photo Productions</h3>
+                    <p class="use-case__text">A location scout's dream. Historic 16th-century architecture, 20,000m² botanical garden, and diverse backdrops from rustic Catalan to minimalist modern. We understand production needs.</p>
+                    <div class="use-case__features">
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Historic architecture</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>20,000m² botanical garden</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Diverse backdrops</span>
+                        </div>
+                        <div class="use-case__feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                            <span>Production-friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="cta">
         <div class="container">
-            <h2>Vous avez une idée unique ?</h2>
-            <p>Nous adorons les projets créatifs. Parlez-nous du vôtre.</p>
-            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Nous Contacter</a>
+            <h2>Plan Your Stay</h2>
+            <h3>Tell Us Your Vision</h3>
+            <p>Every event is unique. Get in touch and we'll help you create the perfect experience.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Get in Touch</a>
         </div>
     </section>
-
-    <footer class="footer">
+        <footer class="footer">
         <div class="container">
             <div class="footer__inner">
                 <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
@@ -251,5 +391,35 @@
             </div>
         </div>
     </footer>
+    <!-- Floating CTA (Mobile) -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
+    <script>
+        // Language Menu Toggle
+        function toggleLangMenu(e) { e.preventDefault(); document.getElementById("langMenu").classList.toggle("active"); }
+        document.addEventListener("click", function(e) { var m = document.getElementById("langMenu"); var d = document.querySelector(".header__lang-dropdown"); if (m && d && !d.contains(e.target)) { m.classList.remove("active"); } });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            document.querySelectorAll('.mobile-menu__link').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
 </body>
 </html>

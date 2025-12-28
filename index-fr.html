@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masia Can Pares | Maisons d'Hôtes de Luxe près de Barcelone & Sitges</title>
+    <title>Masia Can Pares | Maisons d'Hôtes de Luxe près de Barcelone et Sitges</title>
     <meta name="description" content="Masia Can Pares offers two stunning guest houses set within a 20,000m² botanical garden near Sitges. A hidden paradise for families, retreats, artists and film productions.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +54,7 @@
         
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
-        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; cursor: pointer; }
         .header__lang svg { width: 12px; height: 12px; }
         .header__lang-dropdown { position: relative; }
         .header__lang-menu { display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 120px; z-index: 1001; margin-top: 8px; }
@@ -277,10 +277,10 @@
         <div class="container header__inner">
             <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
             <div class="header__right">
-                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
-                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contactez-nous</a>
+                <div class="header__lang-dropdown"><a href="#" class="header__lang" onclick="toggleLangMenu(event)">FR <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a><div class="header__lang-menu" id="langMenu"><a href="index.html">English</a><a href="index-fr.html">Français</a><a href="index-es.html">Español</a></div></div>
                 <button onclick="openBookingModal()" class="header__btn header__btn--outline" style="cursor:pointer;">Réserver</button>
-                <a href="login.html" class="header__btn header__btn--filled">Sign In</a>
+                <a href="login.html" class="header__btn header__btn--filled">Connexion</a>
             </div>
             <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
                 <span></span>
@@ -293,8 +293,8 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-menu__nav">
-            <a href="history.html" class="mobile-menu__link">History</a>
-            <a href="gallery.html" class="mobile-menu__link">Step Inside</a>
+            <a href="history.html" class="mobile-menu__link">Histoire</a>
+            <a href="gallery.html" class="mobile-menu__link">Visite Virtuelle</a>
             <a href="stay.html" class="mobile-menu__link">Stay</a>
             <a href="designed-for.html" class="mobile-menu__link">Pour Qui</a>
             <a href="experiences.html" class="mobile-menu__link">Expériences</a>
@@ -302,11 +302,11 @@
         </nav>
         <div class="mobile-menu__actions">
             <button onclick="openBookingModal(); closeMobileMenu();" class="mobile-menu__btn mobile-menu__btn--primary" style="cursor:pointer;border:none;width:100%;">Réserver</button>
-            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contactez-nous</a>
         </div>
         <div class="mobile-menu__lang">
-            <a href="index.html">EN</a>
-            <a href="index-fr.html" class="active">FR</a>
+            <a href="index.html" class="active">EN</a>
+            <a href="index-fr.html">FR</a>
             <a href="index-es.html">ES</a>
         </div>
     </div>
@@ -314,8 +314,8 @@
     <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
-                <li><a href="history.html" class="section-nav__link">History</a></li>
-                <li><a href="gallery.html" class="section-nav__link">Step Inside</a></li>
+                <li><a href="history.html" class="section-nav__link">Histoire</a></li>
+                <li><a href="gallery.html" class="section-nav__link">Visite Virtuelle</a></li>
                 <li><a href="stay.html" class="section-nav__link">Stay</a></li>
                 <li><a href="designed-for.html" class="section-nav__link">Pour Qui</a></li>
                 
@@ -367,7 +367,7 @@
                     </div>
                 </div>
                 <div class="story__col story__col--right">
-                    <p>Au fil de cinq siècles, le domaine est passé d'une ferme agricole à un paradis caché. Aujourd'''hui, son jardin botanique de 20 000m²—abritant plus de 600 arbres différents—offre d'''innombrables coins à découvrir : une piscine de 18 mètres, des terrasses ensoleillées, des coins lecture ombragés et des jardins d'''herbes aromatiques.</p>
+                    <p>Au fil de cinq siècles, le domaine est passé d'une ferme agricole à un paradis caché. Aujourd'hui, son jardin botanique de 20 000m²—abritant plus de 600 arbres différents—offre d'innombrables coins à découvrir : une piscine de 18 mètres, des terrasses ensoleillées, des coins lecture ombragés et des jardins d'herbes aromatiques.</p>
                     <div class="story__image">
                         <img src="cdn/images/hero/hero-2.webp" alt="Staircase">
                     </div>
@@ -563,7 +563,7 @@
                 <iframe class="booking-modal__iframe" id="booking-iframe" style="display:none;"></iframe>
             </div>
             <div class="booking-modal__footer">
-                <p>Can't find your dates?</p>
+                <p>Vous ne trouvez pas vos dates ?</p>
                 <a href="mailto:book@masiacanpares.com">book@masiacanpares.com</a>
             </div>
         </div>
