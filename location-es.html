@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location | Masia Can Pares - Sant Pere de Ribes, near Barcelona & Sitges</title>
+    <meta name="description" content="Find Masia Can Pares in Sant Pere de Ribes, just 10 minutes from Sitges beach and 35 minutes from Barcelona. Perfectly located between coast and mountains.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cdn/logos/canpares-logo.webp">
+    <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('cdn/fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-terracotta-light: #E8C4B0;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+        h3 { font-family: var(--font-display); font-weight: 600; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang svg { width: 12px; height: 12px; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
+        /* Mobile Menu Button */
+        .header__menu-btn { display: none; width: 44px; height: 44px; background: none; border: none; cursor: pointer; position: relative; z-index: 1001; }
+        .header__menu-btn span { display: block; width: 22px; height: 2px; background: var(--color-charcoal); margin: 5px auto; transition: all 0.3s ease; }
+        .header__menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .header__menu-btn.active span:nth-child(2) { opacity: 0; }
+        .header__menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        /* Mobile Menu Overlay */
+        .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-cream); z-index: 998; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+        .mobile-menu.active { opacity: 1; visibility: visible; }
+        .mobile-menu__nav { text-align: center; margin-bottom: 40px; }
+        .mobile-menu__link { display: block; font-family: var(--font-display); font-size: 2rem; text-transform: uppercase; padding: 15px 0; color: var(--color-charcoal); transition: color 0.3s ease; }
+        .mobile-menu__link:hover { color: var(--color-terracotta); }
+        .mobile-menu__actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .mobile-menu__btn { padding: 16px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .mobile-menu__btn--primary { background: var(--color-charcoal); color: white; }
+        .mobile-menu__btn--secondary { border: 1.5px solid var(--color-charcoal); background: transparent; }
+        .mobile-menu__lang { display: flex; gap: 20px; margin-top: 30px; }
+        .mobile-menu__lang a { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.5; }
+        .mobile-menu__lang a.active { opacity: 1; }
+        /* Floating CTA Button */
+        .floating-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 997; padding: 15px 20px; background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); display: none; }
+        .floating-cta__btn { display: block; width: 100%; padding: 16px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; text-align: center; transition: background 0.3s ease; }
+        .floating-cta__btn:hover { background: var(--color-terracotta); }
+        .section-nav { position: sticky; top: 69px; z-index: 998; background: var(--color-terracotta); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+        .section-nav__inner::-webkit-scrollbar { display: none; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
+        .section-nav__link:hover { background: rgba(0,0,0,0.1); }
+        .section-nav__link.active { background: rgba(0,0,0,0.15); }
+        .page-hero { padding: 170px 0 80px; background: var(--color-terracotta-light); text-align: center; }
+        .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
+        .page-hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin-bottom: 25px; }
+        .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
+        .page-hero__cta { display: inline-block; margin-top: 30px; padding: 16px 35px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-charcoal); color: white; transition: all 0.3s ease; }
+        .page-hero__cta:hover { background: var(--color-terracotta); }
+        /* Map Section */
+        .map-section { background: var(--color-charcoal); }
+        .map-section__map { height: 450px; width: 100%; filter: grayscale(100%) contrast(1.1); }
+        .map-section__map iframe { width: 100%; height: 100%; border: 0; }
+        /* Address */
+        .address { padding: 80px 0; background: var(--color-charcoal); color: white; }
+        .address__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+        .address__item h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .address__item p { font-size: 1.1rem; line-height: 1.6; opacity: 0.8; }
+        .address__item a { color: var(--color-terracotta); }
+        /* Distances */
+        .distances { padding: 100px 0; background: var(--color-cream); }
+        .distances__header { text-align: center; margin-bottom: 60px; }
+        .distances__header h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .distances__header h3 { font-size: clamp(2rem, 4vw, 3rem); }
+        .distances__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .distance-card { background: white; padding: 40px 35px; text-align: center; transition: transform 0.3s; }
+        .distance-card:hover { transform: translateY(-5px); }
+        .distance-card__time { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; color: var(--color-terracotta); }
+        .distance-card__unit { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 15px; }
+        .distance-card__place { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 10px; }
+        .distance-card__desc { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+        /* Getting Here */
+        .getting-here { padding: 100px 0; background: var(--color-terracotta-light); }
+        .getting-here__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .getting-here__content h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .getting-here__content h3 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 30px; }
+        .getting-here__text { font-size: 1.05rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 20px; }
+        .getting-here__options { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
+        .getting-here__option { display: flex; align-items: flex-start; gap: 20px; background: white; padding: 25px; }
+        .getting-here__option-icon { width: 45px; height: 45px; background: var(--color-terracotta); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .getting-here__option-icon svg { width: 22px; height: 22px; color: white; }
+        .getting-here__option h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+        .getting-here__option p { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+        .getting-here__image img { width: 100%; height: 500px; object-fit: cover; }
+        /* Nearby */
+        .nearby { padding: 100px 0; background: var(--color-cream); }
+        .nearby__header { text-align: center; margin-bottom: 60px; }
+        .nearby__header h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .nearby__header h3 { font-size: clamp(2rem, 4vw, 3rem); }
+        .nearby__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .nearby-card { display: grid; grid-template-columns: 180px 1fr; gap: 25px; background: white; overflow: hidden; }
+        .nearby-card__image { height: 100%; min-height: 180px; }
+        .nearby-card__image img { width: 100%; height: 100%; object-fit: cover; }
+        .nearby-card__content { padding: 25px 25px 25px 0; display: flex; flex-direction: column; justify-content: center; }
+        .nearby-card__distance { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 8px; }
+        .nearby-card__title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+        .nearby-card__desc { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.6; }
+        .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
+        .cta h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta p { opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-terracotta); color: white; font-weight: 700; }
+                /* Footer */
+        .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
+        .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .footer__logo { display: block; margin-bottom: 30px; }
+        .footer__logo img { height: 50px; width: auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 40px; margin-bottom: 30px; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
+        .footer__link:hover { opacity: 1; }
+        .footer__address { font-size: 0.85rem; opacity: 0.5; }
+
+        
+        @media (max-width: 1024px) {
+            .address__grid { grid-template-columns: repeat(2, 1fr); }
+            .distances__grid { grid-template-columns: 1fr 1fr; }
+            .getting-here__grid { grid-template-columns: 1fr; }
+            .nearby__grid { grid-template-columns: 1fr; }
+            .nearby-card { grid-template-columns: 1fr; }
+            .nearby-card__content { padding: 25px; }
+        }
+        @media (max-width: 768px) {
+            .header__right { display: none; }
+            .header__menu-btn { display: block; }
+            .section-nav__inner { justify-content: flex-start; padding: 0 20px; }
+            .floating-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .page-hero { padding: 140px 0 60px; }
+            .page-hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
+            .address__grid { grid-template-columns: 1fr; }
+            .distances__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+                <a href="login.html" class="header__btn header__btn--filled">Sign In</a>
+            </div>
+            <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav">
+            <a href="history.html" class="mobile-menu__link">History</a>
+            <a href="gallery.html" class="mobile-menu__link">Step Inside</a>
+            <a href="stay.html" class="mobile-menu__link">Stay</a>
+            <a href="designed-for-es.html" class="mobile-menu__link">Designed For</a>
+            <a href="experiences-es.html" class="mobile-menu__link">Experiences</a>
+            <a href="location-es.html" class="mobile-menu__link">Ubicación</a>
+        </nav>
+        <div class="mobile-menu__actions">
+            <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Reserve a Stay</a>
+            <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
+        </div>
+        <div class="mobile-menu__lang">
+            <a href="location-es.html" class="active">EN</a>
+            <a href="location-fr.html">FR</a>
+            <a href="location-es.html">ES</a>
+        </div>
+    </div>
+
+    <nav class="section-nav" id="sectionNav">
+        <div class="section-nav__inner">
+            <ul class="section-nav__links">
+                <li><a href="history.html" class="section-nav__link">History</a></li>
+                <li><a href="gallery.html" class="section-nav__link">Step Inside</a></li>
+                <li><a href="stay.html" class="section-nav__link">Stay</a></li>
+                <li><a href="designed-for-es.html" class="section-nav__link">Designed For</a></li>
+                
+                <li><a href="experiences-es.html" class="section-nav__link">Experiences</a></li>
+                <li><a href="location-es.html" class="section-nav__link active">Ubicación</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="page-hero">
+        <div class="container">
+            <p class="page-hero__overline">Sant Pere de Ribes, Cataluña</p>
+            <h1>Ubicación</h1>
+            <p>Ubicada en las colinas del Parque Natural del Garraf, a solo 10 minutos de Sitges y 35 de Barcelona. Lo mejor de ambos mundos: calma mediterránea y energía urbana al alcance.</p>
+            <a href="https://www.google.com/maps/search/Masia+Can+Pares,+08810+Sant+Pere+de+Ribes" target="_blank" class="page-hero__cta">
+                Voir sur Google Maps →
+            </a>
+        </div>
+    </section>
+    <!-- Map -->
+    <section class="map-section">
+        <div class="map-section__map">
+            <iframe src="https://maps.google.com/maps?q=Masia+Can+Pares,+08810+Sant+Pere+de+Ribes,+Spain&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    <!-- Distances -->
+    <section class="distances">
+        <div class="container">
+            <div class="distances__header">
+                <h2>Tiempos de Viaje</h2>
+                <h3>Cerca de Todo</h3>
+            </div>
+            <div class="distances__grid">
+                <div class="distance-card">
+                    <div class="distance-card__time">10</div>
+                    <div class="distance-card__unit">Minutos</div>
+                    <h3 class="distance-card__place">Sitges</h3>
+                    <p class="distance-card__desc">Hermosas playas, animada vida nocturna, y un encantador casco antiguo con excelentes restaurantes.</p>
+                </div>
+                <div class="distance-card">
+                    <div class="distance-card__time">35</div>
+                    <div class="distance-card__unit">Minutos</div>
+                    <h3 class="distance-card__place">Barcelona</h3>
+                    <p class="distance-card__desc">La capital cosmopolita de Cataluña, con cultura, gastronomía y arquitectura de clase mundial.</p>
+                </div>
+                <div class="distance-card">
+                    <div class="distance-card__time">25</div>
+                    <div class="distance-card__unit">Minutos</div>
+                    <h3 class="distance-card__place">Aeropuerto de Barcelona</h3>
+                    <p class="distance-card__desc">Aeropuerto Internacional El Prat, con conexiones a ciudades de todo el mundo.</p>
+                </div>
+                <div class="distance-card">
+                    <div class="distance-card__time">15</div>
+                    <div class="distance-card__unit">Minutos</div>
+                    <h3 class="distance-card__place">Vilanova i la Geltrú</h3>
+                    <p class="distance-card__desc">Encantadora ciudad costera con museos, mercados y auténtico ambiente local.</p>
+                </div>
+                <div class="distance-card">
+                    <div class="distance-card__time">20</div>
+                    <div class="distance-card__unit">Minutos</div>
+                    <h3 class="distance-card__place">Bodegas del Penedès</h3>
+                    <p class="distance-card__desc">La tierra del cava, con decenas de bodegas que ofrecen catas y visitas.</p>
+                </div>
+                <div class="distance-card">
+                    <div class="distance-card__time">45</div>
+                    <div class="distance-card__unit">Minutos</div>
+                    <h3 class="distance-card__place">Tarragona</h3>
+                    <p class="distance-card__desc">Ruinas romanas Patrimonio de la Humanidad y una impresionante costa mediterránea.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Getting Here -->
+    <section class="getting-here">
+        <div class="container">
+            <div class="getting-here__grid">
+                <div class="getting-here__content">
+                    <h2>Llegada</h2>
+                    <h3>Cómo Llegar</h3>
+                    <p class="getting-here__text">Can Pares es fácilmente accesible en coche, con aparcamiento privado dentro de la propiedad. Recomendamos alquilar un coche para explorar la región, aunque se pueden organizar taxis y traslados.</p>
+                    <div class="getting-here__options">
+                        <div class="getting-here__option">
+                            <div class="getting-here__option-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 002 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                            </div>
+                            <div>
+                                <h4>By Car</h4>
+                                <p>Take the C-32 motorway towards Sitges, exit at Sant Pere de Ribes, follow signs to Torre del Veguer. Private parking on property.</p>
+                            </div>
+                        </div>
+                        <div class="getting-here__option">
+                            <div class="getting-here__option-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17H4a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-1"/><polygon points="12,22 17,17 7,17"/></svg>
+                            </div>
+                            <div>
+                                <h4>Airport Transfer</h4>
+                                <p>We can arrange private transfers from Barcelona El Prat Airport (approximately 25 minutes). Contact us for details.</p>
+                            </div>
+                        </div>
+                        <div class="getting-here__option">
+                            <div class="getting-here__option-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 11h16M12 3v8"/></svg>
+                            </div>
+                            <div>
+                                <h4>By Train</h4>
+                                <p>Trains run from Barcelona to Sitges (30 min) or Vilanova (40 min). A short taxi ride brings you to Can Pares.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="getting-here__image">
+                    <img src="cdn/images/hero/hero-1.webp" alt="Entrance to Can Pares">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Nearby -->
+    <section class="nearby">
+        <div class="container">
+            <div class="nearby__header">
+                <h2>Explore</h2>
+                <h3>What's Nearby</h3>
+            </div>
+            <div class="nearby__grid">
+                <div class="nearby-card">
+                    <div class="nearby-card__image">
+                        <img src="cdn/images/hero/hero-4.webp" alt="Sitges">
+                    </div>
+                    <div class="nearby-card__content">
+                        <div class="nearby-card__distance">10 min by car</div>
+                        <h3 class="nearby-card__title">Sitges Beaches</h3>
+                        <p class="nearby-card__desc">17 beaches along the coast, from busy town beaches to secluded coves. Perfect for swimming, watersports, or seaside dining.</p>
+                    </div>
+                </div>
+                <div class="nearby-card">
+                    <div class="nearby-card__image">
+                        <img src="cdn/images/houses/casa-blanca.webp" alt="Garraf">
+                    </div>
+                    <div class="nearby-card__content">
+                        <div class="nearby-card__distance">15 min by car</div>
+                        <h3 class="nearby-card__title">Garraf Natural Park</h3>
+                        <p class="nearby-card__desc">Dramatic limestone cliffs and Mediterranean forest, perfect for hiking, cycling, and connecting with nature.</p>
+                    </div>
+                </div>
+                <div class="nearby-card">
+                    <div class="nearby-card__image">
+                        <img src="cdn/images/hero/hero-2.webp" alt="Wineries">
+                    </div>
+                    <div class="nearby-card__content">
+                        <div class="nearby-card__distance">20 min by car</div>
+                        <h3 class="nearby-card__title">Penedès Wine Region</h3>
+                        <p class="nearby-card__desc">Home to world-famous cava and exceptional wines. Visit historic cellars, taste local varieties, and enjoy vineyard tours.</p>
+                    </div>
+                </div>
+                <div class="nearby-card">
+                    <div class="nearby-card__image">
+                        <img src="cdn/images/houses/casa-mediterranea.webp" alt="Barcelona">
+                    </div>
+                    <div class="nearby-card__content">
+                        <div class="nearby-card__distance">35 min by car</div>
+                        <h3 class="nearby-card__title">Barcelona</h3>
+                        <p class="nearby-card__desc">Gaudí's masterpieces, world-class museums, incredible food scene, and the vibrant energy of one of Europe's great cities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta">
+        <div class="container">
+            <h2>Find Your Way</h2>
+            <h3>We'll Guide You Home</h3>
+            <p>Detailed directions and check-in instructions are sent before your arrival. Questions? We're here to help.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Get in Touch</a>
+        </div>
+    </section>
+        <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="index.html" class="footer__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                    <a href="host.html" class="footer__link">Host</a>
+                </div>
+                <p class="footer__address">Masia Can Pares, 08810 Sant Pere de Ribes, Espana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA (Mobile) -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            document.querySelectorAll('.mobile-menu__link').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>

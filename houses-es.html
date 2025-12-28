@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Guest Houses Sitges | Casa Blanca & Casa Mediterranea | Masia Can Pares Barcelona</title>
+    <meta name="description" content="2 independent guest houses near Sitges & Barcelona. Casa Blanca (3 bedrooms) and Casa Mediterranea (2 bedrooms) within Masia Can Pares estate. Botanical garden, pool, 10 min from beach.">
+    <meta name="keywords" content="guest house sitges, vacation rental barcelona, casa blanca sitges, holiday villa catalonia, luxury rental sant pere de ribes, family villa spain, group accommodation barcelona">
+    <link rel="canonical" href="https://www.masiacanpares.com/houses">
+    
+    <meta property="og:title" content="Casa Blanca & Casa Mediterranea | Guest Houses Sitges">
+    <meta property="og:description" content="2 independent houses within a 16th-century estate. Botanical garden, pool, 10 min from Sitges beaches.">
+    <meta property="og:image" content="cdn/images/hero/hero-3.webp">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "Masia Can Pares Guest Houses",
+        "description": "2 independent guest houses within a 16th-century Catalan estate",
+        "address": {"@type": "PostalAddress", "addressLocality": "Sant Pere de Ribes", "addressRegion": "Barcelona", "addressCountry": "ES"},
+        "containsPlace": [
+            {
+                "@type": "Accommodation",
+                "name": "Casa Blanca",
+                "description": "3 bedroom house with private bathrooms",
+                "numberOfRooms": 3,
+                "occupancy": {"@type": "QuantitativeValue", "value": 6}
+            },
+            {
+                "@type": "Accommodation", 
+                "name": "Casa Mediterranea",
+                "description": "2 bedroom Mediterranean cottage",
+                "numberOfRooms": 2,
+                "occupancy": {"@type": "QuantitativeValue", "value": 4}
+            }
+        ],
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Swimming Pool"},
+            {"@type": "LocationFeatureSpecification", "name": "Botanical Garden"},
+            {"@type": "LocationFeatureSpecification", "name": "Private Kitchen"},
+            {"@type": "LocationFeatureSpecification", "name": "Air Conditioning"}
+        ]
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-bg: #FDFCFA; --color-bg-warm: #F7F5F0; --color-bg-dark: #1C1C1C;
+            --color-text: #1C1C1C; --color-text-light: #6B6B6B; --color-text-inverse: #FDFCFA;
+            --color-accent: #8B7355; --color-border: #E5E2DA;
+            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+            --section-padding: clamp(80px, 12vw, 140px); --container-max: 1300px; --container-padding: clamp(24px, 6vw, 80px);
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.7; font-weight: 400; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; }
+        .heading-xl { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.02em; font-weight: 300; }
+        .heading-lg { font-size: clamp(2rem, 4vw, 3.5rem); }
+        .heading-md { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+        .overline { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-light); }
+        .body-lg { font-size: clamp(1.1rem, 1.5vw, 1.25rem); line-height: 1.8; font-weight: 300; }
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); }
+        .section { padding: var(--section-padding) 0; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(253,252,250,0.97); backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--color-border); }
+        .nav__inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav__logo { font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+        .nav__links { display: flex; gap: 35px; list-style: none; }
+        .nav__link { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+        .nav__cta { background: var(--color-text); color: var(--color-text-inverse); padding: 12px 28px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .hero { position: relative; min-height: 70vh; display: flex; align-items: flex-end; padding: 100px 0 80px; margin-top: 60px; }
+        .hero__media { position: absolute; inset: 0; z-index: -1; }
+        .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,28,28,0.05), rgba(28,28,28,0.5)); }
+        .hero__media img { width: 100%; height: 100%; object-fit: cover; }
+        .hero__content { color: var(--color-text-inverse); }
+        .hero__tag { display: inline-block; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.3); margin-bottom: 25px; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .hero__subtitle { font-size: clamp(1rem, 1.5vw, 1.2rem); opacity: 0.9; max-width: 600px; font-weight: 300; margin-top: 20px; }
+
+        .intro { background: var(--color-bg-warm); text-align: center; }
+        .intro__content { max-width: 800px; margin: 0 auto; }
+        .intro__content p { color: var(--color-text-light); margin-top: 25px; font-weight: 300; }
+
+        /* House Sections */
+        .house { scroll-margin-top: 80px; }
+        .house--blanca { background: var(--color-bg); }
+        .house--mediterranea { background: var(--color-bg-warm); }
+        
+        .house__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .house__grid--reverse { direction: rtl; }
+        .house__grid--reverse > * { direction: ltr; }
+        
+        .house__images { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .house__image { overflow: hidden; }
+        .house__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-smooth); }
+        .house__image:hover img { transform: scale(1.03); }
+        .house__image--main { grid-column: span 2; height: 350px; }
+        .house__image--small { height: 200px; }
+        
+        .house__content { padding-top: 20px; }
+        .house__name { margin-bottom: 10px; }
+        .house__specs { font-size: 0.88rem; color: var(--color-accent); margin-bottom: 30px; letter-spacing: 0.03em; }
+        .house__description { color: var(--color-text-light); margin-bottom: 35px; font-weight: 300; }
+        
+        .house__features { list-style: none; margin-bottom: 35px; }
+        .house__features li { padding: 12px 0; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; font-weight: 300; display: flex; align-items: center; gap: 12px; }
+        .house__features li::before { content: '✓'; color: var(--color-accent); font-weight: 500; }
+        
+        .house__cta { display: inline-block; padding: 16px 40px; background: var(--color-text); color: var(--color-text-inverse); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: opacity var(--transition-smooth); }
+        .house__cta:hover { opacity: 0.85; }
+
+        /* Shared Spaces */
+        .shared { background: var(--color-bg-dark); color: var(--color-text-inverse); }
+        .shared__header { text-align: center; margin-bottom: 60px; }
+        .shared__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .shared__item { text-align: center; padding: 30px 20px; }
+        .shared__icon { font-size: 2rem; margin-bottom: 15px; }
+        .shared__title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 8px; }
+        .shared__text { font-size: 0.82rem; opacity: 0.7; font-weight: 300; }
+
+        /* Amenities */
+        .amenities { background: var(--color-bg-warm); }
+        .amenities__header { text-align: center; margin-bottom: 60px; }
+        .amenities__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .amenity { display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--color-bg); font-size: 0.88rem; font-weight: 300; }
+
+        /* Comparison */
+        .compare { background: var(--color-bg); }
+        .compare__header { text-align: center; margin-bottom: 50px; }
+        .compare__table { width: 100%; border-collapse: collapse; }
+        .compare__table th, .compare__table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--color-border); }
+        .compare__table th { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; background: var(--color-bg-warm); }
+        .compare__table td { font-weight: 300; }
+        .compare__table td:first-child { font-weight: 400; color: var(--color-text-light); }
+        .compare__table .check { color: var(--color-accent); }
+
+        /* CTA */
+        .cta { background: var(--color-bg-warm); text-align: center; }
+        .cta h2 { margin-bottom: 25px; }
+        .cta p { color: var(--color-text-light); max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
+        .btn-primary { display: inline-block; padding: 18px 50px; background: var(--color-text); color: var(--color-text-inverse); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+        .btn-outline { display: inline-block; padding: 18px 50px; border: 1px solid var(--color-text); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-left: 15px; transition: background var(--transition-smooth), color var(--transition-smooth); }
+        .btn-outline:hover { background: var(--color-text); color: var(--color-text-inverse); }
+
+        .footer { background: #A65D57; color: var(--color-text-inverse); padding: 50px 0 25px; text-align: center; }
+        .footer__logo { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .footer__links { display: flex; justify-content: center; gap: 30px; list-style: none; margin-bottom: 30px; }
+        .footer__links a { font-size: 0.82rem; opacity: 0.7; }
+        .footer__bottom { font-size: 0.75rem; opacity: 0.4; }
+
+        @media (max-width: 1024px) {
+            .nav__links { display: none; }
+            .house__grid, .house__grid--reverse { grid-template-columns: 1fr; gap: 50px; direction: ltr; }
+            .shared__grid { grid-template-columns: repeat(2, 1fr); }
+            .amenities__grid { grid-template-columns: repeat(2, 1fr); }
+            .compare__table { font-size: 0.85rem; }
+        }
+        @media (max-width: 768px) {
+            .shared__grid, .amenities__grid { grid-template-columns: 1fr; }
+            .house__images { grid-template-columns: 1fr; }
+            .house__image--main { grid-column: span 1; height: 280px; }
+            .btn-outline { margin-left: 0; margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container nav__inner">
+            <a href="index.html" class="nav__logo">Masia Can Pares</a>
+            <ul class="nav__links">
+                <li><a href="houses.html" class="nav__link" style="border-bottom: 1px solid var(--color-text);">Guest Houses</a></li>
+                <li><a href="film-location.html" class="nav__link">Film & Photo</a></li>
+                <li><a href="corporate.html" class="nav__link">Corporate</a></li>
+                <li><a href="wellness.html" class="nav__link">Wellness</a></li>
+                <li><a href="artists.html" class="nav__link">Artists</a></li>
+            </ul>
+            <a href="https://www.masiacanpares.com/book" class="nav__cta">Book Now</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero__media">
+            <img src="cdn/images/houses/casa-blanca.webp" alt="Masia Can Pares Guest Houses near Sitges">
+        </div>
+        <div class="container hero__content">
+            <span class="hero__tag">The Guest Houses</span>
+            <h1 class="heading-xl">Stay With Us</h1>
+            <p class="hero__subtitle">Two independent houses within our 16th-century estate. Each with its own character, surrounded by 20,000m² of botanical gardens.</p>
+        </div>
+    </section>
+
+    <section class="intro section">
+        <div class="container intro__content">
+            <p class="overline">2 Houses, 1 Estate</p>
+            <h2 class="heading-lg">Casa Blanca & Casa Mediterranea</h2>
+            <p class="body-lg">Within Masia Can Pares, two charming houses offer distinct experiences. Whether you're a couple, family, or group of friends, find your perfect retreat in our botanical sanctuary.</p>
+        </div>
+    </section>
+
+    <!-- Casa Blanca -->
+    <section class="house house--blanca section" id="casa-blanca">
+        <div class="container house__grid">
+            <div class="house__images">
+                <div class="house__image house__image--main">
+                    <img src="cdn/images/hero/hero-3.webp" alt="Casa Blanca - Living space">
+                </div>
+                <div class="house__image house__image--small">
+                    <img src="cdn/images/hero/hero-4.webp" alt="Casa Blanca - Bedroom">
+                </div>
+                <div class="house__image house__image--small">
+                    <img src="cdn/images/hero/hero-2.webp" alt="Casa Blanca - Details">
+                </div>
+            </div>
+            <div class="house__content">
+                <p class="overline">Spacious & Bright</p>
+                <h2 class="heading-lg house__name">Casa Blanca</h2>
+                <p class="house__specs">3 Bedrooms · 3 Private Bathrooms · Up to 6 Guests</p>
+                <p class="house__description">A spacious white house bathed in Mediterranean light. Each of the three bedrooms has its own private bathroom, offering comfort and privacy for families or groups of friends. The open-plan living space flows onto terraces overlooking the garden and pool.</p>
+                <ul class="house__features">
+                    <li>3 bedrooms with private en-suite bathrooms</li>
+                    <li>Open-plan living, dining & kitchen</li>
+                    <li>Private terrace with garden views</li>
+                    <li>Direct access to pool area</li>
+                    <li>Air conditioning & heating</li>
+                    <li>High-speed WiFi</li>
+                    <li>Smart TV & Sonos speakers</li>
+                    <li>Fully equipped kitchen</li>
+                </ul>
+                <a href="https://www.masiacanpares.com/book" class="house__cta">Book Casa Blanca</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Casa Mediterranea -->
+    <section class="house house--mediterranea section" id="casa-mediterranea">
+        <div class="container house__grid house__grid--reverse">
+            <div class="house__images">
+                <div class="house__image house__image--main">
+                    <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Mediterranea - Exterior">
+                </div>
+                <div class="house__image house__image--small">
+                    <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Mediterranea - Garden">
+                </div>
+                <div class="house__image house__image--small">
+                    <img src="cdn/images/houses/casa-mediterranea.webp" alt="Casa Mediterranea - Interior">
+                </div>
+            </div>
+            <div class="house__content">
+                <p class="overline">Charming & Cozy</p>
+                <h2 class="heading-lg house__name">Casa Mediterránea</h2>
+                <p class="house__specs">2 Bedrooms · 1 Bathroom · Up to 4 Guests</p>
+                <p class="house__description">A charming Mediterranean cottage with rustic character and cozy atmosphere. Perfect for couples or small families seeking an intimate retreat. The cottage blends traditional Catalan architecture with modern comforts.</p>
+                <ul class="house__features">
+                    <li>2 comfortable bedrooms</li>
+                    <li>Private bathroom</li>
+                    <li>Cozy living area</li>
+                    <li>Private kitchen</li>
+                    <li>Garden terrace</li>
+                    <li>Air conditioning & heating</li>
+                    <li>High-speed WiFi</li>
+                    <li>Rustic Mediterranean charm</li>
+                </ul>
+                <a href="https://www.masiacanpares.com/book" class="house__cta">Book Casa Mediterranea</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shared Spaces -->
+    <section class="shared section">
+        <div class="container">
+            <div class="shared__header">
+                <p class="overline" style="opacity: 0.6;">Shared Between Both Houses</p>
+                <h2 class="heading-lg">The Estate</h2>
+            </div>
+            <div class="shared__grid">
+                <div class="shared__item">
+                    <div class="shared__icon">🏊</div>
+                    <h3 class="shared__title">Private Pool</h3>
+                    <p class="shared__text">17m x 9m swimming pool surrounded by gardens</p>
+                </div>
+                <div class="shared__item">
+                    <div class="shared__icon">🌳</div>
+                    <h3 class="shared__title">Botanical Garden</h3>
+                    <p class="shared__text">20,000m² with 600 trees to explore</p>
+                </div>
+                <div class="shared__item">
+                    <div class="shared__icon">🍽️</div>
+                    <h3 class="shared__title">Outdoor Dining</h3>
+                    <p class="shared__text">Covered terrace for al fresco meals</p>
+                </div>
+                <div class="shared__item">
+                    <div class="shared__icon">🚗</div>
+                    <h3 class="shared__title">Private Parking</h3>
+                    <p class="shared__text">Secure parking for multiple vehicles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Comparison -->
+    <section class="compare section">
+        <div class="container">
+            <div class="compare__header">
+                <p class="overline">At a Glance</p>
+                <h2 class="heading-lg">Compare Houses</h2>
+            </div>
+            <table class="compare__table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Casa Blanca</th>
+                        <th>Casa Mediterránea</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Habitaciones</td>
+                        <td>3</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Baños</td>
+                        <td>3 (all en-suite)</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Max Guests</td>
+                        <td>6</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Style</td>
+                        <td>Modern & Spacious</td>
+                        <td>Rustic & Cozy</td>
+                    </tr>
+                    <tr>
+                        <td>Private Kitchen</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Pool Access</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Garden Access</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Air Conditioning</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Best For</td>
+                        <td>Families, Groups</td>
+                        <td>Couples, Small Families</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section class="amenities section">
+        <div class="container">
+            <div class="amenities__header">
+                <p class="overline">Included</p>
+                <h2 class="heading-lg">Amenities</h2>
+            </div>
+            <div class="amenities__grid">
+                <div class="amenity">🌐 High-speed WiFi</div>
+                <div class="amenity">❄️ Air Conditioning</div>
+                <div class="amenity">🔥 Heating</div>
+                <div class="amenity">📺 Smart TV</div>
+                <div class="amenity">🎵 Sonos Speakers</div>
+                <div class="amenity">🍳 Fully Equipped Kitchen</div>
+                <div class="amenity">☕ Nespresso Machine</div>
+                <div class="amenity">🛁 Luxury Linens</div>
+                <div class="amenity">💆 Robes & Towels</div>
+                <div class="amenity">🧴 Premium Toiletries</div>
+                <div class="amenity">👶 Baby Cot (on request)</div>
+                <div class="amenity">🚿 Outdoor Shower</div>
+                <div class="amenity">🔒 Security Gate</div>
+                <div class="amenity">🌙 Night Security</div>
+                <div class="amenity">🧹 Cleaning Included</div>
+                <div class="amenity">🛎️ Concierge Service</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta section">
+        <div class="container">
+            <p class="overline">Ready to stay?</p>
+            <h2 class="heading-lg">Book Your House</h2>
+            <p class="body-lg">Both houses can be booked separately or together for larger groups. Check availability and reserve your stay.</p>
+            <a href="https://www.masiacanpares.com/book" class="btn-primary">Ver Disponibilidad</a>
+            <a href="/cdn-cgi/l/email-protection#19717675785974786a70787a787769786b7c6a377a7674266a6c7b737c7a6d245e6c7c6a6d3c2b2951766c6a7c3c2b295077686c706b60" class="btn-outline">Contact Us</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html" class="footer__logo">Masia Can Pares</a>
+            <ul class="footer__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="film-location.html">Film & Photo</a></li>
+                <li><a href="corporate.html">Corporate</a></li>
+                <li><a href="wellness.html">Wellness</a></li>
+                <li><a href="artists.html">Artists</a></li>
+                <li><a href="/cdn-cgi/l/email-protection#553d3a3934153834263c3436343b25342730267b363a38">Contact</a></li>
+            </ul>
+            <p class="footer_

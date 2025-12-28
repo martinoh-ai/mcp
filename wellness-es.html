@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Yoga Retreat Barcelona | Wellness Retreat Spain | Masia Can Pares Catalonia</title>
+    <meta name="description" content="Host or join yoga retreats, wellness workshops & meditation experiences at Masia Can Pares. 20,000m² botanical sanctuary near Barcelona. Perfect for yoga teachers, wellness practitioners & retreat organizers.">
+    <meta name="keywords" content="yoga retreat barcelona, wellness retreat spain, meditation retreat catalonia, yoga venue sitges, wellness workshop spain, retreat center barcelona, mindfulness retreat mediterranean">
+    <link rel="canonical" href="https://www.masiacanpares.com/wellness">
+    
+    <meta property="og:title" content="Yoga & Wellness Retreats | Masia Can Pares Barcelona">
+    <meta property="og:description" content="Host or join transformative wellness experiences in a botanical sanctuary near Barcelona.">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HealthAndBeautyBusiness",
+        "name": "Masia Can Pares - Wellness Retreats",
+        "description": "Yoga and wellness retreat venue in Catalonia",
+        "address": {"@type": "PostalAddress", "addressLocality": "Sant Pere de Ribes", "addressCountry": "ES"},
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Wellness Programs",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Yoga Retreats"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Meditation Workshops"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wellness Experiences"}}
+            ]
+        }
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-bg: #FDFCFA; --color-bg-warm: #F7F5F0; --color-bg-dark: #1C1C1C; --color-bg-sage: #E8EDE5;
+            --color-text: #1C1C1C; --color-text-light: #6B6B6B; --color-text-inverse: #FDFCFA;
+            --color-accent: #7A8B6F; --color-border: #E5E2DA;
+            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+            --section-padding: clamp(80px, 12vw, 140px); --container-max: 1300px; --container-padding: clamp(24px, 6vw, 80px);
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.7; font-weight: 400; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; }
+        .heading-xl { font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -0.02em; font-weight: 300; }
+        .heading-lg { font-size: clamp(2rem, 4vw, 3.5rem); }
+        .overline { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-light); }
+        .body-lg { font-size: clamp(1.1rem, 1.5vw, 1.25rem); line-height: 1.8; font-weight: 300; }
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); }
+        .section { padding: var(--section-padding) 0; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(253,252,250,0.97); backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--color-border); }
+        .nav__inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav__logo { font-family: var(--font-display); font-size: 1rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+        .nav__links { display: flex; gap: 35px; list-style: none; }
+        .nav__link { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+        .nav__cta { background: var(--color-text); color: var(--color-text-inverse); padding: 12px 28px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; padding: 100px 0 80px; margin-top: 60px; }
+        .hero__media { position: absolute; inset: 0; z-index: -1; }
+        .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(28,28,28,0.05), rgba(28,28,28,0.45)); }
+        .hero__media img { width: 100%; height: 100%; object-fit: cover; }
+        .hero__content { color: var(--color-text-inverse); }
+        .hero__tag { display: inline-block; padding: 8px 18px; border: 1px solid rgba(255,255,255,0.3); margin-bottom: 25px; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .hero__subtitle { font-size: clamp(1rem, 1.5vw, 1.2rem); opacity: 0.9; max-width: 550px; font-weight: 300; margin-top: 20px; }
+
+        .intro { background: var(--color-bg-sage); }
+        .intro__content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .intro__content h2 { margin-bottom: 30px; }
+        .intro__content p { color: var(--color-text-light); font-weight: 300; }
+
+        .options { background: var(--color-bg); }
+        .options__header { text-align: center; margin-bottom: 60px; }
+        .options__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .option { background: var(--color-bg-warm); padding: 50px 40px; }
+        .option__icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .option__title { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 15px; }
+        .option__text { color: var(--color-text-light); font-weight: 300; margin-bottom: 25px; }
+        .option__features { list-style: none; margin-bottom: 30px; }
+        .option__features li { padding: 10px 0; font-size: 0.9rem; font-weight: 300; display: flex; align-items: center; gap: 10px; }
+        .option__features li::before { content: '✓'; color: var(--color-accent); }
+        .option__cta { display: inline-block; padding: 14px 35px; border: 1px solid var(--color-text); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: background var(--transition-smooth), color var(--transition-smooth); }
+        .option__cta:hover { background: var(--color-text); color: var(--color-text-inverse); }
+
+        .spaces { background: var(--color-bg-warm); }
+        .spaces__header { text-align: center; margin-bottom: 60px; }
+        .spaces__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .space { position: relative; height: 300px; overflow: hidden; }
+        .space img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-smooth); }
+        .space:hover img { transform: scale(1.05); }
+        .space__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 50%); display: flex; align-items: flex-end; padding: 25px; }
+        .space__title { color: var(--color-text-inverse); font-family: var(--font-display); font-size: 1.2rem; }
+
+        .services { background: var(--color-bg); }
+        .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .services__list { list-style: none; }
+        .services__list li { padding: 18px 0; border-bottom: 1px solid var(--color-border); font-weight: 300; }
+
+        .upcoming { background: var(--color-bg-sage); text-align: center; }
+        .upcoming h2 { margin-bottom: 20px; }
+        .upcoming p { color: var(--color-text-light); max-width: 500px; margin: 0 auto 30px; font-weight: 300; }
+
+        .cta { background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
+        .cta h2 { margin-bottom: 25px; }
+        .cta p { opacity: 0.75; max-width: 500px; margin: 0 auto 40px; font-weight: 300; }
+        .btn-primary { display: inline-block; padding: 18px 50px; background: var(--color-text-inverse); color: var(--color-text); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .footer { background: #A65D57; color: var(--color-text-inverse); padding: 50px 0 25px; text-align: center; }
+        .footer__logo { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+        .footer__links { display: flex; justify-content: center; gap: 30px; list-style: none; margin-bottom: 30px; }
+        .footer__links a { font-size: 0.82rem; opacity: 0.7; }
+        .footer__bottom { font-size: 0.75rem; opacity: 0.4; }
+
+        @media (max-width: 1024px) {
+            .nav__links { display: none; }
+            .options__grid, .services__grid { grid-template-columns: 1fr; gap: 40px; }
+            .spaces__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container nav__inner">
+            <a href="index.html" class="nav__logo">Masia Can Pares</a>
+            <ul class="nav__links">
+                <li><a href="houses.html" class="nav__link">Guest Houses</a></li>
+                <li><a href="film-location.html" class="nav__link">Film & Photo</a></li>
+                <li><a href="corporate.html" class="nav__link">Corporate</a></li>
+                <li><a href="wellness.html" class="nav__link" style="border-bottom: 1px solid var(--color-text);">Bienestar</a></li>
+                <li><a href="artists.html" class="nav__link">Artists</a></li>
+            </ul>
+            <a href="/cdn-cgi/l/email-protection#751d1a1914351814061c1416141b05140710065b161a184a0600171f10160148221019191b1006065047453c1b04001c070c" class="nav__cta">Inquire</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero__media">
+            <img src="cdn/images/houses/casa-mediterranea.webp" alt="Yoga retreat venue Barcelona">
+        </div>
+        <div class="container hero__content">
+            <span class="hero__tag">Wellness & Retreats</span>
+            <h1 class="heading-xl">Reset & Recharge</h1>
+            <p class="hero__subtitle">A botanical sanctuary for yoga retreats, meditation workshops, and transformative wellness experiences.</p>
+        </div>
+    </section>
+
+    <section class="intro section">
+        <div class="container intro__content">
+            <p class="overline">The Sanctuary</p>
+            <h2 class="heading-lg">Where Nature Meets Mindfulness</h2>
+            <p class="body-lg">Nestled in 20,000m² of botanical gardens with 600 trees, Masia Can Pares offers the perfect environment for deep rest, personal transformation, and reconnection with nature. Whether you're a retreat leader looking for a venue or a guest seeking wellness experiences, this is your sanctuary.</p>
+        </div>
+    </section>
+
+    <section class="options section">
+        <div class="container">
+            <div class="options__header">
+                <p class="overline">Two Ways to Experience</p>
+                <h2 class="heading-lg">Host or Join</h2>
+            </div>
+            <div class="options__grid">
+                <article class="option">
+                    <div class="option__icon">🧘</div>
+                    <h3 class="option__title">Host Your Retreat</h3>
+                    <p class="option__text">For yoga teachers, wellness practitioners, and retreat organizers. Rent our space for your own programs.</p>
+                    <ul class="option__features">
+                        <li>Exclusive use of the entire estate</li>
+                        <li>Indoor & outdoor practice spaces</li>
+                        <li>Accommodation for up to 12 guests</li>
+                        <li>Professional kitchen for your chef</li>
+                        <li>Catering options available</li>
+                        <li>Marketing support & promotion</li>
+                    </ul>
+                    <a href="/cdn-cgi/l/email-protection#620a0d0e03220f03110b0301030c12031007114c010d0f5d111700080701165f2a0d11164750520347505230071610070316" class="option__cta">Inquire About Hosting</a>
+                </article>
+                <article class="option">
+                    <div class="option__icon">✨</div>
+                    <h3 class="option__title">Join Our Programs</h3>
+                    <p class="option__text">Participate in wellness experiences organized by Masia Can Pares throughout the year.</p>
+                    <ul class="option__features">
+                        <li>Weekend yoga retreats</li>
+                        <li>Meditation workshops</li>
+                        <li>Sound healing sessions</li>
+                        <li>Wellness day experiences</li>
+                        <li>Seasonal programs</li>
+                        <li>Special guest teachers</li>
+                    </ul>
+                    <a href="/cdn-cgi/l/email-protection#f0989f9c91b09d9183999193919e8091829583de939f9dcf8385929a959384cdba9f999ed5c2c0a7959c9c9e958383d5c2c0a0829f9782919d83" class="option__cta">View Upcoming Programs</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="spaces section">
+        <div class="container">
+            <div class="spaces__header">
+                <p class="overline">Practice Spaces</p>
+                <h2 class="heading-lg">Where You'll Practice</h2>
+            </div>
+            <div class="spaces__grid">
+                <article class="space">
+                    <img src="cdn/images/houses/casa-mediterranea.webp" alt="Outdoor yoga space in botanical garden">
+                    <div class="space__overlay">
+                        <h3 class="space__title">Garden Deck</h3>
+                    </div>
+                </article>
+                <article class="space">
+                    <img src="cdn/images/hero/hero-3.webp" alt="Indoor yoga space">
+                    <div class="space__overlay">
+                        <h3 class="space__title">Indoor Studio</h3>
+                    </div>
+                </article>
+                <article class="space">
+                    <img src="cdn/images/hero/hero-4.webp" alt="Pool and relaxation area">
+                    <div class="space__overlay">
+                        <h3 class="space__title">Pool & Terraces</h3>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="services section">
+        <div class="container services__grid">
+            <div>
+                <img src="cdn/images/hero/hero-2.webp" alt="Wellness services at Masia Can Pares">
+            </div>
+            <div>
+                <p class="overline">Available Services</p>
+                <h2 class="heading-lg">Wellness Offerings</h2>
+                <ul class="services__list">
+                    <li>🧘 Yoga classes (various styles)</li>
+                    <li>🧘‍♀️ Meditation & breathwork</li>
+                    <li>💆 Massage therapy (on request)</li>
+                    <li>🎵 Sound healing sessions</li>
+                    <li>🌿 Nature walks & forest bathing</li>
+                    <li>🍃 Organic/vegetarian catering</li>
+                    <li>📚 Wellness workshops</li>
+                    <li>🌙 Evening ceremonies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="upcoming section">
+        <div class="container">
+            <p class="overline">Coming Soon</p>
+            <h2 class="heading-lg">Upcoming Programs</h2>
+            <p>Subscribe to our newsletter to be the first to know about our wellness programs and retreats.</p>
+            <a href="/cdn-cgi/l/email-protection#93fbfcfff2d3fef2e0faf2f0f2fde3f2e1f6e0bdf0fcfeace0e6f1f9f6f0e7aec4f6fffffdf6e0e0b6a1a3ddf6e4e0fff6e7e7f6e1" class="option__cta" style="margin-top: 20px; display: inline-block;">Join Mailing List</a>
+        </div>
+    </section>
+
+    <section class="cta section">
+        <div class="container">
+            <p class="overline" style="opacity: 0.5; margin-bottom: 15px;">Ready to transform?</p>
+            <h2 class="heading-lg">Start Your Journey</h2>
+            <p class="body-lg">Whether you want to host a retreat or join one, we'd love to hear from you.</p>
+            <a href="/cdn-cgi/l/email-protection#422a2d2e23022f23312b2321232c32233027316c212d2f7d313720282721367f15272e2e2c2731316770720b2c33372b303b" class="btn-primary">Get in Touch</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html" class="footer__logo">Masia Can Pares</a>
+            <ul class="footer__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="houses.html">Guest Houses</a
