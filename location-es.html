@@ -46,8 +46,13 @@
         .header__logo img { height: 45px; width: auto; }
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
-        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; cursor: pointer; }
         .header__lang svg { width: 12px; height: 12px; }
+        .header__lang-dropdown { position: relative; }
+        .header__lang-menu { display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 120px; z-index: 1001; margin-top: 8px; }
+        .header__lang-menu.active { display: block; }
+        .header__lang-menu a { display: block; padding: 10px 15px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text); transition: background 0.2s; }
+        .header__lang-menu a:hover { background: var(--color-cream); }
         .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
@@ -180,7 +185,14 @@
             <a href="index.html" class="header__logo"><img src="cdn/logos/canpares-logo.webp" alt="Can Pares"></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
-                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <div class="header__lang-dropdown">
+                    <a href="#" class="header__lang" onclick="toggleLangMenu(event)">ES <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <div class="header__lang-menu" id="langMenu">
+                        <a href="location.html">English</a>
+                        <a href="location-fr.html">Français</a>
+                        <a href="location-es.html" class="active">Español</a>
+                    </div>
+                </div>
                 <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
                 <a href="login.html" class="header__btn header__btn--filled">Sign In</a>
             </div>
@@ -198,18 +210,18 @@
             <a href="history.html" class="mobile-menu__link">History</a>
             <a href="gallery.html" class="mobile-menu__link">Step Inside</a>
             <a href="stay.html" class="mobile-menu__link">Stay</a>
-            <a href="designed-for-es.html" class="mobile-menu__link">Designed For</a>
-            <a href="experiences-es.html" class="mobile-menu__link">Experiences</a>
-            <a href="location-es.html" class="mobile-menu__link">Ubicación</a>
+            <a href="designed-for.html" class="mobile-menu__link">Designed For</a>
+            <a href="experiences.html" class="mobile-menu__link">Experiences</a>
+            <a href="location.html" class="mobile-menu__link">Ubicación</a>
         </nav>
         <div class="mobile-menu__actions">
             <a href="https://www.masiacanpares.com/book" class="mobile-menu__btn mobile-menu__btn--primary">Reserve a Stay</a>
             <a href="https://www.masiacanpares.com/contact" class="mobile-menu__btn mobile-menu__btn--secondary">Contact Us</a>
         </div>
         <div class="mobile-menu__lang">
-            <a href="location-es.html" class="active">EN</a>
+            <a href="location.html">EN</a>
             <a href="location-fr.html">FR</a>
-            <a href="location-es.html">ES</a>
+            <a href="location-es.html" class="active">ES</a>
         </div>
     </div>
 
@@ -219,10 +231,10 @@
                 <li><a href="history.html" class="section-nav__link">History</a></li>
                 <li><a href="gallery.html" class="section-nav__link">Step Inside</a></li>
                 <li><a href="stay.html" class="section-nav__link">Stay</a></li>
-                <li><a href="designed-for-es.html" class="section-nav__link">Designed For</a></li>
+                <li><a href="designed-for.html" class="section-nav__link">Designed For</a></li>
                 
-                <li><a href="experiences-es.html" class="section-nav__link">Experiences</a></li>
-                <li><a href="location-es.html" class="section-nav__link active">Ubicación</a></li>
+                <li><a href="experiences.html" class="section-nav__link">Experiences</a></li>
+                <li><a href="location.html" class="section-nav__link active">Ubicación</a></li>
             </ul>
         </div>
     </nav>
@@ -230,7 +242,7 @@
         <div class="container">
             <p class="page-hero__overline">Sant Pere de Ribes, Cataluña</p>
             <h1>Ubicación</h1>
-            <p>Ubicada en las colinas del Parque Natural del Garraf, a solo 10 minutos de Sitges y 35 de Barcelona. Lo mejor de ambos mundos: calma mediterránea y energía urbana al alcance.</p>
+            <p>Nestled in the hills of the Garraf Natural Park, just 10 minutes from Sitges and 35 minutes from Barcelona. The best of both worlds: Mediterranean calm and urban energy within easy reach.</p>
             <a href="https://www.google.com/maps/search/Masia+Can+Pares,+08810+Sant+Pere+de+Ribes" target="_blank" class="page-hero__cta">
                 Voir sur Google Maps →
             </a>
@@ -254,37 +266,37 @@
                     <div class="distance-card__time">10</div>
                     <div class="distance-card__unit">Minutos</div>
                     <h3 class="distance-card__place">Sitges</h3>
-                    <p class="distance-card__desc">Hermosas playas, animada vida nocturna, y un encantador casco antiguo con excelentes restaurantes.</p>
+                    <p class="distance-card__desc">Beautiful beaches, vibrant nightlife, and a charming old town with excellent restaurants.</p>
                 </div>
                 <div class="distance-card">
                     <div class="distance-card__time">35</div>
                     <div class="distance-card__unit">Minutos</div>
                     <h3 class="distance-card__place">Barcelona</h3>
-                    <p class="distance-card__desc">La capital cosmopolita de Cataluña, con cultura, gastronomía y arquitectura de clase mundial.</p>
+                    <p class="distance-card__desc">The cosmopolitan capital of Catalonia, with world-class culture, dining, and architecture.</p>
                 </div>
                 <div class="distance-card">
                     <div class="distance-card__time">25</div>
                     <div class="distance-card__unit">Minutos</div>
-                    <h3 class="distance-card__place">Aeropuerto de Barcelona</h3>
-                    <p class="distance-card__desc">Aeropuerto Internacional El Prat, con conexiones a ciudades de todo el mundo.</p>
+                    <h3 class="distance-card__place">Barcelona Airport</h3>
+                    <p class="distance-card__desc">El Prat International Airport, with connections to cities worldwide.</p>
                 </div>
                 <div class="distance-card">
                     <div class="distance-card__time">15</div>
                     <div class="distance-card__unit">Minutos</div>
                     <h3 class="distance-card__place">Vilanova i la Geltrú</h3>
-                    <p class="distance-card__desc">Encantadora ciudad costera con museos, mercados y auténtico ambiente local.</p>
+                    <p class="distance-card__desc">Charming coastal town with museums, markets, and authentic local atmosphere.</p>
                 </div>
                 <div class="distance-card">
                     <div class="distance-card__time">20</div>
                     <div class="distance-card__unit">Minutos</div>
-                    <h3 class="distance-card__place">Bodegas del Penedès</h3>
-                    <p class="distance-card__desc">La tierra del cava, con decenas de bodegas que ofrecen catas y visitas.</p>
+                    <h3 class="distance-card__place">Penedès Wineries</h3>
+                    <p class="distance-card__desc">Spain's cava country, with dozens of wineries offering tastings and tours.</p>
                 </div>
                 <div class="distance-card">
                     <div class="distance-card__time">45</div>
                     <div class="distance-card__unit">Minutos</div>
                     <h3 class="distance-card__place">Tarragona</h3>
-                    <p class="distance-card__desc">Ruinas romanas Patrimonio de la Humanidad y una impresionante costa mediterránea.</p>
+                    <p class="distance-card__desc">UNESCO World Heritage Roman ruins and a stunning Mediterranean coastline.</p>
                 </div>
             </div>
         </div>
@@ -294,9 +306,9 @@
         <div class="container">
             <div class="getting-here__grid">
                 <div class="getting-here__content">
-                    <h2>Llegada</h2>
-                    <h3>Cómo Llegar</h3>
-                    <p class="getting-here__text">Can Pares es fácilmente accesible en coche, con aparcamiento privado dentro de la propiedad. Recomendamos alquilar un coche para explorar la región, aunque se pueden organizar taxis y traslados.</p>
+                    <h2>Arrival</h2>
+                    <h3>Getting Here</h3>
+                    <p class="getting-here__text">Can Pares is easily accessible by car, with private parking within the gated property. We recommend renting a car to fully explore the region, though taxis and transfers can be arranged.</p>
                     <div class="getting-here__options">
                         <div class="getting-here__option">
                             <div class="getting-here__option-icon">
@@ -411,6 +423,21 @@
     </div>
 
     <script>
+        // Language Menu Toggle
+        function toggleLangMenu(e) {
+            e.preventDefault();
+            document.getElementById('langMenu').classList.toggle('active');
+        }
+        
+        // Close language menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const langMenu = document.getElementById('langMenu');
+            const langDropdown = document.querySelector('.header__lang-dropdown');
+            if (langMenu && langDropdown && !langDropdown.contains(e.target)) {
+                langMenu.classList.remove('active');
+            }
+        });
+
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');

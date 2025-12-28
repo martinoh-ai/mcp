@@ -48,6 +48,11 @@
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
         .header__lang svg { width: 12px; height: 12px; }
+        .header__lang-dropdown { position: relative; }
+        .header__lang-menu { display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 120px; z-index: 1001; margin-top: 8px; }
+        .header__lang-menu.active { display: block; }
+        .header__lang-menu a { display: block; padding: 10px 15px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text); transition: background 0.2s; }
+        .header__lang-menu a:hover { background: var(--color-cream); }
         .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
@@ -325,6 +330,10 @@
     </div>
 
     <script>
+        // Language Menu Toggle
+        function toggleLangMenu(e) { e.preventDefault(); document.getElementById("langMenu").classList.toggle("active"); }
+        document.addEventListener("click", function(e) { var m = document.getElementById("langMenu"); var d = document.querySelector(".header__lang-dropdown"); if (m && d && !d.contains(e.target)) { m.classList.remove("active"); } });
+
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');

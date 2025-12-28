@@ -470,6 +470,10 @@
     </div>
 
     <script>
+        // Language Menu Toggle
+        function toggleLangMenu(e) { e.preventDefault(); document.getElementById("langMenu").classList.toggle("active"); }
+        document.addEventListener("click", function(e) { var m = document.getElementById("langMenu"); var d = document.querySelector(".header__lang-dropdown"); if (m && d && !d.contains(e.target)) { m.classList.remove("active"); } });
+
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         if (menuBtn && mobileMenu) {
