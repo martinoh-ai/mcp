@@ -230,6 +230,19 @@
         @media (max-width: 480px) {
             .quick-exp__grid { grid-template-columns: repeat(2, 1fr); }
         }
+    
+        /* Booking Modal */
+        .booking-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; }
+        .booking-modal.active { display: block; }
+        .booking-modal__overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); }
+        .booking-modal__content { position: relative; background: white; max-width: 900px; margin: 50px auto; border-radius: 12px; overflow: hidden; max-height: 90vh; }
+        .booking-modal__close { position: absolute; top: 15px; right: 20px; font-size: 2rem; background: none; border: none; cursor: pointer; z-index: 10; }
+        .booking-modal__header { padding: 20px 30px; border-bottom: 1px solid #eee; }
+        .booking-modal__header h3 { font-family: var(--font-display); font-size: 1.5rem; }
+        .booking-modal__body { padding: 20px; }
+        .booking-modal__footer { padding: 15px 30px; background: var(--color-cream); text-align: center; font-size: 0.9rem; }
+        .booking-modal__footer a { color: var(--color-terracotta); }
+
     </style>
 </head>
 <body>
@@ -607,5 +620,32 @@
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
     </script>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <button class="floating-cta__btn" onclick="openBookingModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Select Dates
+        </button>
+    </div>
+
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="booking-modal__overlay" onclick="closeBookingModal()"></div>
+        <div class="booking-modal__content">
+            <button class="booking-modal__close" onclick="closeBookingModal()">&times;</button>
+            <div class="booking-modal__header">
+                <h3>Select Your Dates</h3>
+            </div>
+            <div class="booking-modal__body">
+                <iframe src="https://beds24.com/booking2.php?propid=306071,306072&layout=1&showmap=0" style="width:100%;height:500px;border:none;"></iframe>
+            </div>
+            <div class="booking-modal__footer">
+                <p>Can't find your dates? <a href="mailto:book@masiacanpares.com">book@masiacanpares.com</a></p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
