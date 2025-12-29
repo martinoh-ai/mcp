@@ -366,6 +366,37 @@
                 });
             });
         }
+    
+        // Floating CTA - Show/Hide on scroll
+        const floatingCta = document.getElementById('floatingCta');
+        
+        function updateFloatingCta() {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const isNearBottom = scrollY + windowHeight > documentHeight - 300;
+            
+            if (scrollY > 300 && !isNearBottom) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        }
+        
+        if (floatingCta) {
+            window.addEventListener('scroll', updateFloatingCta, { passive: true });
+            updateFloatingCta();
+        }
+
+        // Booking Modal
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
     </script>
 
     <!-- Floating CTA -->
