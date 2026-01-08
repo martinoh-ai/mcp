@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://www.masiacanpares.com/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/index.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/index-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/index-fr.html"/>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    
+    <!-- Houses -->
+    <url>
+        <loc>https://www.masiacanpares.com/houses.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/houses.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/houses-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/houses-fr.html"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    
+    <!-- Location -->
+    <url>
+        <loc>https://www.masiacanpares.com/location.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/location.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/location-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/location-fr.html"/>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Experiences -->
+    <url>
+        <loc>https://www.masiacanpares.com/experiences.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/experiences.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/experiences-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/experiences-fr.html"/>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    
+    <!-- History -->
+    <url>
+        <loc>https://www.masiacanpares.com/history.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/history.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/history-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/history-fr.html"/>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Gallery -->
+    <url>
+        <loc>https://www.masiacanpares.com/gallery.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/gallery.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/gallery-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/gallery-fr.html"/>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Corporate -->
+    <url>
+        <loc>https://www.masiacanpares.com/corporate.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/corporate.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/corporate-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/corporate-fr.html"/>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Artists -->
+    <url>
+        <loc>https://www.masiacanpares.com/artists.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/artists.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/artists-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/artists-fr.html"/>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Film Location -->
+    <url>
+        <loc>https://www.masiacanpares.com/film-location.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/film-location.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/film-location-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/film-location-fr.html"/>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Equipment -->
+    <url>
+        <loc>https://www.masiacanpares.com/equipment.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/equipment.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/equipment-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/equipment-fr.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Wellness -->
+    <url>
+        <loc>https://www.masiacanpares.com/wellness.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/wellness.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/wellness-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/wellness-fr.html"/>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Host -->
+    <url>
+        <loc>https://www.masiacanpares.com/host.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/host.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/host-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/host-fr.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <!-- Designed For -->
+    <url>
+        <loc>https://www.masiacanpares.com/designed-for.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.masiacanpares.com/designed-for.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.masiacanpares.com/designed-for-es.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.masiacanpares.com/designed-for-fr.html"/>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+</urlset>
