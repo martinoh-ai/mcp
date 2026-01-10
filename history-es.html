@@ -391,9 +391,6 @@
                 });
             });
         }
-    
-        
-        }
 
         // Booking Modal
         function openBookingModal() {
@@ -405,20 +402,6 @@
             document.body.style.overflow = '';
         }
     </script>
-
-    <div class="booking-modal__content">
-            <button class="booking-modal__close" onclick="closeBookingModal()">&times;</button>
-            <div class="booking-modal__header">
-                <h3>Select Your Dates</h3>
-            </div>
-            <div class="booking-modal__body">
-                <iframe src="https://beds24.com/booking2.php?propid=306071,306072&layout=1&showmap=0" style="width:100%;height:500px;border:none;"></iframe>
-            </div>
-            <div class="booking-modal__footer">
-                <p>Can't find your dates? <a href="mailto:book@masiacanpares.com">book@masiacanpares.com</a></p>
-            </div>
-        </div>
-    </div>
 
     <!-- Floating CTA -->
     <div class="floating-cta" id="floatingCta">
@@ -439,11 +422,11 @@
                 <iframe src="https://beds24.com/booking2.php?propid=306071,306072&layout=1&showmap=0" style="width:100%;height:500px;border:none;"></iframe>
             </div>
             <div class="booking-modal__footer">
-                <p>¿No encuentras tus fechas? <a href="mailto:book@masiacanpares.com">book@masiacanpares.com</a></p>
+                <p>¿No encuentras tus fechas? <a href="/cdn-cgi/l/email-protection#3d5f5252567d505c4e545c5e5c534d5c4f584e135e5250"><span class="__cf_email__" data-cfemail="3d5f5252567d505c4e545c5e5c534d5c4f584e135e5250">[email&#160;protected]</span></a></p>
             </div>
         </div>
     </div>
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Floating CTA - Show/Hide on scroll
         const floatingCta = document.getElementById('floatingCta');
         
@@ -463,16 +446,6 @@
         
         window.addEventListener('scroll', updateFloatingCta, { passive: true });
         updateFloatingCta();
-
-        // Booking Modal
-        function openBookingModal() {
-            document.getElementById('bookingModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeBookingModal() {
-            document.getElementById('bookingModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
     </script>
 </body>
 </html>

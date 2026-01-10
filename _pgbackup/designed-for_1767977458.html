@@ -458,6 +458,9 @@
                 });
             });
         }
+    
+        
+        }
 
         // Booking Modal
         function openBookingModal() {
@@ -469,6 +472,20 @@
             document.body.style.overflow = '';
         }
     </script>
+
+    <div class="booking-modal__content">
+            <button class="booking-modal__close" onclick="closeBookingModal()">&times;</button>
+            <div class="booking-modal__header">
+                <h3>Select Your Dates</h3>
+            </div>
+            <div class="booking-modal__body">
+                <iframe src="https://beds24.com/booking2.php?propid=306071,306072&layout=1&showmap=0" style="width:100%;height:500px;border:none;"></iframe>
+            </div>
+            <div class="booking-modal__footer">
+                <p>Can't find your dates? <a href="mailto:book@masiacanpares.com">book@masiacanpares.com</a></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Floating CTA -->
     <div class="floating-cta" id="floatingCta">
@@ -489,11 +506,11 @@
                 <iframe src="https://beds24.com/booking2.php?propid=306071,306072&layout=1&showmap=0" style="width:100%;height:500px;border:none;"></iframe>
             </div>
             <div class="booking-modal__footer">
-                <p>Can't find your dates? <a href="/cdn-cgi/l/email-protection#30525f5f5b705d5143595153515e40514255431e535f5d"><span class="__cf_email__" data-cfemail="385a5757537855594b51595b595648594a5d4b165b5755">[email&#160;protected]</span></a></p>
+                <p>Can't find your dates? <a href="mailto:book@masiacanpares.com">book@masiacanpares.com</a></p>
             </div>
         </div>
     </div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Floating CTA - Show/Hide on scroll
         const floatingCta = document.getElementById('floatingCta');
         
@@ -513,6 +530,16 @@
         
         window.addEventListener('scroll', updateFloatingCta, { passive: true });
         updateFloatingCta();
+
+        // Booking Modal
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
     </script>
 </body>
 </html>
